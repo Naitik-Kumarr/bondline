@@ -1,3 +1,4 @@
+import { BuiltForAgents } from "@/components/landing/BuiltForAgents";
 import { ClosingCta } from "@/components/landing/ClosingCta";
 import { Differentiators } from "@/components/landing/Differentiators";
 import { Hero } from "@/components/landing/Hero";
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <UsdgLine />
       <NewsStrip />
       <Sides />
+      <BuiltForAgents />
       <ClosingCta />
     </>
   );

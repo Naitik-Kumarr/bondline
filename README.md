@@ -11,6 +11,8 @@ risk does not automatically change an offer's premium. Past your loss limit, the
 a 30% drop. Anyone can call `settle`. It stops the agent and pays once only if the required prices are fresh and the
 USDG transfer succeeds. USDG pause/freeze controls and unsolicited listed-stock dust can block settlement in the
 current code. The user can still stop the agent with `pause` or end cover with `close`. There's no claim form.
+Any AI agent can use Bondline through our MCP server or TypeScript SDK ([docs/agents.md](docs/agents.md)): it lists
+offers, quotes cover, reads an agent's record and builds unsigned transactions that the agent's own wallet signs.
 
 > The agent bonds we've seen pay when an agent breaks a rule. Ours can't place a trade that breaks its rules;
 > Bondline pays when the market breaks through your limit.
