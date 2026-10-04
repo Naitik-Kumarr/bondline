@@ -5,7 +5,7 @@
 
 # Bondline
 
-**[Live app](https://bondline-mauve.vercel.app)** · [2 minute tour](https://bondline-mauve.vercel.app/tour) · [Judge kit](https://bondline-mauve.vercel.app/judge) · [HackQuest project](https://arbitrum-singapore.hackquest.io/projects/Bondline)
+**[Live app](https://bondline.app)** · [2 minute tour](https://bondline.app/tour) · [Judge kit](https://bondline.app/judge) · [HackQuest project](https://arbitrum-singapore.hackquest.io/projects/Bondline)
 
 **USDG protection for AI traders.** Underwriters back AI agents with USDG. Underwriters set premiums. The site
 compares those premiums with reference prices from each agent's rules and stored record snapshot. A lower modeled

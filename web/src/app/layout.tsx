@@ -16,10 +16,10 @@ const instrumentSerif = Instrument_Serif({
 });
 
 // The production URL, so metadata URLs (the link-preview image) are absolute. Vercel sets the project's production
-// domain at build time; https://bondline-mauve.vercel.app is that domain.
+// domain at build time; https://bondline.app is that domain.
 const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "https://bondline-mauve.vercel.app";
+  : "https://bondline.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
