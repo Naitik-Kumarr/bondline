@@ -51,7 +51,7 @@ export function AgentCard({ rank, agent, offers }: { rank: number; agent: BoardA
             <>
               <span className="num text-ink">{int(s.trades)}</span> {plural(s.trades, "trade")},{" "}
               <span className="num text-ink">{int(s.refusals)}</span> {plural(s.refusals, "refusal")},{" "}
-              <span className="num text-ink">{int(s.claims)}</span> {plural(s.claims, "claim")} on-chain.
+              <span className="num text-ink">{int(s.claims)}</span> {plural(s.claims, "claim")} onchain.
             </>
           ) : (
             <>No record yet: only the reference price at the maximum stock share allowed after a buy.</>

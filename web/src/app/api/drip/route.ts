@@ -125,7 +125,7 @@ export async function POST(request: Request) {
   if (!given.ok) return fail(400, given.error);
   if (!isAddress(given.value)) return fail(400, "That isn't a wallet address.");
   const to = getAddress(given.value);
-  if (isTeamWallet(to)) return fail(403, "Team-operated wallets don't take from the judge drip.");
+  if (isTeamWallet(to)) return fail(403, "Team operated wallets don't take from the judge drip.");
 
   const ip = clientIp(request.headers);
   const allowed = perIp.begin(ip);

@@ -63,9 +63,9 @@ export function NewsStrip() {
         <Reveal className="md:col-span-12" delay={0.1}>
           <Card tone="sunken" className="grid gap-6 md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:items-center md:gap-10">
             <div>
-              <p className="eyebrow">AIUC insures AI agents off-chain</p>
+              <p className="eyebrow">AIUC insures AI agents offchain</p>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-                Off-chain insurers evaluate agents through tests and monitoring. Bondline exposes submitted decision
+                Offchain insurers evaluate agents through tests and monitoring. Bondline exposes submitted decision
                 bytes and completed trade/refusal receipts publicly.
               </p>
             </div>

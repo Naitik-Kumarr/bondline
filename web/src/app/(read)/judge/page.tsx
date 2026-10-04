@@ -26,7 +26,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Judge kit",
   description:
-    "Bondline's judge kit: every criterion with its proof, the worked example with the contract formula, each on-chain moment with its transaction, what nobody can do, and what's real versus demo.",
+    "Bondline's judge kit: every criterion with its proof, the worked example with the contract formula, each onchain moment with its transaction, what nobody can do, and what's real versus demo.",
 };
 
 export default async function JudgePage() {
@@ -80,8 +80,8 @@ export default async function JudgePage() {
           size="m"
           lead={
             gapDemo.status === "real" && gapDemo.settleTx
-              ? "An illustration of the contract's formula, not a transaction. The real claim on-chain is smaller, because testnet USDG comes from Paxos's faucet at 100 per wallet per day: it's the last of the on-chain moments below."
-              : "An illustration of the contract's formula, not a transaction. The real claim will be smaller, because testnet USDG comes from Paxos's faucet at 100 per wallet per day. It will be the last of the on-chain moments below once the scripted gap settles."
+              ? "An illustration of the contract's formula, not a transaction. The real claim onchain is smaller, because testnet USDG comes from Paxos's faucet at 100 per wallet per day: it's the last of the onchain moments below."
+              : "An illustration of the contract's formula, not a transaction. The real claim will be smaller, because testnet USDG comes from Paxos's faucet at 100 per wallet per day. It will be the last of the onchain moments below once the scripted gap settles."
           }
         />
         <div className="mt-8">
@@ -91,10 +91,10 @@ export default async function JudgePage() {
 
       <Section spacing="sm" aria-labelledby="moments-title" id="moments" className="scroll-mt-24">
         <SectionHeader
-          eyebrow="On-chain"
+          eyebrow="Onchain"
           title={<span id="moments-title">The moments, each with its transaction</span>}
           size="m"
-          lead="Found in the chain's events when this page was rendered, not typed in, with the real numbers. Verify re-hashes an AI decision in your browser."
+          lead="Found in the chain's events when this page was rendered, not typed in, with the real numbers. Verify rehashes an AI decision in your browser."
         />
         <div className="mt-8">
           <Suspense fallback={<ReceiptsSkeleton rows={5} />}>

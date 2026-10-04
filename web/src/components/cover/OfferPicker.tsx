@@ -85,7 +85,7 @@ export function OfferPicker({
               <div>
                 <dt className="text-ink-3">Limits</dt>
                 <dd className="num mt-0.5 text-[14px] text-ink">
-                  {formatBps(o.terms.minLimitBps)}–{formatBps(o.terms.maxLimitBps)}
+                  {formatBps(o.terms.minLimitBps)} to {formatBps(o.terms.maxLimitBps)}
                 </dd>
               </div>
               <div>
@@ -101,7 +101,7 @@ export function OfferPicker({
                 <span className="num">{formatUsd(Math.round(toDollars(o.bond)))}</span> bond ·{" "}
                 <span className="num">{Math.round(share * 100)}%</span> reserved
               </span>
-              {o.team ? <DemoLabel kind="team" title="Team-operated test underwriter" /> : null}
+              {o.team ? <DemoLabel kind="team" title="Team operated test underwriter" /> : null}
             </div>
           </button>
         );

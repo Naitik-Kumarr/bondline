@@ -42,7 +42,7 @@ export function AddressPill({ address, label, mark = false, copy = false, flagTe
         <ArrowUpRightIcon size={12} className="text-ink-3 transition-colors group-hover:text-ink" />
       </a>
       {copy ? <CopyButton value={address} label="Copy address" /> : null}
-      {role ? <DemoLabel kind="team" title={`Team-operated wallet: ${role}`} /> : null}
+      {role ? <DemoLabel kind="team" title={`Team operated wallet: ${role}`} /> : null}
     </span>
   );
 }

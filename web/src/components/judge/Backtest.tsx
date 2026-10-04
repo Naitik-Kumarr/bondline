@@ -107,7 +107,7 @@ export function BacktestSection() {
         </details>
       ) : null}
       <p className="mt-4 text-[13px] text-ink-3">
-        Read from docs/data/backtest.json{b.generatedAt ? `, generated ${b.generatedAt.slice(0, 10)}` : ""}. Re-run it with{" "}
+        Read from docs/data/backtest.json{b.generatedAt ? `, generated ${b.generatedAt.slice(0, 10)}` : ""}. Rerun it with{" "}
         <span className="num">npx tsx scripts/backtest.ts</span>.
       </p>
     </Section>

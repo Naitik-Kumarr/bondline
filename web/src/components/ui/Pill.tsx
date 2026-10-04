@@ -52,7 +52,7 @@ export type DemoKind = "demo" | "scripted" | "team" | "illustration" | "replay" 
 const DEMO_TEXT: Record<DemoKind, string> = {
   demo: "Demo",
   scripted: "Scripted",
-  team: "Team-operated",
+  team: "Team operated",
   illustration: "Illustration",
   replay: "Replay market",
   model: "Model price",

@@ -40,7 +40,7 @@ export function buildPriceTables(): PriceTables {
     agents,
     sigma,
     sigmaAsset: symbol,
-    sigmaWindow: `${day(VOLATILITY.window.from)} – ${day(VOLATILITY.window.to)}`,
+    sigmaWindow: `${day(VOLATILITY.window.from)} to ${day(VOLATILITY.window.to)}`,
     termDays: PRICING_MODEL.termDays,
   };
 }

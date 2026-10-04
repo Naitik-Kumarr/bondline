@@ -7,7 +7,7 @@ import { bpsPct, modelPct, pct } from "./fmt";
 /** The agent's reference prices as pills: at the maximum stock share allowed after a buy, and its record. */
 export function PricePills({ prices, className }: { prices: AgentPrices; className?: string }) {
   if (prices.worstCaseBps == null) {
-    return <p className={cn("text-[13px] text-ink-3", className)}>No reference price yet: no rules seen on-chain.</p>;
+    return <p className={cn("text-[13px] text-ink-3", className)}>No reference price yet: no rules seen onchain.</p>;
   }
   return (
     <div className={cn("flex flex-wrap gap-2", className)}>
@@ -27,7 +27,7 @@ export function PricePills({ prices, className }: { prices: AgentPrices; classNa
           <span className="num">{modelPct(prices.recordBps)}</span>
         </Pill>
       ) : (
-        <Pill tone="neutral" className="text-ink-3" title="No trades yet, so no record price: only the rule-based reference price applies">
+        <Pill tone="neutral" className="text-ink-3" title="No trades yet, so no record price: only the rule based reference price applies">
           No record yet
         </Pill>
       )}

@@ -51,7 +51,7 @@ export function WorkedExample() {
             <p className="eyebrow">The gap</p>
             <DemoLabel
               kind="illustration"
-              title={`Round numbers to show the formula. Not a transaction: the real claim ${claimPaid ? "is" : "will be"} in the on-chain moments.`}
+              title={`Round numbers to show the formula. Not a transaction: the real claim ${claimPaid ? "is" : "will be"} in the onchain moments.`}
             >
               Illustration
             </DemoLabel>
@@ -59,7 +59,7 @@ export function WorkedExample() {
           <p className="mt-5 font-display text-[26px] leading-[1.22] tracking-[-0.015em] text-ink sm:text-[30px]">
             Friday close: your <span className="num text-[0.82em]">$1,000</span> account is down{" "}
             <span className="num text-[0.82em]">8%</span>. Monday it opens down{" "}
-            <span className="num text-[0.82em]">25%</span>. A stop-loss can&apos;t sell inside a gap.
+            <span className="num text-[0.82em]">25%</span>. A stop loss can&apos;t sell inside a gap.
           </p>
           <p className="mt-5 text-[16px] leading-relaxed text-ink-2">
             With Bondline the AI is stopped, you lose <span className="num text-ink">$100</span> (your{" "}

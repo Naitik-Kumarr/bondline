@@ -9,7 +9,7 @@ import { CoverFlow } from "@/components/cover/CoverFlow";
 export const metadata: Metadata = {
   title: "Get cover",
   description:
-    "Cover for an AI-traded account: choose an offer, a loss limit and the agent's rules, and deposit USDG. Past your limit, anyone can call settle: it stops the agent and pays the loss beyond your limit, up to a 30% drop, if the required prices are fresh and the USDG transfer succeeds.",
+    "Cover for an AI traded account: choose an offer, a loss limit and the agent's rules, and deposit USDG. Past your limit, anyone can call settle: it stops the agent and pays the loss beyond your limit, up to a 30% drop, if the required prices are fresh and the USDG transfer succeeds.",
 };
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);

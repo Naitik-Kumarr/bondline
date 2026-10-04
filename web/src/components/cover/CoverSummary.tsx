@@ -225,23 +225,23 @@ export function CoverSummary({
       </div>
 
       <div className="mt-4 divide-y divide-line border-y border-line">
-        <Line label="Deposit" value={amountOk ? <Usd amount={amount!} /> : "—"} />
+        <Line label="Deposit" value={amountOk ? <Usd amount={amount!} /> : "n/a"} />
         <Line
           label={`Premium · ${formatBps(offer.terms.feeBps)}`}
           detail="Paid once, from the deposit, to the underwriter's bond"
-          value={q ? <Usd amount={-q.fee} /> : "—"}
+          value={q ? <Usd amount={-q.fee} /> : "n/a"}
         />
-        <Line label="Into your covered account" strong value={q ? <Usd amount={q.net} /> : "—"} />
+        <Line label="Into your covered account" strong value={q ? <Usd amount={q.net} /> : "n/a"} />
         <Line
           label={`Your loss limit · ${formatBps(limitBps)}`}
           detail="You carry the loss up to this"
-          value={q ? <Usd amount={q.limitUsd} /> : "—"}
+          value={q ? <Usd amount={q.limitUsd} /> : "n/a"}
         />
         <Line
           label="The bond pays, past your limit"
           detail={`The loss beyond your limit, up to a ${CAP_BPS / 100}% drop`}
           tone="bond"
-          value={q ? <>up to <Usd amount={q.maxPayout} /></> : "—"}
+          value={q ? <>up to <Usd amount={q.maxPayout} /></> : "n/a"}
         />
       </div>
 

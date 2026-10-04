@@ -65,7 +65,7 @@ export async function AccountReceipts({ account }: { account: Address }) {
     return (
       <Card tone="sunken">
         <p className="text-[15px] leading-relaxed text-ink-2">
-          No trades or refusals yet. The agent decides every few minutes when prices are fresh; holds stay off-chain.
+          No trades or refusals yet. The agent decides every few minutes when prices are fresh; holds stay offchain.
         </p>
       </Card>
     );
@@ -137,7 +137,7 @@ export async function AccountReceipts({ account }: { account: Address }) {
                     className="inline-flex items-center gap-1 text-positive"
                     title="keccak256 of the decision JSON in the transaction input equals the event's decisionHash"
                   >
-                    <CheckIcon size={12} strokeWidth={2.2} /> Reasoning matches its on-chain hash
+                    <CheckIcon size={12} strokeWidth={2.2} /> Reasoning matches its onchain hash
                   </span>
                 ) : c ? (
                   <span className="text-caution">Reasoning not verified</span>

@@ -57,7 +57,7 @@ export function useTx() {
           chainId: robinhoodTestnet.id,
           pollingInterval: 1_000,
         });
-        if (receipt.status !== "success") throw new Error("The transaction reverted on-chain.");
+        if (receipt.status !== "success") throw new Error("The transaction reverted onchain.");
         setView({ state: "success", hash });
         void queryClient.invalidateQueries();
         return receipt;

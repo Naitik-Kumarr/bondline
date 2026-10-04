@@ -88,48 +88,48 @@ export function Criteria({ data }: { data: CriteriaData }) {
             <Int href="#quality">The numbers</Int>
           </Row>
 
-          <Row criterion="Product-market fit">
+          <Row criterion="Product market fit">
             Robinhood: &ldquo;over 150,000 customers have opened agentic trading accounts&rdquo; and &ldquo;You assume
             all risk for trades executed by AI agents&rdquo; (<Ext href={SOURCES.hood}>HOOD Summit 2026</Ext>). AIUC
-            raised $55M to insure agents off-chain (<Ext href={SOURCES.fortune}>$15M seed</Ext>,{" "}
+            raised $55M to insure agents offchain (<Ext href={SOURCES.fortune}>$15M seed</Ext>,{" "}
             <Ext href={SOURCES.dealroom}>$40M Series A</Ext>).{" "}
             {data.people ? (
               <>
-                On-chain right now: <span className="num text-ink">{int(data.people.underwriters.outside)}</span>{" "}
+                Onchain right now: <span className="num text-ink">{int(data.people.underwriters.outside)}</span>{" "}
                 outside underwriter{data.people.underwriters.outside === 1 ? "" : "s"} and{" "}
                 <span className="num text-ink">{int(data.people.buyers.outside)}</span> outside buyer
                 {data.people.buyers.outside === 1 ? "" : "s"}
-                {data.people.underwriters.outside + data.people.buyers.outside === 0 ? " yet" : ""}; team-operated test
+                {data.people.underwriters.outside + data.people.buyers.outside === 0 ? " yet" : ""}; team operated test
                 wallets are labelled and not counted (<Int href="/market">market</Int>).
               </>
             ) : (
               <>
-                Outside underwriters and buyers are counted on-chain on the <Int href="/market">market</Int>.
+                Outside underwriters and buyers are counted onchain on the <Int href="/market">market</Int>.
               </>
             )}
           </Row>
 
           <Row criterion="Innovation">
-            A third-party underwriting market for AI traders. Underwriters set premiums. The site compares those
+            A third party underwriting market for AI traders. Underwriters set premiums. The site compares those
             premiums with reference prices from each agent&apos;s rules and stored record snapshot. A lower modeled risk
             does not automatically change an offer&apos;s premium. See{" "}
             <Int href={`/agent/${careful}`}>Careful&apos;s record</Int> and <Int href={`/agent/${bold}`}>Bold&apos;s</Int>:
-            both now have a record price from executed trades, next to the rule-based reference price.
+            both now have a record price from executed trades, next to the rule based reference price.
           </Row>
 
           <Row criterion="Real problem">
             The risk Robinhood&apos;s disclosure assigns to users: a price that gaps through your limit, where no
-            stop-loss can sell. Bondline aims to cover a capped part of losses when prices move beyond a selected limit.{" "}
+            stop loss can sell. Bondline aims to cover a capped part of losses when prices move beyond a selected limit.{" "}
             <Int href="#example">An illustration</Int> of what the cover pays, and{" "}
             {claimPaid ? (
               <>
-                <Int href="#moments">the real claim</Int>, on-chain: a scripted gap took a team test account from 92 to
-                75 USDG, a 25% loss against a 10% limit, and the bond paid 15.000001 USDG seconds after the Monday-open
+                <Int href="#moments">the real claim</Int>, onchain: a scripted gap took a team test account from 92 to
+                75 USDG, a 25% loss against a 10% limit, and the bond paid 15.000001 USDG seconds after the Monday open
                 price (<Ext href={txUrl(gapDemo.settleTx)}>settle transaction</Ext>).
               </>
             ) : (
               <>
-                the real claim, which will be <Int href="#moments">on-chain</Int> once the scripted gap settles.
+                the real claim, which will be <Int href="#moments">onchain</Int> once the scripted gap settles.
               </>
             )}
           </Row>
@@ -137,7 +137,7 @@ export function Criteria({ data }: { data: CriteriaData }) {
           <Row criterion="USDG">
             Every flow is USDG: bonds, premiums, cover and claims. Underwriting is one USDG signature and one
             transaction (EIP-3009 <span className="num text-[13.5px]">receiveWithAuthorization</span>):{" "}
-            <Int href="#moments">see it on-chain</Int>. The issuer&apos;s pause and freeze controls are checked before
+            <Int href="#moments">see it onchain</Int>. The issuer&apos;s pause and freeze controls are checked before
             anyone signs, and a frozen user can still stop the agent. USDG is &ldquo;issued by Paxos Digital Singapore
             Pte. Ltd. (PDS)&rdquo;, which &ldquo;is a Major Payments Institution supervised by the Monetary Authority of
             Singapore&rdquo; (<Ext href={SOURCES.paxos}>Paxos</Ext>); that describes USDG, not Bondline.

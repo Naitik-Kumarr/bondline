@@ -76,7 +76,7 @@ export const bondlineRainbowTheme: Theme = {
 };
 
 const Disclaimer: DisclaimerComponent = ({ Text }) => (
-  <Text>Bondline runs on Robinhood Chain testnet (chain id 46630). Testnet, unaudited. Test tokens only.</Text>
+  <Text>Bondline runs on Robinhood Chain testnet (chain id 46630). Testnet. Test tokens only.</Text>
 );
 
 export function Providers({ children }: { children: ReactNode }) {

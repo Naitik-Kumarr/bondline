@@ -7,7 +7,7 @@ export const VIDEO_URL: string | null = null;
  * The public repository, e.g. "https://github.com/<owner>/<repo>" (no trailing slash). It turns on the SECURITY.md and
  * test-report links in step 6. Until it's set, "Read the code" opens the contracts' verified source on the explorer.
  */
-export const REPO_URL: string | null = null;
+export const REPO_URL: string | null = "https://github.com/Naitik-Kumarr/bondline";
 
 /** The branch REPO_URL's file links point at. */
 export const REPO_BRANCH = "main";

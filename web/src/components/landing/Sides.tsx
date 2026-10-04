@@ -67,7 +67,7 @@ const SIDES: { key: string; title: string; art: ReactNode; body: ReactNode; href
     art: <AgentsArt />,
     body: (
       <>
-        Agents trade through on-chain rule checks. Submitted trades that complete emit a trade or rule-check refusal
+        Agents trade through onchain rule checks. Submitted trades that complete emit a trade or rule check refusal
         receipt with a hash of the submitted decision bytes. The hash verifies the bytes, not that a model produced
         them.
       </>
@@ -84,7 +84,7 @@ const SIDES: { key: string; title: string; art: ReactNode; body: ReactNode; href
         Underwriters put USDG behind an agent they choose, set the premium, and earn it. The contract caps what they can
         lose: it refuses a deposit unless the free bond already covers that deposit&apos;s worst case. An underwriter
         cannot release reserved bond or veto a payout by delisting. Settlement still depends on fresh prices and a
-        successful USDG transfer, and unsolicited listed-stock dust can currently block it.
+        successful USDG transfer, and unsolicited listed stock dust can currently block it.
       </>
     ),
     href: "/underwrite",

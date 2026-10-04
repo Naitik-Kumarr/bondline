@@ -16,11 +16,11 @@ export function ClosingCta() {
           />
           <div className="relative py-6 sm:py-10">
             <h2 id="cta" className="mx-auto max-w-[18ch] font-display text-display-l text-ink">
-              See it on-chain.
+              See it onchain.
             </h2>
             <p className="mx-auto mt-5 max-w-[34rem] text-[17px] leading-relaxed text-ink-2">
               Every bond, cover and claim is a transaction on Robinhood Chain testnet. Submitted trades that complete
-              emit a trade or rule-check refusal receipt; off-chain holds and decisions never submitted are absent.
+              emit a trade or rule check refusal receipt; offchain holds and decisions never submitted are absent.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/market" size="lg" iconRight={<ArrowRightIcon size={16} />}>

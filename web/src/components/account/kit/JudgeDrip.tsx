@@ -45,12 +45,12 @@ export function JudgeDrip() {
         >
           {state.status === "done" ? "5 USDG sent" : "Get 5 test USDG"}
         </Button>
-        <DemoLabel kind="team" title="From a team-operated wallet, once per wallet, while today's budget lasts">
+        <DemoLabel kind="team" title="From a team operated wallet, once per wallet, while today's budget lasts">
           Judge drip
         </DemoLabel>
       </div>
       <p className="text-[12px] leading-relaxed text-ink-3">
-        From a team-operated wallet: once per wallet, while today&apos;s budget lasts. Your balance updates within about
+        From a team operated wallet: once per wallet, while today&apos;s budget lasts. Your balance updates within about
         20 seconds.
       </p>
       {state.status === "done" && state.url ? (

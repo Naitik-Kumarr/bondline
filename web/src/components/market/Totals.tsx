@@ -16,7 +16,7 @@ export function Totals({ totals, block }: { totals: BookTotals; block: { number:
       n.team > 0 ? (
         <>
           {n.outside === 0 ? "None yet · " : null}
-          <span className="num">{int(n.team)}</span> team-operated, not counted
+          <span className="num">{int(n.team)}</span> team operated, not counted
         </>
       ) : n.outside === 0 ? (
         "None yet"

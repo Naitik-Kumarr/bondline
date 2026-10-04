@@ -103,7 +103,7 @@ export default async function PartyPage() {
         {read.ok ? (
           <div className="flex flex-col gap-4">
             <MarketFigures view={read.view} />
-            <FeedPanel view={read.view} note="The Replay market's prices are real Chainlink rounds replayed by our keeper (team-operated)." />
+            <FeedPanel view={read.view} note="The Replay market's prices are real Chainlink rounds replayed by our keeper (team operated)." />
           </div>
         ) : (
           <Card tone="sunken" className="flex items-start gap-3" role="alert">
@@ -215,12 +215,12 @@ export default async function PartyPage() {
           </Card>
           <Card>
             <p className="text-[15px] leading-relaxed text-ink-2">
-              The gap is scripted and the accounts are team-operated test accounts, so this shows the mechanism, not how
+              The gap is scripted and the accounts are team operated test accounts, so this shows the mechanism, not how
               often real gaps happen. Max price age on this market:{" "}
               <span className="num text-ink">{duration(read.ok ? read.view.maxPriceAge : 300)}</span>.
             </p>
             <div className="mt-3">
-              <Pill size="sm" tone="neutral">Testnet, unaudited</Pill>
+              <Pill size="sm" tone="neutral">Testnet</Pill>
             </div>
           </Card>
         </div>

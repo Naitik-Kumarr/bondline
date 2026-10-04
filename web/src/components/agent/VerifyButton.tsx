@@ -112,7 +112,7 @@ export function VerifyButton({
           variant="secondary"
           onClick={run}
           loading={state.status === "checking"}
-          loadingLabel="Re-hashing the decision"
+          loadingLabel="Rehashing the decision"
           aria-describedby={state.status === "done" || state.status === "error" ? id : undefined}
         >
           {state.status === "done" ? "Verify again" : "Verify"}

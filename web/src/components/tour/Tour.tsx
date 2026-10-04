@@ -121,7 +121,7 @@ export function Tour({ steps }: { steps: TourStep[] }) {
         <div className="mx-auto flex max-w-[72rem] flex-wrap items-center gap-x-3 rounded-[1.75rem] border border-line bg-surface/95 pb-1 pl-4 pr-2 pt-2 shadow-soft sm:h-14 sm:flex-nowrap sm:rounded-full sm:py-0 sm:pl-5">
           <div className="flex min-w-0 items-center gap-2.5">
             <Wordmark />
-            <DemoLabel kind="testnet" title="Robinhood Chain testnet. Testnet, unaudited." className="h-5 px-2 text-[9.5px]" />
+            <DemoLabel kind="testnet" title="Robinhood Chain testnet." className="h-5 px-2 text-[9.5px]" />
           </div>
           <ol aria-label="Tour progress" className="order-last flex w-full gap-1.5 pr-2 sm:order-none sm:mx-3 sm:w-auto sm:flex-1 sm:pr-0 lg:mx-8">
             {steps.map((s, i) => (
@@ -192,7 +192,7 @@ export function Tour({ steps }: { steps: TourStep[] }) {
                   rel="noopener noreferrer"
                   className={buttonClasses({ variant: "secondary", size: "md" })}
                 >
-                  See it on-chain
+                  See it onchain
                   <ArrowUpRightIcon size={14} className="opacity-60" />
                 </a>
               ) : null}

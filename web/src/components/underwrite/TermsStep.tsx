@@ -11,7 +11,7 @@ import { priceAt, type AgentPriceTable } from "./price-lookup";
 import { nameBytes, suggestName, validateTerms, type TermsDraft } from "./terms";
 
 const pct = (bps: number | null) =>
-  bps === null ? "—" : `${(bps / 100).toLocaleString("en-US", { maximumFractionDigits: 2 })}%`;
+  bps === null ? "n/a" : `${(bps / 100).toLocaleString("en-US", { maximumFractionDigits: 2 })}%`;
 
 /** Step 2: the limits buyers may choose, the premium, the bond and a name. The stock cap comes from the persona. */
 export function TermsStep({
@@ -122,8 +122,8 @@ export function TermsStep({
         <div className="-mt-4 rounded-card bg-sunken px-4 py-3.5 text-[13px] leading-relaxed text-ink-2">
           <div className="eyebrow mb-1.5">Model reference, {agent.name}</div>
           At the maximum stock share allowed after a buy: <span className="num text-ink">{pct(worstMin)}</span> at a{" "}
-          {min !== undefined ? formatBps(min) : "—"} limit, <span className="num text-ink">{pct(worstMax)}</span> at{" "}
-          {max !== undefined ? formatBps(max) : "—"}.{" "}
+          {min !== undefined ? formatBps(min) : "n/a"} limit, <span className="num text-ink">{pct(worstMax)}</span> at{" "}
+          {max !== undefined ? formatBps(max) : "n/a"}.{" "}
           {table.record ? (
             <>
               Its record: <span className="num text-accent-ink">{pct(recordMin)}</span> to{" "}

@@ -12,7 +12,7 @@ export function NoRecord({ name, prices, hasOffers }: { name: string; prices: Ag
       <Card tone="accent" padding="lg">
         <p className="eyebrow mb-4">No record yet</p>
         <h2 id="no-record" className="max-w-[24ch] font-display text-display-m text-ink">
-          No record, so only the rule-based reference price.
+          No record, so only the rule based reference price.
         </h2>
         <p className="mt-5 max-w-[42rem] text-[16px] leading-relaxed text-ink-2">
           {hasOffers ? (
@@ -31,7 +31,7 @@ export function NoRecord({ name, prices, hasOffers }: { name: string; prices: Ag
           ) : (
             <>
               This address has no offers and no trades on Bondline. An agent with no record has only the reference price
-              at the maximum stock share allowed after a buy; an agent with no rules on-chain has no price at all.
+              at the maximum stock share allowed after a buy; an agent with no rules onchain has no price at all.
             </>
           )}
         </p>

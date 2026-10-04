@@ -88,15 +88,15 @@ export function AgentHeader({
 
       {known ? (
       <p className="mt-6 max-w-[46rem] text-[17px] leading-relaxed text-ink-2">
-        It trades covered accounts through on-chain rules it can&apos;t change
+        It trades covered accounts through onchain rules it can&apos;t change
         {rulesMax != null ? (
           <>
             : at most <span className="num text-ink">{pct(rulesMax, 0)}</span> of an account in stocks, with size and
-            price-age limits
+            price age limits
           </>
         ) : null}
-        . It can&apos;t withdraw. Submitted trades that complete emit a trade or rule-check refusal receipt with a hash of
-        the submitted decision bytes; off-chain holds are absent. The hash verifies the bytes, not that a model produced
+        . It can&apos;t withdraw. Submitted trades that complete emit a trade or rule check refusal receipt with a hash of
+        the submitted decision bytes; offchain holds are absent. The hash verifies the bytes, not that a model produced
         them.
       </p>
       ) : null}
@@ -108,7 +108,7 @@ export function AgentHeader({
           {utcTime(Date.parse(record.generatedAt) / 1000)}
           {a?.activeSeconds != null ? (
             <>
-              . Active for <span className="num text-ink-2">{duration(a.activeSeconds)}</span> on-chain, from its first
+              . Active for <span className="num text-ink-2">{duration(a.activeSeconds)}</span> onchain, from its first
               decision to its latest
             </>
           ) : null}

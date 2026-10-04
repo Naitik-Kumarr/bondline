@@ -113,7 +113,7 @@ export default async function AgentPage({ params }: { params: Params }) {
             eyebrow="Receipts"
             title={<span id="receipts">Latest trades and refusals</span>}
             size="m"
-            lead="With the AI's reasoning, decoded from each transaction's input. Verify re-hashes it in your browser and checks it against the hash in the on-chain event."
+            lead="With the AI's reasoning, decoded from each transaction's input. Verify rehashes it in your browser and checks it against the hash in the onchain event."
           />
           <div className="mt-8">
             <Suspense fallback={<ReceiptsSkeleton />}>

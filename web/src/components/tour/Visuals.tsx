@@ -201,7 +201,7 @@ export function RulesVisual({
                 {RULES.map(([label, value]) => (
                   <div key={label} className="flex items-baseline justify-between gap-2">
                     <dt className="text-[12.5px] leading-tight text-ink-3">{label}</dt>
-                    <dd className="num text-[15px] text-ink sm:text-[17px]">{value(a) ?? "–"}</dd>
+                    <dd className="num text-[15px] text-ink sm:text-[17px]">{value(a) ?? "n/a"}</dd>
                   </div>
                 ))}
               </dl>
@@ -295,7 +295,7 @@ export function RulesVisual({
           </div>
           <p className="mt-2.5 text-[13.5px] leading-relaxed text-ink-2">
             No agent has asked for a trade outside its rules on this deployment yet. When one does, the account refuses it
-            on-chain, and this card shows the <span className="num text-[12.5px]">Blocked</span> event with the AI&apos;s
+            onchain, and this card shows the <span className="num text-[12.5px]">Blocked</span> event with the AI&apos;s
             reasoning.
           </p>
           <Link href="/judge#cant" className={cn("mt-2.5 inline-flex items-center gap-1 text-[12.5px] text-ink-2 hover:text-ink", linkClass)}>
@@ -346,7 +346,7 @@ export function OfferVisual({ data }: { data: TourOffer }) {
             label="Loss limits"
             value={
               <>
-                {bpsPct(o.terms.minLimitBps)}–{bpsPct(o.terms.maxLimitBps)}
+                {bpsPct(o.terms.minLimitBps)} to {bpsPct(o.terms.maxLimitBps)}
               </>
             }
             hint={`buyers pick; cover to −${bpsPct(CAP_BPS)}`}
@@ -535,7 +535,7 @@ export function ClaimVisual({ data, stopped }: { data: TourClaim; stopped: boole
           </DemoLabel>
         ) : null}
         <MarketTag market={c.market} />
-        <DemoLabel kind="team" title="A team-operated test cover, settled by our keeper. Anyone can call settle." />
+        <DemoLabel kind="team" title="A team operated test cover, settled by our keeper. Anyone can call settle." />
       </div>
       <p className="num mb-4 text-[12px] text-ink-3 sm:mb-5 sm:text-[12.5px]">
         {data.agentName ? `${data.agentName}'s covered account · ` : ""}
@@ -632,7 +632,7 @@ export function RealVisual({ real, decisionTx }: { real: TourReal; decisionTx: s
             </Check>
           ) : null}
           <Check href={review}>Independently reviewed: 0 critical, known issues in SECURITY.md</Check>
-          <Check href={decisionTx ? txUrl(decisionTx) : null}>Claude agents: trades and refusals with on-chain receipts</Check>
+          <Check href={decisionTx ? txUrl(decisionTx) : null}>Claude agents: trades and refusals with onchain receipts</Check>
         </ul>
       </Card>
       <div className="grid grid-cols-1 gap-2.5 sm:flex sm:flex-wrap">

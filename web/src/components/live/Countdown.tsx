@@ -56,7 +56,7 @@ export function Countdown({
         <div key={label} className="flex items-end gap-2 sm:gap-5">
           <div>
             <div className="num text-[34px] leading-none tracking-[-0.03em] text-ink sm:text-[56px]">
-              {left == null ? "––" : pad(value)}
+              {left == null ? "··" : pad(value)}
             </div>
             <div className="eyebrow mt-2"><span className="sm:hidden">{short}</span><span className="hidden sm:inline">{label}</span></div>
           </div>

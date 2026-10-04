@@ -40,10 +40,10 @@ export function QuickLinks() {
         <Q href={`/agent/${careful}`}>Careful&apos;s record</Q>
         <Q href={`/agent/${bold}`}>Bold&apos;s record</Q>
         <Q href="/live">Live market</Q>
-        <Q href="/tour">The 2-minute tour</Q>
+        <Q href="/tour">The 2 minute tour</Q>
         <Q href="/underwrite">Underwrite: one signature</Q>
         <Q href="/cover">Get cover</Q>
-        <Q href="#moments">The on-chain moments</Q>
+        <Q href="#moments">The onchain moments</Q>
       </div>
       <div className="flex flex-wrap gap-2">
         {live ? (

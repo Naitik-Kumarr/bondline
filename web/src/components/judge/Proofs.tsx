@@ -89,7 +89,7 @@ export function ProofsSection() {
         eyebrow="Proofs"
         title={<span id="proofs-title">Symbolic proofs, invariants, mutation testing</span>}
         size="m"
-        lead="Read from contracts/reports/proofs.json. Each block appears only after an independent verifier re-ran it."
+        lead="Read from contracts/reports/proofs.json. Each block appears only after an independent verifier reran it."
       />
       <div className="mt-8 grid gap-4 lg:grid-cols-3">
         {showHalmos ? (

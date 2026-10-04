@@ -92,7 +92,7 @@ export function CoverList({ rows, empty }: { rows: CoverRow[]; empty: string }) 
                 >
                   {shortAddress(a.address)}
                 </Link>
-                {a.team ? <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">team-operated</span> : null}
+                {a.team ? <span className="font-mono text-[10.5px] uppercase tracking-[0.1em] text-ink-3">team operated</span> : null}
               </div>
               <p className="mt-1 text-[13px] text-ink-3">
                 {agent} · {offerName} · limit <span className="num text-ink-2">{bpsPct(a.limitBps)}</span>

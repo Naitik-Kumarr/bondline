@@ -97,7 +97,7 @@ export function refusalDetail(
   const $ = (v: bigint) => usdOf(v, { cents: true });
   switch (reasonKey) {
     case "TradeTooLarge":
-      return `${$(observed)} trade; the per-trade limit was ${$(limit)}`;
+      return `${$(observed)} trade; the per trade limit was ${$(limit)}`;
     case "DailyLimit":
       return `${$(observed)} traded today with this one; the daily limit was ${$(limit)}`;
     case "InsufficientCash":

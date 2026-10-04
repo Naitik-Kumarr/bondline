@@ -42,7 +42,7 @@ export function RecordSection({ record, chart, rules }: { record: AgentRecord; c
     <Section spacing="sm" aria-labelledby="record">
       <SectionHeader
         eyebrow="The record"
-        title={<span id="record">What it did, on-chain</span>}
+        title={<span id="record">What it did, onchain</span>}
         size="m"
         lead="Every number here is rebuilt from chain events on both markets: trades, refusals, deposits, price updates and claims."
       />
@@ -68,7 +68,7 @@ export function RecordSection({ record, chart, rules }: { record: AgentRecord; c
             />
             <Tile
               label="Time active"
-              value={a.activeSeconds != null ? duration(a.activeSeconds) : "–"}
+              value={a.activeSeconds != null ? duration(a.activeSeconds) : "n/a"}
               hint={
                 a.firstActionAt != null && a.lastActionAt != null ? (
                   <>
@@ -81,17 +81,17 @@ export function RecordSection({ record, chart, rules }: { record: AgentRecord; c
             />
             <Tile
               label="Exposure, 95th percentile"
-              value={e.p95 != null ? pct(e.p95) : "–"}
+              value={e.p95 != null ? pct(e.p95) : "n/a"}
               hint={
                 <>
-                  of its <span className="num">{e.rulesMax != null ? pct(e.rulesMax, 0) : "–"}</span> cap ·{" "}
+                  of its <span className="num">{e.rulesMax != null ? pct(e.rulesMax, 0) : "n/a"}</span> cap ·{" "}
                   <span className="num">{int(e.observations)}</span> observations
                 </>
               }
             />
             <Tile
               label="Worst drawdown"
-              value={d.worst != null ? pct(d.worst) : "–"}
+              value={d.worst != null ? pct(d.worst) : "n/a"}
               hint={
                 d.worstToLimit != null && d.limitBps != null ? (
                   d.worstToLimit >= 1 ? (

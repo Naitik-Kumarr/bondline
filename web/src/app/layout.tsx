@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s · Bondline",
   },
   description:
-    "USDG protection for AI traders. Underwriters back AI agents with USDG and set the premium; the site compares it with reference prices from each agent's rules and record. Past your loss limit, anyone can call settle: if prices are fresh and the USDG transfer succeeds, it stops the AI and the bond pays the loss beyond the limit, up to a 30% drop. Testnet, unaudited.",
+    "USDG protection for AI traders. Underwriters back AI agents with USDG and set the premium; the site compares it with reference prices from each agent's rules and record. Past your loss limit, anyone can call settle: if prices are fresh and the USDG transfer succeeds, it stops the AI and the bond pays the loss beyond the limit, up to a 30% drop. Testnet.",
   applicationName: "Bondline",
 };
 

@@ -10,7 +10,7 @@ const REAL: ReactNode[] = [
   <>Paxos USDG on Robinhood Chain testnet: every bond, premium, cover and claim.</>,
   <>Robinhood&apos;s official testnet Stock Tokens, TSLA and AMZN.</>,
   <>Chainlink&apos;s TSLA and AMZN prices on the live market, mirrored from Robinhood Chain mainnet with their real timestamps.</>,
-  <>The AI&apos;s submitted decisions: each completed trade or rule-check refusal carries its decision JSON, with its reasoning and the model it names, in the transaction, and a hash of those bytes in its receipt. Off-chain holds are absent, and the hash verifies the bytes, not that a model produced them.</>,
+  <>The AI&apos;s submitted decisions: each completed trade or rule check refusal carries its decision JSON, with its reasoning and the model it names, in the transaction, and a hash of those bytes in its receipt. Offchain holds are absent, and the hash verifies the bytes, not that a model produced them.</>,
   <>Every transaction on this site is on the public explorer, and every market number (bonds, cover, premiums, claims, trades, prices) is read from the chain. Test counts, coverage, gas, model prices and the backtest come from the reports and formulas named on this page.</>,
 ];
 

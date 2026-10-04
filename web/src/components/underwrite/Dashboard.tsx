@@ -134,7 +134,7 @@ function OfferPanel({ offer }: { offer: LiveOffer }) {
               Behind {agentName(offer.agent)} · {market?.label} market · Offer #{offer.id} ·{" "}
               <span className="num">{formatBps(offer.terms.feeBps)}</span> premium ·{" "}
               <span className="num">
-                {formatBps(offer.terms.minLimitBps)}–{formatBps(offer.terms.maxLimitBps)}
+                {formatBps(offer.terms.minLimitBps)} to {formatBps(offer.terms.maxLimitBps)}
               </span>{" "}
               limits
             </p>
@@ -206,7 +206,7 @@ export function UnderwriterDashboard() {
       <p className="mt-3 max-w-[40rem] text-[16px] leading-relaxed text-ink-2">
         Bond, reserved and free capacity, premiums earned, claims paid and P&amp;L, read live from the chain. You can
         release free bond at any time. You cannot release reserved bond or veto a payout by delisting. Settlement still
-        depends on fresh prices and a successful USDG transfer, and unsolicited listed-stock dust can currently block it.
+        depends on fresh prices and a successful USDG transfer, and unsolicited listed stock dust can currently block it.
       </p>
       <div className="mt-8 flex flex-col gap-5">
         {!isConnected ? (

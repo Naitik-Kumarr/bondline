@@ -51,7 +51,7 @@ export async function MarketProof() {
       ) : null}
       <AgentPriceLine className="mt-5 text-center text-[15px] leading-relaxed text-ink-2" />
       <p className="mt-3 text-center text-[12.5px] text-ink-3">
-        Read from the chain, testnet. Team-operated wallets and the scripted gap are labelled on the{" "}
+        Read from the chain, testnet. Team operated wallets and the scripted gap are labelled on the{" "}
         <Link href="/market" className="underline decoration-ink/20 underline-offset-4 hover:decoration-ink/60">
           market
         </Link>{" "}

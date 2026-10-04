@@ -52,12 +52,12 @@ function HowItPays() {
       <p className="text-[13.5px] leading-relaxed text-ink-2">
         Once your loss passes your limit, anyone can call settle. It stops the agent and pays once only if the
         required prices are fresh and the USDG transfer succeeds: the loss beyond your limit at that moment, up to a 30%
-        drop. USDG pause/freeze controls and unsolicited listed-stock dust can block settlement in the current code. The
+        drop. USDG pause/freeze controls and unsolicited listed stock dust can block settlement in the current code. The
         keeper attempts settlement while it is running; transaction latency, stale prices and failed transfers can delay
         it. The stocks stay in your account.
       </p>
       <p className="mt-2 text-[13.5px] leading-relaxed text-ink-2">
-        A stop-loss can&apos;t do this when the price jumps through your limit (a weekend or overnight gap, news),
+        A stop loss can&apos;t do this when the price jumps through your limit (a weekend or overnight gap, news),
         because nothing sells inside a gap. The bond pays the gap.
       </p>
     </Card>
@@ -159,7 +159,7 @@ export function CoverFlow({ initialMarket, initialOffer }: { initialMarket?: str
           <Step
             n={3}
             title="Rules every trade must pass"
-            lead="Fixed on-chain when the cover opens. A trade outside them is refused, and the refusal is recorded."
+            lead="Fixed onchain when the cover opens. A trade outside them is refused, and the refusal is recorded."
           >
             {offer && defaults ? (
               <RulesEditor

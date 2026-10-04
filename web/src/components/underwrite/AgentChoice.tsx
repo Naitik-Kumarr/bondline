@@ -16,7 +16,7 @@ import { priceAt, type PriceTables } from "./price-lookup";
 const REFERENCE_LIMIT = 1000;
 
 const pctOf = (bps: number | null) =>
-  bps === null ? "—" : `${(bps / 100).toLocaleString("en-US", { maximumFractionDigits: bps < 100 ? 2 : 1 })}%`;
+  bps === null ? "n/a" : `${(bps / 100).toLocaleString("en-US", { maximumFractionDigits: bps < 100 ? 2 : 1 })}%`;
 
 /** Step 1: which agent to back (with both reference prices) and on which market. */
 export function AgentChoice({

@@ -26,7 +26,7 @@ export function deployedContracts(): ContractRow[] {
       add("MirrorFeed", `${sym} price, ${m === "live" ? "Live" : "Replay"} market (pushed by our keeper)`, feed);
     }
   }
-  add("ProofOfCover", "Read-only lookup: whether an account has active cover, its underwriter, limit and cap, and the cover's free capacity", deployment.proofOfCover?.address);
+  add("ProofOfCover", "Read only lookup: whether an account has active cover, its underwriter, limit and cap, and the cover's free capacity", deployment.proofOfCover?.address);
   return rows;
 }
 

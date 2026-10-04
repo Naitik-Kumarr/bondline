@@ -43,7 +43,7 @@ export function UsdgLine() {
               Paxos docs
               <ArrowUpRightIcon size={12} />
             </a>{" "}
-            That describes USDG only: Bondline is an independent, unaudited testnet project, not a regulated product.
+            That describes USDG only: Bondline is an independent testnet project, not a regulated product.
           </p>
         </Card>
       </Reveal>

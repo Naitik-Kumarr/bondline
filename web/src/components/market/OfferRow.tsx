@@ -75,7 +75,7 @@ export function OfferRow({
           label="Limit you pick"
           value={
             <>
-              {bpsPct(offer.terms.minLimitBps)}–{bpsPct(offer.terms.maxLimitBps)}
+              {bpsPct(offer.terms.minLimitBps)} to {bpsPct(offer.terms.maxLimitBps)}
             </>
           }
           hint="loss limit"

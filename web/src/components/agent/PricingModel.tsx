@@ -66,7 +66,7 @@ export function PricingModel({ prices }: { prices: AgentPrices }) {
   const worst = run(prices.worstCaseShare)!;
   const record = run(prices.recordShare);
   const vol = VOLATILITY.assets[prices.sigmaAsset];
-  const dash = <span className="text-ink-4">–</span>;
+  const dash = <span className="text-ink-4">n/a</span>;
   const both = (f: (b: PriceBreakdown) => ReactNode) => ({ worst: f(worst), record: record ? f(record) : dash });
 
   return (
@@ -77,7 +77,7 @@ export function PricingModel({ prices }: { prices: AgentPrices }) {
         size="m"
         lead={
           <>
-            {LABELS.modelPrice} It prices the gap: the loss a price jump carries past the limit, where no stop-loss can
+            {LABELS.modelPrice} It prices the gap: the loss a price jump carries past the limit, where no stop loss can
             sell, plus the cost of keeping the bond&apos;s reserve locked.
           </>
         }

@@ -11,7 +11,7 @@ const FORMULA: [string, string][] = [
   ["exposure", `${P.exposure} × (1 − p95 share ÷ rules' max share)`],
   ["drawdown", `${P.drawdown} × (1 − worst drawdown ÷ its limit)`],
   ["claims", `${P.claims} × (1 − accounts with a claim ÷ accounts)`],
-  ["history", `${P.history} × min(1, on-chain decisions ÷ ${HISTORY_FULL_CREDIT})`],
+  ["history", `${P.history} × min(1, onchain decisions ÷ ${HISTORY_FULL_CREDIT})`],
 ];
 
 /** The 0–100 display score, part by part, with the published formula. */
@@ -51,7 +51,7 @@ export function ScoreBreakdown({ record }: { record: AgentRecord }) {
             <div className="mt-7 flex items-baseline justify-between border-t border-line pt-5">
               <span className="text-[15px] font-medium text-ink">Score</span>
               <span className="num text-[22px] text-ink">
-                {score.value != null ? int(score.value) : "–"} <span className="text-[15px] text-ink-3">/ 100</span>
+                {score.value != null ? int(score.value) : "n/a"} <span className="text-[15px] text-ink-3">/ 100</span>
               </span>
             </div>
           </Card>

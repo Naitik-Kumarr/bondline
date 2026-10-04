@@ -43,7 +43,7 @@ export function ScoreRing({
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center" aria-hidden="true">
         <span className={cn("num leading-none tracking-[-0.03em] text-ink", big ? "text-[30px]" : "text-[19px]")}>
-          {value ?? "–"}
+          {value ?? "n/a"}
         </span>
         <span className={cn("mt-1 font-mono uppercase tracking-[0.1em] text-ink-3", big ? "text-[10px]" : "text-[8.5px]")}>
           {value == null ? "no record" : "score"}

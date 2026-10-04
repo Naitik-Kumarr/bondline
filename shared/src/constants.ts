@@ -70,15 +70,15 @@ export const COVER_STATUS = ["None", "Active", "Settled", "Closed"] as const;
 
 /** Labels the site must use. Everything scripted or team-operated is labelled. */
 export const LABELS = {
-  replayMarket: "Replay market: real prices from 28 Sep – 2 Oct, sped up. Live stock prices are frozen for the weekend.",
+  replayMarket: "Replay market: real prices from 28 Sep to 2 Oct, sped up. Live stock prices are frozen for the weekend.",
   liveMarket: "Live market: Chainlink TSLA and AMZN prices mirrored from Robinhood Chain mainnet by our keeper.",
   demoExchange: "Demo exchange: fills at the oracle price, because testnet Stock Tokens have no market.",
   scriptedGap: "Scripted gap",
-  teamUnderwriter: "Team-operated test underwriter",
-  teamBuyer: "Team-operated test buyer",
-  keeper: "Our keeper (team-operated). Anyone can call settle.",
+  teamUnderwriter: "Team operated test underwriter",
+  teamBuyer: "Team operated test buyer",
+  keeper: "Our keeper (team operated). Anyone can call settle.",
   notInsurance: "A capped, fully backed protection bond, not regulated insurance.",
-  testnet: "Testnet, unaudited.",
+  testnet: "Testnet.",
   independent: "Independent project, not affiliated with Robinhood.",
   modelPrice: "A reference price from a simple published model, not actuarial.",
 } as const;

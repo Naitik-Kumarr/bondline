@@ -22,7 +22,7 @@ import {
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "The 2-minute tour",
+  title: "The 2 minute tour",
   description:
     "Bondline in six steps: the risk AI traders leave with their users, an agent that can't place a trade that breaks its rules, an underwriter's bond, a cover, and a claim paid on Robinhood Chain testnet. Every number comes from the chain, our test reports or a linked source.",
 };
@@ -47,9 +47,9 @@ function claimSentence(s: SettledClaim): string | null {
     delay == null || delay < 0
       ? ""
       : delay < 60
-        ? " seconds after the Monday-open price landed"
+        ? " seconds after the Monday open price landed"
         : delay < 3600
-          ? " minutes after the Monday-open price landed"
+          ? " minutes after the Monday open price landed"
           : "";
   return (
     `The account fell from ${usdgText(friday)} to ${usdgText(c.value)} USDG (${bpsPct(lossBps)} loss) against a ` +
@@ -80,19 +80,19 @@ export default async function TourPage() {
       label: "The problem",
       headline: "AI agents trade. You carry the risk.",
       sentence:
-        "More than 150,000 Robinhood customers have opened agentic trading accounts, and they assume all the risk, including a price that gaps straight past a stop-loss.",
+        "More than 150,000 Robinhood customers have opened agentic trading accounts, and they assume all the risk, including a price that gaps straight past a stop loss.",
       visual: <ProblemVisual />,
       chain: {
         href: addressUrl(trader.address),
-        hint: `${trader.name}, our team-operated AI agent, trading on Robinhood Chain testnet`,
+        hint: `${trader.name}, our team operated AI agent, trading on Robinhood Chain testnet`,
       },
     },
     {
       id: "rules",
       label: "The rules",
-      headline: "The agent can't place a rule-breaking trade.",
+      headline: "The agent can't place a rule breaking trade.",
       sentence:
-        "Careful and Bold are Claude agents whose limits live in the contract: every submitted trade and rule refusal leaves an on-chain receipt.",
+        "Careful and Bold are Claude agents whose limits live in the contract: every submitted trade and rule refusal leaves an onchain receipt.",
       visual: t.ok ? (
         <RulesVisual
           agents={t.agents}
@@ -124,7 +124,7 @@ export default async function TourPage() {
         t.ok && t.offer?.txHash
           ? {
               href: txUrl(t.offer.txHash),
-              hint: t.offer.withSignature ? "The offer's one-signature transaction" : "The offer's transaction",
+              hint: t.offer.withSignature ? "The offer's one signature transaction" : "The offer's transaction",
             }
           : replay
             ? { href: addressUrl(replay), hint: "The market contract on the explorer" }

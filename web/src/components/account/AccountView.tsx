@@ -113,7 +113,7 @@ function RulesCard({ data }: { data: AccountData }) {
     <Card>
       <h2 className="text-[17px] font-medium tracking-[-0.01em] text-ink">Rules every trade must pass</h2>
       <p className="mt-1 text-[13px] text-ink-3">
-        Fixed on-chain when the cover opened. A trade outside them is refused and recorded.
+        Fixed onchain when the cover opened. A trade outside them is refused and recorded.
       </p>
       <dl className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3.5">
         {rows.map(([k, v]) => (
@@ -309,8 +309,8 @@ export function AccountView({
                     Receipts
                   </h2>
                   <p className="mt-1.5 text-[14px] text-ink-3">
-                    Completed trades and rule-check refusals, with the submitted decision from the transaction input.
-                    Off-chain holds are not shown.
+                    Completed trades and rule check refusals, with the submitted decision from the transaction input.
+                    Offchain holds are not shown.
                   </p>
                 </div>
                 <RefreshReceipts />

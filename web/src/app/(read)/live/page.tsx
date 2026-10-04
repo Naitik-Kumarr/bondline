@@ -81,7 +81,7 @@ export default async function LivePage() {
             <MarketFigures view={read.view} />
             <FeedPanel
               view={read.view}
-              note="Our keeper pushes Chainlink's mainnet prices onto testnet. It is team-operated."
+              note="Our keeper pushes Chainlink's mainnet prices onto testnet. It is team operated."
             />
           </div>
         ) : (
@@ -98,7 +98,7 @@ export default async function LivePage() {
 
       <Section spacing="sm" aria-labelledby="covers">
         <SectionHeader
-          eyebrow="On-chain"
+          eyebrow="Onchain"
           title={<span id="covers">Every cover on the Live market</span>}
           size="m"
           lead="Health is the cover's own view: how far the loss has come toward its limit, whether its prices are fresh, and whether it is past the limit. Anyone can settle a cover that is past its limit once its prices are fresh."

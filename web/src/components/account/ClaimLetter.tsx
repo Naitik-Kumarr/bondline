@@ -18,7 +18,7 @@ export function ClaimLetter({ account }: { account: string }) {
         Claim letter
       </h2>
       <p className="mb-4 text-[14px] text-ink-3">
-        Written after the settle from the on-chain numbers, then hashed. Anyone can re-hash the text below.
+        Written after the settle from the onchain numbers, then hashed. Anyone can rehash the text below.
       </p>
       <div className="flex flex-col gap-4">
         {letters.map((l) => (

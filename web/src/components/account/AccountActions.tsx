@@ -71,7 +71,7 @@ export function SettleCard({ account, data }: { account: Address; data: AccountD
       <p className={cn(note, "mt-4")}>
         Once the loss passes the limit, anyone can call settle. It stops the agent and pays once only if the required
         prices are fresh and the USDG transfer succeeds: the owner gets the loss beyond the limit from the bond, up to a
-        30% drop. USDG pause/freeze controls and unsolicited listed-stock dust can block settlement in the current code.
+        30% drop. USDG pause/freeze controls and unsolicited listed stock dust can block settlement in the current code.
         The keeper attempts settlement while it is running; transaction latency, stale prices and failed transfers can
         delay it. The owner can still stop the agent with pause or end cover with close. The stocks stay in the account.
       </p>

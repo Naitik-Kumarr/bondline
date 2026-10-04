@@ -29,7 +29,7 @@ const ROWS: { cant: string; how: ReactNode; tests: string[] }[] = [
     how: (
       <>
         {code("settle(account)")} is open to anyone. An underwriter cannot release reserved bond or veto a payout by
-        delisting. Settlement still depends on fresh prices and a successful USDG transfer, and unsolicited listed-stock
+        delisting. Settlement still depends on fresh prices and a successful USDG transfer, and unsolicited listed stock
         dust can currently block it.
       </>
     ),

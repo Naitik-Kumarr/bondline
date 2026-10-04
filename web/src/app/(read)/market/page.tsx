@@ -16,7 +16,7 @@ export const revalidate = 30;
 export const metadata: Metadata = {
   title: "Market",
   description:
-    "Both Bondline markets: AI agents ranked by their on-chain record, each offer's premium next to the agent's reference price, and real totals from Robinhood Chain testnet.",
+    "Both Bondline markets: AI agents ranked by their onchain record, each offer's premium next to the agent's reference price, and real totals from Robinhood Chain testnet.",
 };
 
 export default function MarketPage() {
@@ -40,7 +40,7 @@ export default function MarketPage() {
           <ButtonLink href="/judge" variant="ghost">
             Judge kit
           </ButtonLink>
-          <DemoLabel kind="testnet">Testnet, unaudited</DemoLabel>
+          <DemoLabel kind="testnet">Testnet</DemoLabel>
         </div>
       </Container>
 

@@ -11,7 +11,7 @@ export function TourButton({ className }: { className?: string }) {
       iconRight={<ArrowRightIcon size={16} />}
       className={cn("bg-accent-ink text-white shadow-pill before:bg-white/12", className)}
     >
-      Start the 2-minute tour
+      Start the 2 minute tour
     </ButtonLink>
   );
 }

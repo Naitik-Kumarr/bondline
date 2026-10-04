@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 
 const LINES = [
   {
-    lead: "A market, not a self-bond:",
+    lead: "A market, not a self bond:",
     rest: "independent underwriters choose agents, set prices and earn premiums.",
   },
   {
@@ -16,7 +16,7 @@ const LINES = [
   },
   {
     lead: "It's real:",
-    rest: "Paxos USDG, Robinhood's official testnet Stock Tokens, Chainlink prices, and an on-chain receipt for every completed trade and rule refusal.",
+    rest: "Paxos USDG, Robinhood's official testnet Stock Tokens, Chainlink prices, and an onchain receipt for every completed trade and rule refusal.",
   },
 ] as const;
 

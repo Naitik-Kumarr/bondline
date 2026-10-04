@@ -92,7 +92,7 @@ export function AgentPricesSection({ prices, name }: { prices: Prices; name: str
               </>
             ) : (
               <>
-                Its record prices <span className="num text-ink">{bpsText(-saving)}</span> above its rule-based
+                Its record prices <span className="num text-ink">{bpsText(-saving)}</span> above its rule based
                 reference price: the stock share can drift past the cap after a buy as prices rise.
               </>
             )}
