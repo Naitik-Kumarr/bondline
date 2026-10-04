@@ -1,4 +1,5 @@
 export const NAV = [
+  { href: "/tour", label: "Tour" },
   { href: "/market", label: "Market" },
   { href: "/live", label: "Live" },
   { href: "/underwrite", label: "Underwrite" },

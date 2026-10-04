@@ -107,7 +107,7 @@
     "All 17 claims settled between 2026-07-23 and 2026-07-28: the window held one sharp drawdown, so the claims are one event seen from 17 different opening days, not 17 independent events.",
     "Annualised returns scale a 3-month window to a year; they are arithmetic on this window, not a forecast, and are large because 1% to 4% premiums are charged on 30-day covers that mostly expired without a claim.",
     "Chainlink posts a round when the price moves about 0.5% (only 12 of the 1408 moves between TSLA rounds used here and 12 of the 845 between AMZN rounds were smaller). These feeds include updates outside NYSE core trading hours. In this historical window the longest observed round gaps were 77.8 hours for TSLA and 77.1 hours for AMZN, and 14 and 14 gaps are longer than the 25-hour max price age. Settlement waits whenever an included price exceeds the market's maximum age. So a settle at 'the first round past the limit' can overshoot by up to one deviation step even without a gap, and by the whole move across a long gap between rounds.",
-    "Hypothetical covers on real prices: none of these covers was sold. Testnet, unaudited. A capped, fully backed protection bond, not regulated insurance."
+    "Hypothetical covers on real prices: none of these covers was sold. Testnet. A capped, fully backed protection bond, not regulated insurance."
   ],
   "agents": [
     {

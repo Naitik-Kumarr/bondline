@@ -3,6 +3,7 @@ import { LABELS } from "@bondline/shared/constants";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { ArrowUpRightIcon } from "@/components/ui/icons";
+import { REPO_URL } from "@/components/tour/links";
 import { NAV } from "./nav";
 import { Wordmark } from "./Wordmark";
 
@@ -25,6 +26,9 @@ export function SiteFooter() {
               {item.label === "Judge" ? "Judge kit" : item.label}
             </Link>
           ))}
+          <a href={REPO_URL ?? "https://github.com/Naitik-Kumarr/bondline"} target="_blank" rel="noopener noreferrer" className={external}>
+            GitHub <ArrowUpRightIcon size={13} />
+          </a>
         </nav>
         <div className="flex flex-col gap-2.5 text-[15px]">
           <p className="eyebrow mb-1">Robinhood Chain testnet</p>

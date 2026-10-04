@@ -26,7 +26,7 @@ export function DesktopNav() {
             prefetch={prefetchFor(item.href)}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "relative rounded-full px-3.5 py-2 text-[14px] transition-colors",
+              "relative rounded-full px-2.5 py-2 text-[14px] transition-colors lg:px-3.5",
               active ? "bg-sunken text-ink" : "text-ink-2 hover:text-ink",
             )}
           >

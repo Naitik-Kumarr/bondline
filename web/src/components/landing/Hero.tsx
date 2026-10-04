@@ -5,9 +5,11 @@ import { GapReplay } from "@/components/hero/GapReplay";
 import { TourButton } from "@/components/tour/TourButton";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { ArrowRightIcon } from "@/components/ui/icons";
 import { Pill } from "@/components/ui/Pill";
 import { Accent } from "@/components/ui/Section";
+
+/** The scripted gap claim's settle transaction on the testnet explorer. */
+const CLAIM_TX = "https://explorer.testnet.chain.robinhood.com/tx/0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c";
 
 export function Hero() {
   return (
@@ -20,8 +22,7 @@ export function Hero() {
       />
 
       <Container className="pt-10 text-center sm:pt-14">
-        <TourButton />
-        <div className="mt-8 sm:mt-10">
+        <div>
           <Pill dot tone="neutral" className="bg-surface/80">
             USDG protection for AI traders
           </Pill>
@@ -34,12 +35,10 @@ export function Hero() {
           gaps through it, the agent stops and the bond pays the loss beyond it, up to a 30% drop. Anyone can call
           settle; there&apos;s no claim form. Robinhood Chain testnet, Paxos USDG.
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-9">
-          <ButtonLink href="/market" size="lg" iconRight={<ArrowRightIcon size={16} />}>
-            Open the market
-          </ButtonLink>
-          <ButtonLink href="/judge" size="lg" variant="secondary">
-            Judge kit
+        <div className="mx-auto mt-8 flex max-w-[24rem] flex-col items-stretch gap-3 sm:mt-9 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
+          <TourButton className="w-full sm:w-auto" />
+          <ButtonLink href={CLAIM_TX} external size="lg" variant="secondary" className="w-full sm:w-auto">
+            See the claim onchain
           </ButtonLink>
         </div>
         <p className="mt-5 text-[13px] text-ink-3">

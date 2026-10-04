@@ -1,5 +1,7 @@
 import { isLocalFork } from "@bondline/shared/deployment";
 import type { ReactNode } from "react";
+import { REPO_URL } from "@/components/tour/links";
+import { GitHubIcon } from "@/components/ui/icons";
 import { DemoLabel } from "@/components/ui/Pill";
 import { DesktopNav, MobileNav } from "./SiteNav";
 import { Wordmark } from "./Wordmark";
@@ -29,6 +31,15 @@ export function SiteHeader({ wallet }: { wallet: ReactNode }) {
         </div>
         <DesktopNav />
         <div className="flex items-center gap-1.5">
+          <a
+            href={REPO_URL ?? "https://github.com/Naitik-Kumarr/bondline"}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Bondline on GitHub"
+            className="inline-flex size-9 shrink-0 items-center justify-center rounded-full text-ink-2 transition-colors hover:bg-sunken hover:text-ink"
+          >
+            <GitHubIcon size={18} />
+          </a>
           {wallet}
           <MobileNav />
         </div>
