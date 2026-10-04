@@ -1,7 +1,7 @@
 // The tour's two links that aren't on the chain or on this site. Set them here; nothing else needs to change.
 
 /** The demo video, for step 6's "Watch the video". Until it's set, the button shows but isn't a link yet. */
-export const VIDEO_URL: string | null = null;
+export const VIDEO_URL: string | null = "/video/bondline-demo.mp4";
 
 /**
  * The public repository, e.g. "https://github.com/<owner>/<repo>" (no trailing slash). It turns on the SECURITY.md and

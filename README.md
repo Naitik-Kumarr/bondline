@@ -33,7 +33,7 @@ affiliated with Robinhood. Built from scratch during the Arbitrum Open House Sin
 | Real problem | More than 150,000 Robinhood customers have opened agentic trading accounts; Robinhood's disclosure assigns AI-trading risk to users. A price can gap through your limit, where no stop-loss can sell. Bondline aims to cover a capped part of losses when prices move beyond a selected limit. |
 | USDG | Every flow is USDG. Underwriting is one USDG signature and one transaction (EIP-3009 `receiveWithAuthorization`). The issuer's pause and freeze controls are checked and handled. |
 
-Judge kit with every on-chain moment and its transaction: **⟨app⟩/judge**.
+Judge kit with every on-chain moment and its transaction: [bondline.app/judge](https://bondline.app/judge).
 
 Each item below was re-run and checked by an agent that didn't build it (verdicts in [verification/](verification/)):
 
