@@ -1,0 +1,194 @@
+[
+  {
+    "at": "2026-10-03T21:10:44.249Z",
+    "label": "gas 0.0005 ETH → CAREFUL",
+    "hash": "0x6f644267e6ce95dfa822a5aa74b198bfa98d83f2732688e292e43b9cde3e7492",
+    "block": 128336030
+  },
+  {
+    "at": "2026-10-03T21:10:47.614Z",
+    "label": "gas 0.0005 ETH → BOLD",
+    "hash": "0xc3755b06428542771070966f5bdfaf0b285b26af141c43d61ff40c0d02fd19da",
+    "block": 128336051
+  },
+  {
+    "at": "2026-10-03T21:10:50.884Z",
+    "label": "gas 0.0005 ETH → UNDERWRITER",
+    "hash": "0x6f58155ce2448145bbb85d37009fd9e9a8fb2f433eb167ed1850ba55ad89c767",
+    "block": 128336068
+  },
+  {
+    "at": "2026-10-03T21:10:54.932Z",
+    "label": "gas 0.0005 ETH → BUYER",
+    "hash": "0x891b60bf602ef8122208c0e35c3fb559c34cf95eded12b451225002f8d0e54a3",
+    "block": 128336093
+  },
+  {
+    "at": "2026-10-03T21:11:02.804Z",
+    "label": "15 USDG: DEPLOYER → UNDERWRITER",
+    "hash": "0x69d64630e542c3c42149ca2c2ee22630101366ceb67c99dcff2014d5bfcb9b5d",
+    "block": 128336141
+  },
+  {
+    "at": "2026-10-03T21:11:06.470Z",
+    "label": "15 USDG: DEPLOYER → BUYER",
+    "hash": "0x05ea96f7d633687b053be09109954fa54f55756f4d177ea5d7af8bfd65c89cfe",
+    "block": 128336162
+  },
+  {
+    "at": "2026-10-03T21:11:09.013Z",
+    "label": "100 USDG: KEEPER → BUYER",
+    "hash": "0xa7745b383496099524a6e232978a5efea304747a14166de85cf76d912387a424",
+    "block": 128336183
+  },
+  {
+    "at": "2026-10-03T21:11:11.520Z",
+    "label": "100 USDG: CAREFUL → BUYER",
+    "hash": "0x829889a2b13591396ec03ea7f0dc6b9bf5b34018fe511252adb250904577e48c",
+    "block": 128336198
+  },
+  {
+    "at": "2026-10-03T21:11:15.381Z",
+    "label": "0.416666 USDG: BOLD → BUYER",
+    "hash": "0xb8aa42611628f1ee0496531f9fced800c94085226ea96d0bf67df8d4529990ea",
+    "block": 128336213
+  },
+  {
+    "at": "2026-10-03T21:11:23.248Z",
+    "label": "stock 3.5 TSLA → replay exchange",
+    "hash": "0x14cd83ca8faa481f83585115aac663d592936ada8227a1ad342522b436b259ed",
+    "block": 128336256
+  },
+  {
+    "at": "2026-10-03T21:11:26.194Z",
+    "label": "stock 1.5 TSLA → live exchange",
+    "hash": "0x34bccf0b921e48668002e751f1f95511da2fa995970529929af775d6a99cceba",
+    "block": 128336273
+  },
+  {
+    "at": "2026-10-03T21:11:29.426Z",
+    "label": "stock 3.5 AMZN → replay exchange",
+    "hash": "0x7043199def68e1fc454a1a84b54fad378acc61efa69d2f6cd684844d6da4f994",
+    "block": 128336289
+  },
+  {
+    "at": "2026-10-03T21:11:32.982Z",
+    "label": "stock 1.5 AMZN → live exchange",
+    "hash": "0x51826b10681b5800589589c4900ae3233a262b18ec4f9e98ab9bd3ad25e16040",
+    "block": 128336307
+  },
+  {
+    "at": "2026-10-03T21:11:35.922Z",
+    "label": "stock 40 USDG → replay exchange",
+    "hash": "0x02e32241c4ddff2439b9b12aa65b38eec0ef900723d29fc0cd296f0f04adb28e",
+    "block": 128336326
+  },
+  {
+    "at": "2026-10-03T21:11:39.193Z",
+    "label": "stock 30 USDG → live exchange",
+    "hash": "0x1806e10db255bc0b409aef1704f51400ff6f42c916aaeeb9ca1861e376169f03",
+    "block": 128336343
+  },
+  {
+    "at": "2026-10-03T21:11:46.951Z",
+    "label": "replay: Bold 4% offer, 40 USDG bond, one signature",
+    "hash": "0xb0b099a4f9e8b272a0677d2988c46b893625b6be81e0a0610aa914c69dd182f5",
+    "block": 128336377
+  },
+  {
+    "at": "2026-10-03T21:11:50.306Z",
+    "label": "replay: Careful 1% offer, 25 USDG bond, one signature",
+    "hash": "0x31ebad7ca3afe5754fee3856f692afb23125390d074d3463748c89a7b5102db6",
+    "block": 128336391
+  },
+  {
+    "at": "2026-10-03T21:11:53.585Z",
+    "label": "live: Careful 1% offer, 25 USDG bond, one signature",
+    "hash": "0x6f26963c250948953848f727d810eb1253dfe8948d222f7a5c9f873d4b9d7c2a",
+    "block": 128336413
+  },
+  {
+    "at": "2026-10-03T21:11:56.826Z",
+    "label": "live: Bold 4% offer, 25 USDG bond, one signature",
+    "hash": "0x13d9b2438579b1376ea5a73b17794eaaea1be0acc43a0a604cf9e6c6d95fcc22",
+    "block": 128336423
+  },
+  {
+    "at": "2026-10-03T21:12:04.772Z",
+    "label": "replay: approve exactly 104.166666 USDG",
+    "hash": "0xb73beebaa3b506ab23044586eb1be8e74274282c77c50a4c6b60471651ba0105",
+    "block": 128336465
+  },
+  {
+    "at": "2026-10-03T21:12:08.136Z",
+    "label": "replay: cover behind Bold 4%, 10% limit, 104.166666 USDG",
+    "hash": "0xbb0d0fd9729e64d06ffebad1671bb5914052e58be5e9037039c9913ed6767b78",
+    "block": 128336484
+  },
+  {
+    "at": "2026-10-03T21:12:11.604Z",
+    "label": "replay: approve exactly 50 USDG",
+    "hash": "0x6e195fe0f39bc2390fea450b3405513cd82d03ab4430b04012e53e150012eff2",
+    "block": 128336501
+  },
+  {
+    "at": "2026-10-03T21:12:14.632Z",
+    "label": "replay: cover behind Careful 1%, 10% limit, 50 USDG",
+    "hash": "0x2fff594ffee97a87048e58d69de639be57e3b3de5a6bfe8801f9b175d865d075",
+    "block": 128336518
+  },
+  {
+    "at": "2026-10-03T21:13:17.819Z",
+    "label": "live: approve exactly 30 USDG",
+    "hash": "0x0b3a8863822c76c60b49c072c562abf2d63f34d7fe001c02198b5cafdeaaba0c",
+    "block": 128336847
+  },
+  {
+    "at": "2026-10-03T21:13:20.684Z",
+    "label": "live: cover behind Careful 1%, 10% limit, 30 USDG",
+    "hash": "0xf3dc300b03082482f7705b4aa6f8b41a4b8ab6548e09b03d24b15c15383be3b9",
+    "block": 128336864
+  },
+  {
+    "at": "2026-10-03T21:13:25.902Z",
+    "label": "live: approve exactly 31.25 USDG",
+    "hash": "0xa22ff8dc395cda0278f18609d9e4dbe74f44d0739dfbdc817dbaa4fb675e2ede",
+    "block": 128336882
+  },
+  {
+    "at": "2026-10-03T21:13:28.821Z",
+    "label": "live: cover behind Bold 4%, 10% limit, 31.25 USDG",
+    "hash": "0xc721cbcda48f469865fb600131978392d3aa8d57acc35c5c2394a0bd50cf2419",
+    "block": 128336903
+  },
+  {
+    "at": "2026-10-04T10:09:30.139Z",
+    "label": "16.249999 USDG: BOLD (spare) → BUYER for the live 5% covers",
+    "hash": "0xfebba9198fb90f9e5f5162f6e15914219741e686fdcc3994306ba387b9a3575b",
+    "block": 128647427
+  },
+  {
+    "at": "2026-10-04T10:09:33.609Z",
+    "label": "live: approve exactly 15.625 USDG",
+    "hash": "0xb368ec6854e7a40e24b129b7216816def838b234aedeb755dcadc0020ecfbf58",
+    "block": 128647460
+  },
+  {
+    "at": "2026-10-04T10:09:36.561Z",
+    "label": "live: cover 1 behind Bold 4%, 5% limit, 15.625 USDG",
+    "hash": "0x2cef795db779b31faf2cb15e4836cb8876cbe044515917692567bcb5a5e15505",
+    "block": 128647486
+  },
+  {
+    "at": "2026-10-04T10:09:39.476Z",
+    "label": "live: approve exactly 15.625 USDG",
+    "hash": "0xcfcb3395c0916bdbc727b1be09231ca5985d87cb60bfbdf4ce58a40bdead5ee2",
+    "block": 128647508
+  },
+  {
+    "at": "2026-10-04T10:09:42.315Z",
+    "label": "live: cover 2 behind Bold 4%, 5% limit, 15.625 USDG",
+    "hash": "0x9fdf2ff3cbf024385c3ddaab26f82b300b5c152da24f978fb8cce9b43edb01f5",
+    "block": 128647529
+  }
+]

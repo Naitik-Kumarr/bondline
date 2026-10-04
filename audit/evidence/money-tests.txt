@@ -1,0 +1,56 @@
+Compiling 1 files with Solc 0.8.28
+Solc 0.8.28 finished in 1.09s
+Compiler run successful!
+
+Ran 21 tests for test/AuditMoneySafety.t.sol:AuditMoneySafetyTest
+[PASS] testClean_agentCannotWithdrawPayReleaseOrBypassRules() (gas: 1063688)
+[PASS] testClean_closeStopsAndReleasesEvenWhilePricesStaleAndUSDGPaused() (gas: 1185615)
+[PASS] testClean_directEOACannotTradeAtVenue() (gas: 13894)
+[PASS] testClean_doubleSettlementRejectedAndNoSecondPayout() (gas: 1297179)
+[PASS] testClean_frozenSettlementRollsBackAllAccountingAndCanRetry() (gas: 1348094)
+[PASS] testClean_keeperOnlyAndTimestampAnswerSanity() (gas: 21902)
+[PASS] testClean_measureEmptyOfferEnumerationCost() (gas: 312991007)
+Logs:
+  1000 empty offers getter gas (account cold; storage warm): 7888173
+
+[PASS] testClean_pausedSettlementRollsBackAllAccountingAndCanRetry() (gas: 1347548)
+[PASS] testClean_receiveAuthorizationCannotBeFrontRunOrReplayed() (gas: 485672)
+[PASS] testClean_staleAndInvalidPricesCannotSettle() (gas: 1306044)
+[PASS] testClean_underwriterCannotReleaseAnyReservedUSDGOrBlockSettlement() (gas: 1273663)
+[PASS] testFuzz_cleanPayoutNeverExceedsReservationAfterTopupAndWithdrawal(uint256,uint256) (runs: 1000, μ: 1349326, ~: 1351698)
+[FAIL: StalePrices(1790000001 [1.79e9], 300)] testSafety_cashWithdrawalUnaffectedByZeroValueStaleDonation() (gas: 1150239)
+[FAIL: unsolicited zero-value disallowed stock blocked payout] testSafety_claimUnaffectedByDisallowedZeroValueStaleDonation() (gas: 1380529)
+[FAIL: zero-bond spam makes the all-offers getter exceed 2M gas] testSafety_emptyOfferSpamRemainsEnumerableUnderTwoMillionGas() (gas: 307101641)
+[FAIL: health says settle would succeed for frozen recipient] testSafety_healthRejectsFrozenPayoutRecipient() (gas: 1420109)
+[FAIL: health says settle would succeed while token is paused] testSafety_healthRejectsIssuerPausedSettlement() (gas: 1419278)
+[FAIL: paused USDG causes reverted transaction without Blocked receipt] testSafety_issuerBlockedTradeStillProducesBlockedReceipt() (gas: 1202996)
+[FAIL: fixed keeper can set a fresh unsupported price and trigger a capped payout: 198000000 != 0] testSafety_keeperCannotManufacturePayoutAgainstUnchangedReferencePrice() (gas: 1413431)
+Logs:
+  unchanged-reference account value USDG base units: 989208000
+  mirror-only manufactured payout USDG base units: 198000000
+
+[FAIL: timestamp monotonicity cannot authenticate the source timestamp: 1790000302 != 1790000001] testSafety_oldMirrorAnswerCannotBeRetimestampedAsFresh() (gas: 70680)
+[FAIL: permissionless self-created account bypassed replay-inventory admission protection: 936571654523 < 1000000000000] testSafety_untrustedReplayParticipantCannotExtractVenueUSDG() (gas: 1539029)
+Logs:
+  attacker profit USDG base units: 63428345477
+  venue loss USDG base units: 63428345477
+
+Suite result: FAILED. 12 passed; 9 failed; 0 skipped; finished in 280.30ms (344.76ms CPU time)
+
+Ran 1 test suite in 283.52ms (280.30ms CPU time): 12 tests passed, 9 failed, 0 skipped (21 total tests)
+
+Failing tests:
+Encountered 9 failing tests in test/AuditMoneySafety.t.sol:AuditMoneySafetyTest
+[FAIL: StalePrices(1790000001 [1.79e9], 300)] testSafety_cashWithdrawalUnaffectedByZeroValueStaleDonation() (gas: 1150239)
+[FAIL: unsolicited zero-value disallowed stock blocked payout] testSafety_claimUnaffectedByDisallowedZeroValueStaleDonation() (gas: 1380529)
+[FAIL: zero-bond spam makes the all-offers getter exceed 2M gas] testSafety_emptyOfferSpamRemainsEnumerableUnderTwoMillionGas() (gas: 307101641)
+[FAIL: health says settle would succeed for frozen recipient] testSafety_healthRejectsFrozenPayoutRecipient() (gas: 1420109)
+[FAIL: health says settle would succeed while token is paused] testSafety_healthRejectsIssuerPausedSettlement() (gas: 1419278)
+[FAIL: paused USDG causes reverted transaction without Blocked receipt] testSafety_issuerBlockedTradeStillProducesBlockedReceipt() (gas: 1202996)
+[FAIL: fixed keeper can set a fresh unsupported price and trigger a capped payout: 198000000 != 0] testSafety_keeperCannotManufacturePayoutAgainstUnchangedReferencePrice() (gas: 1413431)
+[FAIL: timestamp monotonicity cannot authenticate the source timestamp: 1790000302 != 1790000001] testSafety_oldMirrorAnswerCannotBeRetimestampedAsFresh() (gas: 70680)
+[FAIL: permissionless self-created account bypassed replay-inventory admission protection: 936571654523 < 1000000000000] testSafety_untrustedReplayParticipantCannotExtractVenueUSDG() (gas: 1539029)
+
+Encountered a total of 9 failing tests, 12 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 9 failed tests

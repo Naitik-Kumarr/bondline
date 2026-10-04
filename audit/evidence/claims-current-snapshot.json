@@ -1,0 +1,50 @@
+{
+  "rpc": "https://rpc.testnet.chain.robinhood.com",
+  "queriedAt": "2026-10-04T09:47:16.625Z",
+  "blockNumber": "128637073",
+  "blockHash": "0xd206bf69851260c8caebdd5cfb095b24b0c1db79e6d1d50dafe79005971e57a8",
+  "timestamp": "1791107234",
+  "markets": {
+    "live": {
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "offers": 2,
+      "books": [
+        {
+          "address": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+          "claimsPaid": "0",
+          "premiums": "300000",
+          "bond": "25300000",
+          "reserved": "5940000"
+        },
+        {
+          "address": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+          "claimsPaid": "0",
+          "premiums": "1250000",
+          "bond": "26250000",
+          "reserved": "6000000"
+        }
+      ]
+    },
+    "replay": {
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "offers": 2,
+      "books": [
+        {
+          "address": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+          "claimsPaid": "0",
+          "premiums": "4166666",
+          "bond": "44166666",
+          "reserved": "20000000"
+        },
+        {
+          "address": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+          "claimsPaid": "0",
+          "premiums": "500000",
+          "bond": "25500000",
+          "reserved": "9900000"
+        }
+      ]
+    }
+  },
+  "claimsPaidTotal": "0"
+}

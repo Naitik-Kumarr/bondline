@@ -1,0 +1,87 @@
+{
+  "gitRepositoryPresent": false,
+  "results": [
+    {
+      "file": ".gitignore",
+      "paths": [
+        {
+          "path": ".env",
+          "ignored": true
+        },
+        {
+          "path": ".env.local",
+          "ignored": true
+        },
+        {
+          "path": ".env.production.local",
+          "ignored": true
+        },
+        {
+          "path": ".env.example",
+          "ignored": true
+        },
+        {
+          "path": "_private/audit-placeholder.md",
+          "ignored": true
+        },
+        {
+          "path": "logs/audit-placeholder.log",
+          "ignored": true
+        },
+        {
+          "path": "web/.env.local",
+          "ignored": true
+        },
+        {
+          "path": "web/_private/audit-placeholder.md",
+          "ignored": true
+        },
+        {
+          "path": "web/logs/audit-placeholder.log",
+          "ignored": true
+        }
+      ]
+    },
+    {
+      "file": ".vercelignore",
+      "paths": [
+        {
+          "path": ".env",
+          "ignored": true
+        },
+        {
+          "path": ".env.local",
+          "ignored": true
+        },
+        {
+          "path": ".env.production.local",
+          "ignored": true
+        },
+        {
+          "path": ".env.example",
+          "ignored": true
+        },
+        {
+          "path": "_private/audit-placeholder.md",
+          "ignored": true
+        },
+        {
+          "path": "logs/audit-placeholder.log",
+          "ignored": true
+        },
+        {
+          "path": "web/.env.local",
+          "ignored": true
+        },
+        {
+          "path": "web/_private/audit-placeholder.md",
+          "ignored": true
+        },
+        {
+          "path": "web/logs/audit-placeholder.log",
+          "ignored": true
+        }
+      ]
+    }
+  ]
+}

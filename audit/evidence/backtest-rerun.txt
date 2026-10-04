@@ -1,0 +1,9 @@
+Robinhood Chain mainnet block 79836175
+  TSLA: read down to round 1347     TSLA: read down to round 1247     TSLA: read down to round 1147     TSLA: read down to round 1047     TSLA: read down to round 947     TSLA: read down to round 847     TSLA: read down to round 747     TSLA: read down to round 647     TSLA: read down to round 547     TSLA: read down to round 447     TSLA: read down to round 347     TSLA: read down to round 247     TSLA: read down to round 147     TSLA: read down to round 47     TSLA: read down to round 1   
+TSLA (RHTSLA / USD): 1446 rounds, latest 2026-10-02T19:55:31.000Z
+  AMZN: read down to round 773     AMZN: read down to round 673     AMZN: read down to round 573     AMZN: read down to round 473     AMZN: read down to round 373     AMZN: read down to round 273     AMZN: read down to round 173     AMZN: read down to round 73     AMZN: read down to round 1   
+AMZN (Robinhood AMZN / USD): 872 rounds, latest 2026-10-02T19:51:17.000Z
+saved rounds to audit/evidence/backtest-rounds.json
+wrote audit/backtest/data/backtest.json and audit/backtest/BACKTEST.md
+Careful: 51 covers, 0 claims, payouts 0 USDG; fee premiums 515.15151 (loss ratio 0), model premiums 66.775626 (loss ratio 0); breakeven 0 bps
+Bold: 51 covers, 17 claims, payouts 17.397931 USDG; fee premiums 2124.999966 (loss ratio 0.0082), model premiums 891.154059 (loss ratio 0.0195); breakeven 3.4114 bps

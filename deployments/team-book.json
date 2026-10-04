@@ -1,0 +1,66 @@
+[
+  {
+    "market": "replay",
+    "persona": "bold",
+    "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+    "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+    "principal": "100000000",
+    "limitBps": 1000,
+    "gapDemo": true,
+    "tx": "0xbb0d0fd9729e64d06ffebad1671bb5914052e58be5e9037039c9913ed6767b78",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  {
+    "market": "replay",
+    "persona": "careful",
+    "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+    "account": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+    "principal": "49500000",
+    "limitBps": 1000,
+    "gapDemo": false,
+    "tx": "0x2fff594ffee97a87048e58d69de639be57e3b3de5a6bfe8801f9b175d865d075",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  {
+    "market": "live",
+    "persona": "careful",
+    "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+    "account": "0xa93962d5d44Ff3F0809754d555924389Fe3A0C0C",
+    "principal": "29700000",
+    "limitBps": 1000,
+    "gapDemo": false,
+    "tx": "0xf3dc300b03082482f7705b4aa6f8b41a4b8ab6548e09b03d24b15c15383be3b9",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  {
+    "market": "live",
+    "persona": "bold",
+    "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+    "account": "0x4462A953Db52Cda1fbd745e29cc62E72943Ed9F4",
+    "principal": "30000000",
+    "limitBps": 1000,
+    "gapDemo": false,
+    "tx": "0xc721cbcda48f469865fb600131978392d3aa8d57acc35c5c2394a0bd50cf2419",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  {
+    "market": "live",
+    "persona": "bold",
+    "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+    "account": "0x857Ba41f7D45c32e701E47191c39D389BC481fb5",
+    "limitBps": 500,
+    "purpose": "open through judging; settles on real prices if markets fall far enough",
+    "tx": "0x2cef795db779b31faf2cb15e4836cb8876cbe044515917692567bcb5a5e15505",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  {
+    "market": "live",
+    "persona": "bold",
+    "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+    "account": "0x504b79590E0CACAB21488a15c4159C270cEDd043",
+    "limitBps": 500,
+    "purpose": "open through judging; settles on real prices if markets fall far enough",
+    "tx": "0x9fdf2ff3cbf024385c3ddaab26f82b300b5c152da24f978fb8cce9b43edb01f5",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  }
+]

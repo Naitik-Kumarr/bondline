@@ -1,0 +1,889 @@
+{
+  "generatedAt": "2026-10-03T19:13:09Z",
+  "summary": "Annualised realised volatility of TSLA and AMZN, from Chainlink's own price history on Robinhood Chain mainnet. σ of the most volatile allowed stock is the σ input of Bondline's reference price.",
+  "source": {
+    "provider": "Chainlink Data Feeds",
+    "chain": "Robinhood Chain mainnet",
+    "chainId": 4663,
+    "rpc": "https://rpc.mainnet.chain.robinhood.com",
+    "block": "79323472",
+    "script": "scripts/volatility.ts"
+  },
+  "method": {
+    "rounds": "Every round walked back with getRoundData from latestRoundData; round id = (phaseId << 64) | aggregator round.",
+    "close": "The feed's answer at 16:00 New York time (the NYSE close; 13:00 on early-close days) on each NYSE trading day: the last round updated at or before the close.",
+    "tradingDays": "Weekdays except NYSE holidays (nyse.com, Holidays & Trading Hours).",
+    "returns": "Daily log returns of closes: ln(close_t / close_t-1).",
+    "estimator": "Sample standard deviation (n - 1) of the daily log returns, times √252.",
+    "annualisation": 252,
+    "cleanWindow": "The longest run of trading days in which every close comes from a round at most 26 hours old (the feeds' 24-hour heartbeat plus slack) and from the same consistently scaled run of rounds (no 10x jump between two consecutive rounds).",
+    "ci95": "95% interval for σ from the chi-square distribution (Wilson–Hilferty), assuming independent normal returns."
+  },
+  "sigma": {
+    "TSLA": 0.5457,
+    "AMZN": 0.3932
+  },
+  "mostVolatile": "TSLA",
+  "window": {
+    "from": "2026-06-23",
+    "to": "2026-10-02",
+    "returns": 71
+  },
+  "assets": {
+    "TSLA": {
+      "feed": "0x4A1166a659A55625345e9515b32adECea5547C38",
+      "description": "RHTSLA / USD",
+      "decimals": 8,
+      "phases": [
+        {
+          "phase": 1,
+          "aggregator": "0x7A6b81ba7FbCB90104d8C496158Cf383cD7233b1",
+          "latestRound": 1446,
+          "roundsRead": 1446
+        }
+      ],
+      "missingRounds": 0,
+      "firstRound": {
+        "roundId": "18446744073709551617",
+        "rawAnswer": "3964149999900000000",
+        "updatedAt": "2026-06-22T00:00:44Z"
+      },
+      "latestRound": {
+        "roundId": "18446744073709553062",
+        "rawAnswer": "37044800000",
+        "updatedAt": "2026-10-02T19:55:31Z"
+      },
+      "scaleBreaks": [
+        {
+          "lastBadRound": 37,
+          "lastBadAt": "2026-06-23T13:48:16Z",
+          "firstGoodRound": 38,
+          "firstGoodAt": "2026-06-23T13:52:16Z",
+          "factor": 99880000
+        }
+      ],
+      "window": {
+        "from": "2026-06-23",
+        "to": "2026-10-02",
+        "closes": 72,
+        "returns": 71,
+        "tradingDayClosesInHistory": 73,
+        "oldestCloseHours": 5.1633
+      },
+      "sigma": 0.5457,
+      "sigmaDaily": 0.034375,
+      "ci95": [
+        0.4683,
+        0.6539
+      ],
+      "meanDailyLogReturn": -0.000424,
+      "largestMoves": [
+        {
+          "date": "2026-07-23",
+          "logReturn": -0.157174
+        },
+        {
+          "date": "2026-06-29",
+          "logReturn": 0.081166
+        },
+        {
+          "date": "2026-07-02",
+          "logReturn": -0.080265
+        }
+      ],
+      "closes": [
+        {
+          "date": "2026-06-23",
+          "price": 381.77,
+          "roundUpdatedAt": "2026-06-23T19:05:38Z"
+        },
+        {
+          "date": "2026-06-24",
+          "price": 375.74,
+          "roundUpdatedAt": "2026-06-24T19:25:37Z"
+        },
+        {
+          "date": "2026-06-25",
+          "price": 373.535,
+          "roundUpdatedAt": "2026-06-25T18:45:38Z"
+        },
+        {
+          "date": "2026-06-26",
+          "price": 380.265,
+          "roundUpdatedAt": "2026-06-26T19:58:35Z"
+        },
+        {
+          "date": "2026-06-29",
+          "price": 412.4167,
+          "roundUpdatedAt": "2026-06-29T19:16:26Z"
+        },
+        {
+          "date": "2026-06-30",
+          "price": 421.7599,
+          "roundUpdatedAt": "2026-06-30T19:26:24Z"
+        },
+        {
+          "date": "2026-07-01",
+          "price": 425.89875,
+          "roundUpdatedAt": "2026-07-01T16:53:18Z"
+        },
+        {
+          "date": "2026-07-02",
+          "price": 393.05,
+          "roundUpdatedAt": "2026-07-02T19:55:35Z"
+        },
+        {
+          "date": "2026-07-06",
+          "price": 419.115,
+          "roundUpdatedAt": "2026-07-06T19:55:20Z"
+        },
+        {
+          "date": "2026-07-07",
+          "price": 404.28425,
+          "roundUpdatedAt": "2026-07-07T19:50:41Z"
+        },
+        {
+          "date": "2026-07-08",
+          "price": 395.21475,
+          "roundUpdatedAt": "2026-07-08T19:50:40Z"
+        },
+        {
+          "date": "2026-07-09",
+          "price": 405.755,
+          "roundUpdatedAt": "2026-07-09T18:14:45Z"
+        },
+        {
+          "date": "2026-07-10",
+          "price": 407.825,
+          "roundUpdatedAt": "2026-07-10T19:53:35Z"
+        },
+        {
+          "date": "2026-07-13",
+          "price": 394.3501,
+          "roundUpdatedAt": "2026-07-13T19:56:21Z"
+        },
+        {
+          "date": "2026-07-14",
+          "price": 396.8282,
+          "roundUpdatedAt": "2026-07-14T15:52:25Z"
+        },
+        {
+          "date": "2026-07-15",
+          "price": 394.765,
+          "roundUpdatedAt": "2026-07-15T18:59:12Z"
+        },
+        {
+          "date": "2026-07-16",
+          "price": 391.15999999,
+          "roundUpdatedAt": "2026-07-16T19:16:57Z"
+        },
+        {
+          "date": "2026-07-17",
+          "price": 381.468,
+          "roundUpdatedAt": "2026-07-17T18:24:25Z"
+        },
+        {
+          "date": "2026-07-20",
+          "price": 369.515,
+          "roundUpdatedAt": "2026-07-20T19:59:34Z"
+        },
+        {
+          "date": "2026-07-21",
+          "price": 378.135,
+          "roundUpdatedAt": "2026-07-21T19:02:00Z"
+        },
+        {
+          "date": "2026-07-22",
+          "price": 374.66265,
+          "roundUpdatedAt": "2026-07-22T19:09:19Z"
+        },
+        {
+          "date": "2026-07-23",
+          "price": 320.17,
+          "roundUpdatedAt": "2026-07-23T19:59:08Z"
+        },
+        {
+          "date": "2026-07-24",
+          "price": 312.35455,
+          "roundUpdatedAt": "2026-07-24T19:56:16Z"
+        },
+        {
+          "date": "2026-07-27",
+          "price": 308.72,
+          "roundUpdatedAt": "2026-07-27T19:31:32Z"
+        },
+        {
+          "date": "2026-07-28",
+          "price": 307.3711,
+          "roundUpdatedAt": "2026-07-28T19:59:59Z"
+        },
+        {
+          "date": "2026-07-29",
+          "price": 298.866,
+          "roundUpdatedAt": "2026-07-29T19:40:26Z"
+        },
+        {
+          "date": "2026-07-30",
+          "price": 309.98995,
+          "roundUpdatedAt": "2026-07-30T19:11:10Z"
+        },
+        {
+          "date": "2026-07-31",
+          "price": 313.115,
+          "roundUpdatedAt": "2026-07-31T19:54:15Z"
+        },
+        {
+          "date": "2026-08-03",
+          "price": 321.6851,
+          "roundUpdatedAt": "2026-08-03T19:52:09Z"
+        },
+        {
+          "date": "2026-08-04",
+          "price": 327.07,
+          "roundUpdatedAt": "2026-08-04T19:54:11Z"
+        },
+        {
+          "date": "2026-08-05",
+          "price": 321.34,
+          "roundUpdatedAt": "2026-08-05T18:31:37Z"
+        },
+        {
+          "date": "2026-08-06",
+          "price": 318.7,
+          "roundUpdatedAt": "2026-08-06T16:04:24Z"
+        },
+        {
+          "date": "2026-08-07",
+          "price": 328.54999999,
+          "roundUpdatedAt": "2026-08-07T19:06:24Z"
+        },
+        {
+          "date": "2026-08-10",
+          "price": 330.715,
+          "roundUpdatedAt": "2026-08-10T19:55:32Z"
+        },
+        {
+          "date": "2026-08-11",
+          "price": 332.605,
+          "roundUpdatedAt": "2026-08-11T19:35:17Z"
+        },
+        {
+          "date": "2026-08-12",
+          "price": 326.2731,
+          "roundUpdatedAt": "2026-08-12T16:00:56Z"
+        },
+        {
+          "date": "2026-08-13",
+          "price": 339.6637,
+          "roundUpdatedAt": "2026-08-13T19:13:56Z"
+        },
+        {
+          "date": "2026-08-14",
+          "price": 342.11,
+          "roundUpdatedAt": "2026-08-14T18:19:22Z"
+        },
+        {
+          "date": "2026-08-17",
+          "price": 338.13,
+          "roundUpdatedAt": "2026-08-17T19:51:33Z"
+        },
+        {
+          "date": "2026-08-18",
+          "price": 336.305,
+          "roundUpdatedAt": "2026-08-18T17:25:08Z"
+        },
+        {
+          "date": "2026-08-19",
+          "price": 349.955,
+          "roundUpdatedAt": "2026-08-19T19:56:38Z"
+        },
+        {
+          "date": "2026-08-20",
+          "price": 343.69285,
+          "roundUpdatedAt": "2026-08-20T18:49:34Z"
+        },
+        {
+          "date": "2026-08-21",
+          "price": 362.2649,
+          "roundUpdatedAt": "2026-08-21T19:56:19Z"
+        },
+        {
+          "date": "2026-08-24",
+          "price": 348.75355,
+          "roundUpdatedAt": "2026-08-24T19:45:34Z"
+        },
+        {
+          "date": "2026-08-25",
+          "price": 350.23635,
+          "roundUpdatedAt": "2026-08-25T19:55:31Z"
+        },
+        {
+          "date": "2026-08-26",
+          "price": 346.695,
+          "roundUpdatedAt": "2026-08-26T19:01:56Z"
+        },
+        {
+          "date": "2026-08-27",
+          "price": 354.24,
+          "roundUpdatedAt": "2026-08-27T16:54:49Z"
+        },
+        {
+          "date": "2026-08-28",
+          "price": 348.36125,
+          "roundUpdatedAt": "2026-08-28T19:54:49Z"
+        },
+        {
+          "date": "2026-08-31",
+          "price": 366.975,
+          "roundUpdatedAt": "2026-08-31T17:16:33Z"
+        },
+        {
+          "date": "2026-09-01",
+          "price": 355.93,
+          "roundUpdatedAt": "2026-09-01T19:11:06Z"
+        },
+        {
+          "date": "2026-09-02",
+          "price": 357.1423,
+          "roundUpdatedAt": "2026-09-02T19:57:25Z"
+        },
+        {
+          "date": "2026-09-03",
+          "price": 378.13,
+          "roundUpdatedAt": "2026-09-03T19:54:37Z"
+        },
+        {
+          "date": "2026-09-04",
+          "price": 353.98495,
+          "roundUpdatedAt": "2026-09-04T18:14:36Z"
+        },
+        {
+          "date": "2026-09-08",
+          "price": 368.565,
+          "roundUpdatedAt": "2026-09-08T19:51:15Z"
+        },
+        {
+          "date": "2026-09-09",
+          "price": 368.21,
+          "roundUpdatedAt": "2026-09-09T18:52:49Z"
+        },
+        {
+          "date": "2026-09-10",
+          "price": 363.855,
+          "roundUpdatedAt": "2026-09-10T19:24:34Z"
+        },
+        {
+          "date": "2026-09-11",
+          "price": 365.91499999,
+          "roundUpdatedAt": "2026-09-11T14:50:12Z"
+        },
+        {
+          "date": "2026-09-14",
+          "price": 360.4168,
+          "roundUpdatedAt": "2026-09-14T19:09:04Z"
+        },
+        {
+          "date": "2026-09-15",
+          "price": 356.216,
+          "roundUpdatedAt": "2026-09-15T19:56:44Z"
+        },
+        {
+          "date": "2026-09-16",
+          "price": 358.54645,
+          "roundUpdatedAt": "2026-09-16T19:46:08Z"
+        },
+        {
+          "date": "2026-09-17",
+          "price": 366.84,
+          "roundUpdatedAt": "2026-09-17T18:24:21Z"
+        },
+        {
+          "date": "2026-09-18",
+          "price": 363.79999999,
+          "roundUpdatedAt": "2026-09-18T19:48:47Z"
+        },
+        {
+          "date": "2026-09-21",
+          "price": 374.2316,
+          "roundUpdatedAt": "2026-09-21T19:49:05Z"
+        },
+        {
+          "date": "2026-09-22",
+          "price": 380.265,
+          "roundUpdatedAt": "2026-09-22T19:53:48Z"
+        },
+        {
+          "date": "2026-09-23",
+          "price": 379.925,
+          "roundUpdatedAt": "2026-09-23T17:43:33Z"
+        },
+        {
+          "date": "2026-09-24",
+          "price": 378.34,
+          "roundUpdatedAt": "2026-09-24T19:13:11Z"
+        },
+        {
+          "date": "2026-09-25",
+          "price": 371.7471,
+          "roundUpdatedAt": "2026-09-25T19:02:24Z"
+        },
+        {
+          "date": "2026-09-28",
+          "price": 357.6,
+          "roundUpdatedAt": "2026-09-28T19:03:09Z"
+        },
+        {
+          "date": "2026-09-29",
+          "price": 352.571,
+          "roundUpdatedAt": "2026-09-29T19:34:25Z"
+        },
+        {
+          "date": "2026-09-30",
+          "price": 354.085,
+          "roundUpdatedAt": "2026-09-30T19:55:36Z"
+        },
+        {
+          "date": "2026-10-01",
+          "price": 354.904,
+          "roundUpdatedAt": "2026-10-01T19:55:17Z"
+        },
+        {
+          "date": "2026-10-02",
+          "price": 370.448,
+          "roundUpdatedAt": "2026-10-02T19:55:31Z"
+        }
+      ]
+    },
+    "AMZN": {
+      "feed": "0xD5a1508ceD74c084eBf3cBe853e2C968fB2a651C",
+      "description": "Robinhood AMZN / USD",
+      "decimals": 8,
+      "phases": [
+        {
+          "phase": 1,
+          "aggregator": "0x93503dFc97157cdB8aADcCaf70452621d598FDeb",
+          "latestRound": 872,
+          "roundsRead": 872
+        }
+      ],
+      "missingRounds": 0,
+      "firstRound": {
+        "roundId": "18446744073709551617",
+        "rawAnswer": "2418999999900000000",
+        "updatedAt": "2026-06-22T00:00:43Z"
+      },
+      "latestRound": {
+        "roundId": "18446744073709552488",
+        "rawAnswer": "25164999999",
+        "updatedAt": "2026-10-02T19:51:17Z"
+      },
+      "scaleBreaks": [
+        {
+          "lastBadRound": 26,
+          "lastBadAt": "2026-06-23T13:40:23Z",
+          "firstGoodRound": 27,
+          "firstGoodAt": "2026-06-23T13:53:11Z",
+          "factor": 100200000
+        }
+      ],
+      "window": {
+        "from": "2026-06-23",
+        "to": "2026-10-02",
+        "closes": 72,
+        "returns": 71,
+        "tradingDayClosesInHistory": 73,
+        "oldestCloseHours": 6.2094
+      },
+      "sigma": 0.3932,
+      "sigmaDaily": 0.024772,
+      "ci95": [
+        0.3375,
+        0.4712
+      ],
+      "meanDailyLogReturn": 0.000969,
+      "largestMoves": [
+        {
+          "date": "2026-07-31",
+          "logReturn": 0.142236
+        },
+        {
+          "date": "2026-08-03",
+          "logReturn": 0.047318
+        },
+        {
+          "date": "2026-07-23",
+          "logReturn": -0.047148
+        }
+      ],
+      "closes": [
+        {
+          "date": "2026-06-23",
+          "price": 234.91424999,
+          "roundUpdatedAt": "2026-06-23T16:01:17Z"
+        },
+        {
+          "date": "2026-06-24",
+          "price": 234.72,
+          "roundUpdatedAt": "2026-06-24T19:54:29Z"
+        },
+        {
+          "date": "2026-06-25",
+          "price": 225.94,
+          "roundUpdatedAt": "2026-06-25T19:58:36Z"
+        },
+        {
+          "date": "2026-06-26",
+          "price": 232.5741,
+          "roundUpdatedAt": "2026-06-26T19:58:28Z"
+        },
+        {
+          "date": "2026-06-29",
+          "price": 240.37,
+          "roundUpdatedAt": "2026-06-29T19:22:48Z"
+        },
+        {
+          "date": "2026-06-30",
+          "price": 237.8312,
+          "roundUpdatedAt": "2026-06-30T19:48:47Z"
+        },
+        {
+          "date": "2026-07-01",
+          "price": 242.16,
+          "roundUpdatedAt": "2026-07-01T19:29:42Z"
+        },
+        {
+          "date": "2026-07-02",
+          "price": 243.36,
+          "roundUpdatedAt": "2026-07-02T18:57:07Z"
+        },
+        {
+          "date": "2026-07-06",
+          "price": 244.75025,
+          "roundUpdatedAt": "2026-07-06T16:35:01Z"
+        },
+        {
+          "date": "2026-07-07",
+          "price": 245.8041,
+          "roundUpdatedAt": "2026-07-07T16:46:33Z"
+        },
+        {
+          "date": "2026-07-08",
+          "price": 244.1066,
+          "roundUpdatedAt": "2026-07-08T19:56:35Z"
+        },
+        {
+          "date": "2026-07-09",
+          "price": 246.56,
+          "roundUpdatedAt": "2026-07-09T19:53:35Z"
+        },
+        {
+          "date": "2026-07-10",
+          "price": 245.5677,
+          "roundUpdatedAt": "2026-07-10T14:01:43Z"
+        },
+        {
+          "date": "2026-07-13",
+          "price": 246.98775,
+          "roundUpdatedAt": "2026-07-13T19:47:06Z"
+        },
+        {
+          "date": "2026-07-14",
+          "price": 247.33315,
+          "roundUpdatedAt": "2026-07-14T18:23:43Z"
+        },
+        {
+          "date": "2026-07-15",
+          "price": 254.95,
+          "roundUpdatedAt": "2026-07-15T17:03:58Z"
+        },
+        {
+          "date": "2026-07-16",
+          "price": 249.32375,
+          "roundUpdatedAt": "2026-07-16T19:46:29Z"
+        },
+        {
+          "date": "2026-07-17",
+          "price": 247.005,
+          "roundUpdatedAt": "2026-07-17T17:53:28Z"
+        },
+        {
+          "date": "2026-07-20",
+          "price": 249.8828,
+          "roundUpdatedAt": "2026-07-20T18:41:07Z"
+        },
+        {
+          "date": "2026-07-21",
+          "price": 248.03195,
+          "roundUpdatedAt": "2026-07-21T14:34:52Z"
+        },
+        {
+          "date": "2026-07-22",
+          "price": 245.14999999,
+          "roundUpdatedAt": "2026-07-22T19:55:33Z"
+        },
+        {
+          "date": "2026-07-23",
+          "price": 233.86,
+          "roundUpdatedAt": "2026-07-23T16:43:34Z"
+        },
+        {
+          "date": "2026-07-24",
+          "price": 231.62,
+          "roundUpdatedAt": "2026-07-24T19:26:36Z"
+        },
+        {
+          "date": "2026-07-27",
+          "price": 232.35755,
+          "roundUpdatedAt": "2026-07-27T17:56:47Z"
+        },
+        {
+          "date": "2026-07-28",
+          "price": 230.685,
+          "roundUpdatedAt": "2026-07-28T19:49:30Z"
+        },
+        {
+          "date": "2026-07-29",
+          "price": 226.315,
+          "roundUpdatedAt": "2026-07-29T19:58:33Z"
+        },
+        {
+          "date": "2026-07-30",
+          "price": 235.5223,
+          "roundUpdatedAt": "2026-07-30T19:55:46Z"
+        },
+        {
+          "date": "2026-07-31",
+          "price": 271.52155,
+          "roundUpdatedAt": "2026-07-31T19:56:35Z"
+        },
+        {
+          "date": "2026-08-03",
+          "price": 284.6783,
+          "roundUpdatedAt": "2026-08-03T19:29:35Z"
+        },
+        {
+          "date": "2026-08-04",
+          "price": 278.125,
+          "roundUpdatedAt": "2026-08-04T14:29:45Z"
+        },
+        {
+          "date": "2026-08-05",
+          "price": 272.49415,
+          "roundUpdatedAt": "2026-08-05T19:55:19Z"
+        },
+        {
+          "date": "2026-08-06",
+          "price": 271.215,
+          "roundUpdatedAt": "2026-08-06T18:39:19Z"
+        },
+        {
+          "date": "2026-08-07",
+          "price": 275.1228,
+          "roundUpdatedAt": "2026-08-07T16:57:43Z"
+        },
+        {
+          "date": "2026-08-10",
+          "price": 278.27925,
+          "roundUpdatedAt": "2026-08-10T19:55:42Z"
+        },
+        {
+          "date": "2026-08-11",
+          "price": 272.27785,
+          "roundUpdatedAt": "2026-08-11T15:47:51Z"
+        },
+        {
+          "date": "2026-08-12",
+          "price": 268.0324,
+          "roundUpdatedAt": "2026-08-12T17:55:50Z"
+        },
+        {
+          "date": "2026-08-13",
+          "price": 265.87,
+          "roundUpdatedAt": "2026-08-13T16:01:15Z"
+        },
+        {
+          "date": "2026-08-14",
+          "price": 263.095,
+          "roundUpdatedAt": "2026-08-14T17:17:13Z"
+        },
+        {
+          "date": "2026-08-17",
+          "price": 261.185,
+          "roundUpdatedAt": "2026-08-17T19:59:14Z"
+        },
+        {
+          "date": "2026-08-18",
+          "price": 260.1928,
+          "roundUpdatedAt": "2026-08-18T18:05:14Z"
+        },
+        {
+          "date": "2026-08-19",
+          "price": 266.215,
+          "roundUpdatedAt": "2026-08-19T19:31:41Z"
+        },
+        {
+          "date": "2026-08-20",
+          "price": 260.5,
+          "roundUpdatedAt": "2026-08-20T18:10:37Z"
+        },
+        {
+          "date": "2026-08-21",
+          "price": 259.445,
+          "roundUpdatedAt": "2026-08-21T19:03:04Z"
+        },
+        {
+          "date": "2026-08-24",
+          "price": 262.5649,
+          "roundUpdatedAt": "2026-08-24T14:40:39Z"
+        },
+        {
+          "date": "2026-08-25",
+          "price": 261.31735,
+          "roundUpdatedAt": "2026-08-25T19:55:13Z"
+        },
+        {
+          "date": "2026-08-26",
+          "price": 259.4659,
+          "roundUpdatedAt": "2026-08-26T15:35:08Z"
+        },
+        {
+          "date": "2026-08-27",
+          "price": 256.4,
+          "roundUpdatedAt": "2026-08-27T19:42:08Z"
+        },
+        {
+          "date": "2026-08-28",
+          "price": 266.085,
+          "roundUpdatedAt": "2026-08-28T19:30:33Z"
+        },
+        {
+          "date": "2026-08-31",
+          "price": 260.5,
+          "roundUpdatedAt": "2026-08-31T19:50:34Z"
+        },
+        {
+          "date": "2026-09-01",
+          "price": 255.12,
+          "roundUpdatedAt": "2026-09-01T14:40:01Z"
+        },
+        {
+          "date": "2026-09-02",
+          "price": 254.96,
+          "roundUpdatedAt": "2026-09-02T13:47:26Z"
+        },
+        {
+          "date": "2026-09-03",
+          "price": 259.03,
+          "roundUpdatedAt": "2026-09-03T15:33:23Z"
+        },
+        {
+          "date": "2026-09-04",
+          "price": 258.725,
+          "roundUpdatedAt": "2026-09-04T19:46:08Z"
+        },
+        {
+          "date": "2026-09-08",
+          "price": 257.515,
+          "roundUpdatedAt": "2026-09-08T16:07:10Z"
+        },
+        {
+          "date": "2026-09-09",
+          "price": 251.52499999,
+          "roundUpdatedAt": "2026-09-09T15:02:15Z"
+        },
+        {
+          "date": "2026-09-10",
+          "price": 251.613,
+          "roundUpdatedAt": "2026-09-10T19:02:32Z"
+        },
+        {
+          "date": "2026-09-11",
+          "price": 257.13,
+          "roundUpdatedAt": "2026-09-11T17:34:44Z"
+        },
+        {
+          "date": "2026-09-14",
+          "price": 253.73145,
+          "roundUpdatedAt": "2026-09-14T19:00:16Z"
+        },
+        {
+          "date": "2026-09-15",
+          "price": 248.54795,
+          "roundUpdatedAt": "2026-09-15T19:58:19Z"
+        },
+        {
+          "date": "2026-09-16",
+          "price": 245.74465,
+          "roundUpdatedAt": "2026-09-16T19:51:36Z"
+        },
+        {
+          "date": "2026-09-17",
+          "price": 251.37,
+          "roundUpdatedAt": "2026-09-17T14:55:28Z"
+        },
+        {
+          "date": "2026-09-18",
+          "price": 253.863,
+          "roundUpdatedAt": "2026-09-18T16:19:12Z"
+        },
+        {
+          "date": "2026-09-21",
+          "price": 258.29255,
+          "roundUpdatedAt": "2026-09-21T16:37:01Z"
+        },
+        {
+          "date": "2026-09-22",
+          "price": 255.591,
+          "roundUpdatedAt": "2026-09-22T17:53:07Z"
+        },
+        {
+          "date": "2026-09-23",
+          "price": 248.617,
+          "roundUpdatedAt": "2026-09-23T19:50:35Z"
+        },
+        {
+          "date": "2026-09-24",
+          "price": 250.04,
+          "roundUpdatedAt": "2026-09-24T18:38:52Z"
+        },
+        {
+          "date": "2026-09-25",
+          "price": 249.942,
+          "roundUpdatedAt": "2026-09-25T16:01:12Z"
+        },
+        {
+          "date": "2026-09-28",
+          "price": 246.275,
+          "roundUpdatedAt": "2026-09-28T19:01:00Z"
+        },
+        {
+          "date": "2026-09-29",
+          "price": 247.545,
+          "roundUpdatedAt": "2026-09-29T18:29:12Z"
+        },
+        {
+          "date": "2026-09-30",
+          "price": 250.38,
+          "roundUpdatedAt": "2026-09-30T17:27:07Z"
+        },
+        {
+          "date": "2026-10-01",
+          "price": 248.87,
+          "roundUpdatedAt": "2026-10-01T17:25:19Z"
+        },
+        {
+          "date": "2026-10-02",
+          "price": 251.64999999,
+          "roundUpdatedAt": "2026-10-02T19:51:17Z"
+        }
+      ]
+    }
+  },
+  "caveats": [
+    "Short history: the feeds started on 22 June 2026 and the clean window runs 2026-06-23 to 2026-10-02 (3.3 months), so each σ rests on 71 daily returns. The 95% intervals show how loose that is.",
+    "TSLA: rounds up to 37 (the last at 2026-06-23T13:48:16Z) are about 10^8 times larger than round 38 onward: a unit error in the feed, not a price move. No return spans it, so the window starts at the next close.",
+    "AMZN: rounds up to 26 (the last at 2026-06-23T13:40:23Z) are about 10^8 times larger than round 27 onward: a unit error in the feed, not a price move. No return spans it, so the window starts at the next close.",
+    "A close is the feed's last update before 16:00 New York time. The feeds update on a 0.5% move or every 24 hours, so a close can differ from the exchange's official close by up to about 0.5%. This adds a little noise.",
+    "Realised volatility looks back. It is not a forecast, and it says nothing about jumps bigger than those in the window."
+  ]
+}

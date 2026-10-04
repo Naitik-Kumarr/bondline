@@ -1,0 +1,20 @@
+{
+  "checkedAtUTC": "2026-10-04T09:30:39.776012+00:00",
+  "items": [
+    {
+      "source": "https://robinhood.com/us/en/newsroom/hood-summit-2026/",
+      "date": "2026-09-29",
+      "result": "Source supports >150000 customers having opened agentic trading accounts (paragraph17) and allocation of AI trading risk to users (paragraph130). It does not establish all those accounts execute automated trades, or that no provider takes the risk."
+    },
+    {
+      "source": "https://fortune.com/2025/07/23/ai-agent-insurance-startup-aiuc-stealth-15-million-seed-nat-friedman/",
+      "date": "2025-07-23",
+      "result": "Page title supports $15 million seed. Full article is paywalled; detailed insurance-scope claim not independently verified."
+    },
+    {
+      "source": "https://dealroom.co/news/150943-aiuc-lands-40m-series-a-to-insure-ai-agents/",
+      "date": "2026-09-15",
+      "result": "Article supports $40 million Series A and insurance attached to enterprise AI certification. Article inconsistently calls seed US$9.71M while total funding is roughly $55M. README uses separate Fortune source for seed."
+    }
+  ]
+}

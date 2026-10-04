@@ -1,0 +1,94 @@
+[
+  {
+    "package": "@next/eslint-plugin-next",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/@next/eslint-plugin-next",
+        "version": "15.5.27",
+        "dev": true
+      }
+    ]
+  },
+  {
+    "package": "braces",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/braces",
+        "version": "3.0.3",
+        "dev": true
+      }
+    ]
+  },
+  {
+    "package": "eslint-config-next",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/eslint-config-next",
+        "version": "15.5.27",
+        "dev": true
+      }
+    ]
+  },
+  {
+    "package": "fast-glob",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/fast-glob",
+        "version": "3.3.1",
+        "dev": true
+      }
+    ]
+  },
+  {
+    "package": "micromatch",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/micromatch",
+        "version": "4.0.8",
+        "dev": true
+      }
+    ]
+  },
+  {
+    "package": "postcss",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/next/node_modules/postcss",
+        "version": "8.4.31",
+        "dev": false
+      }
+    ]
+  },
+  {
+    "package": "ws",
+    "severity": "high",
+    "instances": [
+      {
+        "path": "node_modules/@reown/appkit-controllers/node_modules/ws",
+        "version": "8.18.0",
+        "dev": false
+      },
+      {
+        "path": "node_modules/@reown/appkit-utils/node_modules/ws",
+        "version": "8.18.0",
+        "dev": false
+      },
+      {
+        "path": "node_modules/@reown/appkit/node_modules/ws",
+        "version": "8.18.0",
+        "dev": false
+      },
+      {
+        "path": "node_modules/@walletconnect/utils/node_modules/ws",
+        "version": "8.18.0",
+        "dev": false
+      }
+    ]
+  }
+]

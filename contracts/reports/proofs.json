@@ -1,0 +1,1140 @@
+{
+  "halmos": {
+    "version": "halmos 0.3.3",
+    "solver": "yices 2.6.4 (yices-solver 2.6.4.post23), z3 4.12.6 installed; all reported results use yices",
+    "command": "FOUNDRY_CONFIG=test/halmos/foundry.halmos.toml FOUNDRY_OUT=out-a FOUNDRY_CACHE_PATH=cache-a ../.venv/bin/halmos --root . --contract BondlineHalmosTest --function <test> --forge-build-out out-a --solver yices --solver-timeout-branching 2s --solver-timeout-assertion 900s --no-status",
+    "runAll": "cd contracts && PAR=10 ATO=900s bash test/halmos/run.sh <outdir> '^check_'   # one halmos process per check_* test",
+    "properties": [
+      {
+        "id": "P1",
+        "name": "settle never pays more than the cover's reservation for that account",
+        "status": "proven within stated bounds; 5 of 18 instances not proven (solver timeout)",
+        "bound": "Limit: every value in [1, 2999] bps (symbolic) or {1, 500, 777, 1000, 2000, 2999} (concrete, when the principal is symbolic). Deposit: concrete 1,000,000 / 123,456,789 / 1,000,000,000 / 2^50 units (net of a 1% premium), plus a second deposit of 777,777,777; withdrawal: symbolic on a 2^27-unit zero-premium principal, or 1 wei / 20,000,000 units with prior loss 0 or 10,000,000; loss: symbolic, any amount above the limit up to the whole account; bond: symbolic up to 2^80 (p1_single) else 2^80; price-driven cases: real 80% TSLA buy at $400, then any 8-decimal price in [1, 2^40].",
+        "paths": 162,
+        "seconds": 5484.2,
+        "instances": 18,
+        "proven": 13,
+        "timedOut": 5,
+        "failed": 0,
+        "reachability": "18 of 18 instances have a reachability witness",
+        "pathsVerifierRerun": 160,
+        "pathsNote": "path counts depend on solver timing; the verifier's re-run explored 160 (check_p1_two_deposits_d2p50: 9 vs 11), same verdicts"
+      },
+      {
+        "id": "P2",
+        "name": "loss <= limit: settle reverts WithinLimit(loss, limit) and moves no USDG",
+        "status": "proven within stated bounds",
+        "bound": "Limit: every value in [1, 2999] bps (symbolic). Deposit: concrete 1,000,000 / 123,456,789 / 1,000,000,000 / 2^50 units. Loss and gift (value above principal): symbolic, up to the account balance and 2^64; price-driven cases: any 8-decimal price in [1, 2^40] after a real TSLA buy.",
+        "paths": 59,
+        "seconds": 189.7,
+        "instances": 6,
+        "proven": 6,
+        "timedOut": 0,
+        "failed": 0,
+        "reachability": "6 of 6 instances have a reachability witness"
+      },
+      {
+        "id": "P3",
+        "name": "loss <= cap: value + payout == principal - limit (limit rounded up)",
+        "status": "proven within stated bounds",
+        "bound": "Limit: every value in [1, 2999] bps (symbolic). Deposit: concrete 1,000,000 / 123,456,789 / 1,000,000,000 / 2^50 units. Loss: symbolic, any value with limit < loss and loss - limit <= principal x (cap - limit) / 10000. Price-driven: real TSLA position, any price in [1, 2^40].",
+        "paths": 44,
+        "seconds": 827.2,
+        "instances": 6,
+        "proven": 6,
+        "timedOut": 0,
+        "failed": 0,
+        "reachability": "6 of 6 instances have a reachability witness"
+      },
+      {
+        "id": "P4",
+        "name": "after every deposit and withdraw: reserve >= principal x (cap - limit) / 10000",
+        "status": "proven within stated bounds",
+        "bound": "Deposit: limit symbolic over [1, 2999] with first deposit concrete (1,000,000 / 123,456,789 / 1,000,000,000 / 2^50 units) and a second deposit of 777,777,777; withdraw: symbolic amount on a 2^27-unit zero-premium principal with limit in {1, 500, 777, 1000, 2000, 2999}, or concrete amount (1 wei, 20,000,000) after a concrete prior loss (0, 10,000,000, 100,000,000) with the limit symbolic over [1, 2999].",
+        "paths": 114,
+        "seconds": 1316.0,
+        "instances": 16,
+        "proven": 16,
+        "timedOut": 0,
+        "failed": 0,
+        "reachability": "16 of 16 instances have a reachability witness"
+      },
+      {
+        "id": "P5",
+        "name": "the market keeps no USDG after createOffer and createOfferWithAuthorization",
+        "status": "proven for all paths within its assumptions (a valid signature; the underwriter is not the zero address, the market or USDG); a BondlineMarket property",
+        "bound": "All paths: underwriter, agent, every numeric term (min/max limit, fee, max stock share) and the bond amount (any non-zero amount the mock USDG can mint to the underwriter) are symbolic; the underwriter is assumed not to be the zero address, the market or the USDG contract; the authorization signature (v, r, s), nonce and validBefore are symbolic and assumed valid by constraining ecrecover to return the underwriter.",
+        "paths": 37,
+        "seconds": 2.8,
+        "instances": 2,
+        "proven": 2,
+        "timedOut": 0,
+        "failed": 0,
+        "reachability": "2 of 2 instances have a reachability witness"
+      }
+    ],
+    "attemptsWithSymbolicDeposit": [
+      {
+        "id": "P2-symbolic-deposit",
+        "test": "check_attempt_p2_within_limit_symbolic_deposit",
+        "status": "not proven (timeout after 913s)",
+        "paths": 14,
+        "seconds": 913.02
+      },
+      {
+        "id": "P3-symbolic-deposit",
+        "test": "check_attempt_p3_cash_symbolic_deposit",
+        "status": "not proven (timeout after 908s)",
+        "paths": 12,
+        "seconds": 908.15
+      }
+    ],
+    "instances": [
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_fixed_x0_w20",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 19.89,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_fixed_x10_w20",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 13.21,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l1",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 36.03,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l1000",
+        "status": "TIMEOUT",
+        "paths": 9,
+        "seconds": 903.5,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l2000",
+        "status": "TIMEOUT",
+        "paths": 9,
+        "seconds": 903.34,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l2999",
+        "status": "TIMEOUT",
+        "paths": 9,
+        "seconds": 901.37,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l500",
+        "status": "TIMEOUT",
+        "paths": 9,
+        "seconds": 901.62,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_after_withdraw_pow2_l777",
+        "status": "TIMEOUT",
+        "paths": 9,
+        "seconds": 901.54,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_single_d123456789",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 19.35,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_single_d1e6",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 19.02,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_single_d1e9",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 14.75,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_single_d2p50",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 38.5,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_stock_d1e6",
+        "status": "PASS",
+        "paths": 8,
+        "seconds": 17.2,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_stock_d1e9",
+        "status": "PASS",
+        "paths": 8,
+        "seconds": 21.33,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_two_deposits_d123456789",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 156.82,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_two_deposits_d1e6",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 159.51,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_two_deposits_d1e9",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 178.72,
+        "reachWitness": true
+      },
+      {
+        "property": "P1",
+        "test": "check_p1_two_deposits_d2p50",
+        "status": "PASS",
+        "paths": 11,
+        "seconds": 278.47,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_stock_d1e6",
+        "status": "PASS",
+        "paths": 11,
+        "seconds": 22.04,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_stock_d1e9",
+        "status": "PASS",
+        "paths": 11,
+        "seconds": 36.79,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_within_limit_d123456789",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 27.5,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_within_limit_d1e6",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 21.91,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_within_limit_d1e9",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 26.69,
+        "reachWitness": true
+      },
+      {
+        "property": "P2",
+        "test": "check_p2_within_limit_d2p50",
+        "status": "PASS",
+        "paths": 10,
+        "seconds": 54.78,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_cash_d123456789",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 78.74,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_cash_d1e6",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 60.65,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_cash_d1e9",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 112.21,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_cash_d2p50",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 230.35,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_stock_d1e6",
+        "status": "PASS",
+        "paths": 8,
+        "seconds": 107.52,
+        "reachWitness": true
+      },
+      {
+        "property": "P3",
+        "test": "check_p3_stock_d1e9",
+        "status": "PASS",
+        "paths": 8,
+        "seconds": 237.76,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_deposit_d123456789",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 85.3,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_deposit_d1e6",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 93.02,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_deposit_d1e9",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 91.43,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_deposit_d2p50",
+        "status": "PASS",
+        "paths": 9,
+        "seconds": 112.02,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x0_w1wei",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 32.89,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x0_w20",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 33.41,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x100_w1wei",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 35.88,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x100_w20",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 36.64,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x10_w1wei",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 33.15,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_fixed_x10_w20",
+        "status": "PASS",
+        "paths": 7,
+        "seconds": 35.81,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l1",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 258.78,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l1000",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 68.81,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l2000",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 98.4,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l2999",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 10.7,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l500",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 190.69,
+        "reachWitness": true
+      },
+      {
+        "property": "P4",
+        "test": "check_p4_withdraw_pow2_l777",
+        "status": "PASS",
+        "paths": 6,
+        "seconds": 99.07,
+        "reachWitness": true
+      },
+      {
+        "property": "P5",
+        "test": "check_p5_createOffer",
+        "status": "PASS",
+        "paths": 15,
+        "seconds": 1.07,
+        "reachWitness": true
+      },
+      {
+        "property": "P5",
+        "test": "check_p5_createOfferWithAuthorization",
+        "status": "PASS",
+        "paths": 22,
+        "seconds": 1.74,
+        "reachWitness": true
+      }
+    ],
+    "modelling": {
+      "mulDiv": "OpenZeppelin Math.mulDiv replaced by the closed form x*y/d in the halmos build only (test/halmos/HalmosMath.sol via test/halmos/foundry.halmos.toml); equality with OpenZeppelin fuzzed 100,000 runs per property by test/halmos/MathModel.t.sol (all pass)",
+      "loss": "cash cases move USDG out of the account to stand in for a losing trade; price cases use a real AgentAccount.trade and a real MirrorFeed push",
+      "signature": "P5 authorization: ecrecover is constrained to return the signer (valid signature assumed); the signature check itself is covered by unit tests"
+    },
+    "proofSanity": [
+      {
+        "property": "P1",
+        "injectedBug": "settle's cap term becomes principal x (cap - limit) / 10000 + 1",
+        "test": "check_p1_single_d1e9",
+        "result": "FAIL (counterexample: limit 0xae bps, loss 0x31b3dc40, bond 0x10146cb0)",
+        "paths": 9,
+        "seconds": 11.43
+      },
+      {
+        "property": "P2",
+        "injectedBug": "`loss <= limit` becomes `loss < limit` in settle",
+        "test": "check_p2_within_limit_d123456789",
+        "result": "FAIL (counterexample: limit 0x800 bps, loss 0x17df1c8, gift 0)",
+        "paths": 11,
+        "seconds": 14.71
+      },
+      {
+        "property": "P3",
+        "injectedBug": "_limit rounds down instead of up",
+        "test": "check_p3_cash_d123456789",
+        "result": "FAIL (counterexample: limit 0x800 bps, loss 0x2000000)",
+        "paths": 7,
+        "seconds": 10.26
+      },
+      {
+        "property": "P4",
+        "injectedBug": "_worstCase rounds down instead of up",
+        "test": "check_p4_deposit_d123456789",
+        "result": "FAIL (counterexample: limit 0x800 bps)",
+        "paths": 8,
+        "seconds": 50.92
+      },
+      {
+        "property": "P5",
+        "injectedBug": "createOfferWithAuthorization no longer forwards the bond to the cover (fund call removed)",
+        "test": "check_p5_createOfferWithAuthorization",
+        "result": "FAIL (counterexample found)",
+        "paths": 22,
+        "seconds": 0.89
+      }
+    ]
+  },
+  "invariants": {
+    "runs": 1000,
+    "depth": 200,
+    "callsPerInvariant": 200000,
+    "invariants": [
+      {
+        "name": "invariant_agentHoldsNothing",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_coverHoldsItsBond",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_marketHoldsNoUsdg",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_noPayoutExceedsReservation",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_onlyMarketCoversAreOffers",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_reservationCoversWorstCase",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_reservedIsSumOfReservations",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      },
+      {
+        "name": "invariant_reservedNeverExceedsBond",
+        "runs": 1000,
+        "calls": 200000,
+        "reverts": 0,
+        "result": "pass"
+      }
+    ],
+    "handlerSelectors": {
+      "close": {
+        "calls": 18260,
+        "reverts": 0,
+        "discards": 0
+      },
+      "createOffer": {
+        "calls": 18290,
+        "reverts": 0,
+        "discards": 0
+      },
+      "delist": {
+        "calls": 18260,
+        "reverts": 0,
+        "discards": 0
+      },
+      "deposit": {
+        "calls": 18006,
+        "reverts": 0,
+        "discards": 0
+      },
+      "fund": {
+        "calls": 18016,
+        "reverts": 0,
+        "discards": 0
+      },
+      "movePrices": {
+        "calls": 18219,
+        "reverts": 0,
+        "discards": 0
+      },
+      "open": {
+        "calls": 18264,
+        "reverts": 0,
+        "discards": 0
+      },
+      "release": {
+        "calls": 17950,
+        "reverts": 0,
+        "discards": 0
+      },
+      "settle": {
+        "calls": 18405,
+        "reverts": 0,
+        "discards": 0
+      },
+      "trade": {
+        "calls": 17920,
+        "reverts": 0,
+        "discards": 0
+      },
+      "withdraw": {
+        "calls": 18410,
+        "reverts": 0,
+        "discards": 0
+      }
+    },
+    "command": "cd contracts && FOUNDRY_OUT=out-a FOUNDRY_CACHE_PATH=cache-a FOUNDRY_INVARIANT_RUNS=1000 FOUNDRY_INVARIANT_DEPTH=200 FOUNDRY_INVARIANT_SHOW_METRICS=true forge test --match-path test/invariant/BondlineInvariants.t.sol -vv",
+    "note": "forge counts every handler call, including ones the handler returns early from when its precondition does not hold (it pre-checks, so forge-level reverts are 0). foundry.toml is unchanged (default runs 256, depth 64)."
+  },
+  "mutation": {
+    "tool": "slither-mutate (slither-analyzer 0.11.6)",
+    "target": "contracts/src/BondlineCover.sol",
+    "total": 747,
+    "killed": 720,
+    "survived": 27,
+    "timedOut": 0,
+    "compileFailures": 230,
+    "generated": 977,
+    "baselineBeforeNewTests": {
+      "killed": 689,
+      "survived": 58,
+      "timedOut": 0,
+      "note": "builder's first pass with the existing suites only; not reproducible: the seeded invariant run kills 2 to 4 line-189 mutants depending on the test tree (implied by the verifier's re-runs of the 58 candidates: 691/56 in a replica of the first-pass tree, 693/54 with the earlier suites in the current tree). The final split reproduced exactly.",
+      "reproducible": false
+    },
+    "survivors": [
+      {
+        "line": 29,
+        "mutation": "uint256 private constant BPS = 10_000;  ==>  uint128 private constant BPS = 10_000;",
+        "note": "Equivalent: the narrower type still holds the value (10_000 and 1e6 fit in uint128); no behaviour change."
+      },
+      {
+        "line": 29,
+        "mutation": "uint256 private constant BPS = 10_000;  ==>  uint256 private immutable BPS = 10_000;",
+        "note": "Equivalent: constant -> immutable keeps the value and the getter; only deployment gas differs."
+      },
+      {
+        "line": 32,
+        "mutation": "uint256 public constant MIN_DEPOSIT = 1e6;  ==>  uint128 public constant MIN_DEPOSIT = 1e6;",
+        "note": "Equivalent: the narrower type still holds the value (10_000 and 1e6 fit in uint128); no behaviour change."
+      },
+      {
+        "line": 32,
+        "mutation": "uint256 public constant MIN_DEPOSIT = 1e6;  ==>  uint256 public immutable MIN_DEPOSIT = 1e6;",
+        "note": "Equivalent: constant -> immutable keeps the value and the getter; only deployment gas differs."
+      },
+      {
+        "line": 34,
+        "mutation": "uint16 public constant MAX_SLIPPAGE_BPS = 500;  ==>  uint16 public immutable MAX_SLIPPAGE_BPS = 500;",
+        "note": "Equivalent: constant -> immutable keeps the value and the getter; only deployment gas differs."
+      },
+      {
+        "line": 36,
+        "mutation": "uint32 public constant MAX_DAILY_BPS = 100_000;  ==>  uint32 public immutable MAX_DAILY_BPS = 100_000;",
+        "note": "Equivalent: constant -> immutable keeps the value and the getter; only deployment gas differs."
+      },
+      {
+        "line": 65,
+        "mutation": "Position storage pos = _positions[account];  ==>  Position memory pos = _positions[account];",
+        "note": "Equivalent: the pointer is only read, never written through, so storage vs memory returns the same values."
+      },
+      {
+        "line": 66,
+        "mutation": "if (pos.status == CoverStatus.None) revert UnknownAccount(account);  ==>  if (pos.status <= CoverStatus.None) revert UnknownAccount(account);",
+        "note": "Equivalent: None is 0, the smallest enum value, so <= None is == None."
+      },
+      {
+        "line": 95,
+        "mutation": "if (amount == 0) revert ZeroAmount();  ==>  if (amount <= 0) revert ZeroAmount();",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 105,
+        "mutation": "if (amount == 0) revert ZeroAmount();  ==>  if (amount <= 0) revert ZeroAmount();",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 130,
+        "mutation": "Terms storage t = _terms;  ==>  Terms memory t = _terms;",
+        "note": "Equivalent: the pointer is only read, never written through, so storage vs memory returns the same values."
+      },
+      {
+        "line": 160,
+        "mutation": "if (pos.status != CoverStatus.Active) revert NotActive(account);  ==>  if (pos.status > CoverStatus.Active) revert NotActive(account);",
+        "note": "Equivalent: differs only for status None, which the preceding UnknownAccount check (or onlyUser) has already rejected on this path."
+      },
+      {
+        "line": 161,
+        "mutation": "if (amount == 0) revert ZeroAmount();  ==>  if (amount <= 0) revert ZeroAmount();",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 179,
+        "mutation": "if (pos.status == CoverStatus.None) revert UnknownAccount(account);  ==>  if (pos.status <= CoverStatus.None) revert UnknownAccount(account);",
+        "note": "Equivalent: None is 0, the smallest enum value, so <= None is == None."
+      },
+      {
+        "line": 180,
+        "mutation": "if (pos.status != CoverStatus.Active) revert NotActive(account);  ==>  if (pos.status > CoverStatus.Active) revert NotActive(account);",
+        "note": "Equivalent: differs only for status None, which the preceding UnknownAccount check (or onlyUser) has already rejected on this path."
+      },
+      {
+        "line": 204,
+        "mutation": "if (pos.status != CoverStatus.Active) revert NotActive(account);  ==>  if (pos.status > CoverStatus.Active) revert NotActive(account);",
+        "note": "Equivalent: differs only for status None, which the preceding UnknownAccount check (or onlyUser) has already rejected on this path."
+      },
+      {
+        "line": 252,
+        "mutation": "Position memory pos = _positions[account];  ==>  Position storage pos = _positions[account];",
+        "note": "Equivalent: the pointer is only read, never written through, so storage vs memory returns the same values."
+      },
+      {
+        "line": 257,
+        "mutation": "if (pos.status == CoverStatus.None) return h;  ==>  if (pos.status <= CoverStatus.None) return h;",
+        "note": "Equivalent: None is 0, the smallest enum value, so <= None is == None."
+      },
+      {
+        "line": 265,
+        "mutation": "if (pos.status == CoverStatus.Active && h.fresh && h.loss > h.limit) {  ==>  if (pos.status <= CoverStatus.Active && h.fresh && h.loss > h.limit && h.fresh && h.loss > h.limit) {",
+        "note": "Equivalent: differs only for status None, for which health() has already returned (line 257)."
+      },
+      {
+        "line": 286,
+        "mutation": "if (pos.status == CoverStatus.None) revert UnknownAccount(account);  ==>  if (pos.status <= CoverStatus.None) revert UnknownAccount(account);",
+        "note": "Equivalent: None is 0, the smallest enum value, so <= None is == None."
+      },
+      {
+        "line": 287,
+        "mutation": "if (pos.status != CoverStatus.Active) revert NotActive(account);  ==>  if (pos.status > CoverStatus.Active) revert NotActive(account);",
+        "note": "Equivalent: differs only for status None, which the preceding UnknownAccount check (or onlyUser) has already rejected on this path."
+      },
+      {
+        "line": 318,
+        "mutation": "if (v.oldestUpdate == 0) return v.stockValue == 0;  ==>  if (v.oldestUpdate <= 0) return v.stockValue == 0;",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 333,
+        "mutation": "if (r.assetMask == 0 || uint256(r.assetMask) >= (1 << assetCount)) return false;  ==>  if (r.assetMask <= 0 || uint256(r.assetMask) >= (1 << assetCount) || uint256(r.assetMask) >= (1 << assetCount)) return false;",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 333,
+        "mutation": "if (r.assetMask == 0 || uint256(r.assetMask) >= (1 << assetCount)) return false;  ==>  if (r.assetMask == 0 || uint128(r.assetMask) >= (1 << assetCount)) return false;",
+        "note": "Equivalent: widening a uint8 mask before the comparison changes nothing."
+      },
+      {
+        "line": 335,
+        "mutation": "if (r.maxTradeBps == 0 || r.maxTradeBps > BPS) return false;  ==>  if (r.maxTradeBps <= 0 || r.maxTradeBps > BPS || r.maxTradeBps > BPS) return false;",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 336,
+        "mutation": "if (r.maxDailyBps == 0 || r.maxDailyBps > MAX_DAILY_BPS) return false;  ==>  if (r.maxDailyBps <= 0 || r.maxDailyBps > MAX_DAILY_BPS || r.maxDailyBps > MAX_DAILY_BPS) return false;",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      },
+      {
+        "line": 338,
+        "mutation": "if (r.maxPriceAge == 0 || r.maxPriceAge > maxPriceAge) return false;  ==>  if (r.maxPriceAge <= 0 || r.maxPriceAge > maxPriceAge || r.maxPriceAge > maxPriceAge) return false;",
+        "note": "Equivalent: the operand is unsigned, so <= 0 is == 0."
+      }
+    ],
+    "killedByNewTests": [
+      {
+        "line": 116,
+        "mutator": "MIA",
+        "mutation": "if (!listed) return;  ==>  if (false) return;",
+        "killedBy": "test_delist_secondCallEmitsNothing"
+      },
+      {
+        "line": 118,
+        "mutator": "CR",
+        "mutation": "emit Delisted();  ==>  //emit Delisted();",
+        "killedBy": "test_delist_secondCallEmitsNothing"
+      },
+      {
+        "line": 126,
+        "mutator": "CR",
+        "mutation": "nonReentrant  ==>  //nonReentrant",
+        "killedBy": "test_open_isNonReentrant"
+      },
+      {
+        "line": 129,
+        "mutator": "MIA",
+        "mutation": "if (!listed) revert NotListed();  ==>  if (false) revert NotListed();",
+        "killedBy": "test_open_delistedRefusesBeforeValidatingArguments"
+      },
+      {
+        "line": 184,
+        "mutator": "MIA",
+        "mutation": "uint256 loss = pos.principal > v.value ? pos.principal - v.value : 0;  ==>  uint256 loss = true ? pos.principal - v.value : 0;",
+        "killedBy": "test_health_gainHasZeroLoss"
+      },
+      {
+        "line": 185,
+        "mutator": "ROR",
+        "mutation": "if (loss <= limit) revert WithinLimit(loss, limit);  ==>  if (loss < limit) revert WithinLimit(loss, limit);",
+        "killedBy": "test_settle_exactlyAtLimitReverts_oneWeiOverPaysOneWei"
+      },
+      {
+        "line": 189,
+        "mutator": "AOR",
+        "mutation": "reserved -= pos.reserve;  ==>  reserved %= pos.reserve;",
+        "killedBy": "test_health_settledAndClosedAccountsAreNotSettleable"
+      },
+      {
+        "line": 189,
+        "mutator": "ASOR",
+        "mutation": "reserved -= pos.reserve;  ==>  reserved %= pos.reserve;",
+        "killedBy": "test_health_settledAndClosedAccountsAreNotSettleable"
+      },
+      {
+        "line": 189,
+        "mutator": "ASOR",
+        "mutation": "reserved -= pos.reserve;  ==>  reserved <<= pos.reserve;",
+        "killedBy": "test_health_settledAndClosedAccountsAreNotSettleable"
+      },
+      {
+        "line": 189,
+        "mutator": "ASOR",
+        "mutation": "reserved -= pos.reserve;  ==>  reserved >>= pos.reserve;",
+        "killedBy": "test_health_settledAndClosedAccountsAreNotSettleable"
+      },
+      {
+        "line": 192,
+        "mutator": "ASOR",
+        "mutation": "claimsPaid += payout;  ==>  claimsPaid = payout;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 192,
+        "mutator": "ASOR",
+        "mutation": "claimsPaid += payout;  ==>  claimsPaid ^= payout;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 192,
+        "mutator": "ASOR",
+        "mutation": "claimsPaid += payout;  ==>  claimsPaid |= payout;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 264,
+        "mutator": "AOR",
+        "mutation": "h.loss = pos.principal > v.value ? pos.principal - v.value : 0;  ==>  h.loss = pos.principal > v.value ? pos.principal % v.value : 0;",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 265,
+        "mutator": "ROR",
+        "mutation": "if (pos.status == CoverStatus.Active && h.fresh && h.loss > h.limit) {  ==>  if (pos.status == CoverStatus.Active && h.fresh && pos.status == CoverStatus.Active && h.fresh && h.loss >= h.limit) {",
+        "killedBy": "test_settle_exactlyAtLimitReverts_oneWeiOverPaysOneWei"
+      },
+      {
+        "line": 265,
+        "mutator": "ROR",
+        "mutation": "if (pos.status == CoverStatus.Active && h.fresh && h.loss > h.limit) {  ==>  if (pos.status >= CoverStatus.Active && h.fresh && h.loss > h.limit && h.fresh && h.loss > h.limit) {",
+        "killedBy": "test_health_settledAndClosedAccountsAreNotSettleable"
+      },
+      {
+        "line": 267,
+        "mutator": "AOR",
+        "mutation": "h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) / BPS);  ==>  h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) * BPS);",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 267,
+        "mutator": "AOR",
+        "mutation": "h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) / BPS);  ==>  h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) + BPS);",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 267,
+        "mutator": "AOR",
+        "mutation": "h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) / BPS);  ==>  h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) - BPS);",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 267,
+        "mutator": "AOR",
+        "mutation": "h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) / BPS);  ==>  h.payoutNow = Math.min(h.loss - h.limit, pos.principal + (capBps - pos.limitBps) / BPS);",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 267,
+        "mutator": "AOR",
+        "mutation": "h.payoutNow = Math.min(h.loss - h.limit, pos.principal * (capBps - pos.limitBps) / BPS);  ==>  h.payoutNow = Math.min(h.loss - h.limit, pos.principal - (capBps - pos.limitBps) / BPS);",
+        "killedBy": "test_health_lossAndPayoutNow"
+      },
+      {
+        "line": 297,
+        "mutator": "ASOR",
+        "mutation": "premiums += fee;  ==>  premiums = fee;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 297,
+        "mutator": "ASOR",
+        "mutation": "premiums += fee;  ==>  premiums ^= fee;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 297,
+        "mutator": "ASOR",
+        "mutation": "premiums += fee;  ==>  premiums |= fee;",
+        "killedBy": "test_counters_accumulateAcrossDepositsAndSettlements"
+      },
+      {
+        "line": 298,
+        "mutator": "AOR",
+        "mutation": "uint256 available = bond - reserved;  ==>  uint256 available = bond + reserved;",
+        "killedBy": "test_deposit_refusedWhenFreeBondTooSmall_withReservedBond"
+      },
+      {
+        "line": 299,
+        "mutator": "ROR",
+        "mutation": "if (reserveAdded > available) revert InsufficientCapacity(reserveAdded, available);  ==>  if (reserveAdded >= available) revert InsufficientCapacity(reserveAdded, available);",
+        "killedBy": "test_open_capacityExactlyEnough_andOneBelow"
+      },
+      {
+        "line": 317,
+        "mutator": "RR",
+        "mutation": "if (!v.pricesValid) return false;  ==>  if (!v.pricesValid) revert();",
+        "killedBy": "test_health_invalidPriceIsNotFresh_andDoesNotRevert"
+      },
+      {
+        "line": 317,
+        "mutator": "MIA",
+        "mutation": "if (!v.pricesValid) return false;  ==>  if (false) return false;",
+        "killedBy": "test_health_invalidPriceIsNotFresh_andDoesNotRevert"
+      },
+      {
+        "line": 333,
+        "mutator": "ROR",
+        "mutation": "if (r.assetMask == 0 || uint256(r.assetMask) >= (1 << assetCount)) return false;  ==>  if (r.assetMask == 0 || r.assetMask == 0 || uint256(r.assetMask) == (1 << assetCount)) return false;",
+        "killedBy": "test_open_assetMaskAboveRangeRejected"
+      },
+      {
+        "line": 337,
+        "mutator": "ROR",
+        "mutation": "if (r.maxSlippageBps > MAX_SLIPPAGE_BPS) return false;  ==>  if (r.maxSlippageBps >= MAX_SLIPPAGE_BPS) return false;",
+        "killedBy": "test_open_slippageBoundary"
+      },
+      {
+        "line": 338,
+        "mutator": "ROR",
+        "mutation": "if (r.maxPriceAge == 0 || r.maxPriceAge > maxPriceAge) return false;  ==>  if (r.maxPriceAge == 0 || r.maxPriceAge == 0 || r.maxPriceAge != maxPriceAge) return false;",
+        "killedBy": "test_open_priceAgeBoundary"
+      }
+    ],
+    "manualLiteralMutants": [
+      {
+        "line": 29,
+        "orig": "uint256 private constant BPS = 10_000;",
+        "mut": "uint256 private constant BPS = 10_001;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: assertion failed: 9999000 != 10000000] test_counters_accumulateAcrossDepositsAndSettlements() (gas: 658672)"
+        ]
+      },
+      {
+        "line": 29,
+        "orig": "uint256 private constant BPS = 10_000;",
+        "mut": "uint256 private constant BPS = 9_999;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: InvalidRules()] test_close_keepsOtherAccountsReservation() (gas: 62763)"
+        ]
+      },
+      {
+        "line": 32,
+        "orig": "MIN_DEPOSIT = 1e6;",
+        "mut": "MIN_DEPOSIT = 1e6 + 1;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: Error != expected error: DepositTooSmall(999999 [9.999e5], 1000001 [1e6]) != DepositTooSmall(999999 [9.999e5], 1000000 [1e6])] test_deposit_tooSmall() (gas: 513712)"
+        ]
+      },
+      {
+        "line": 32,
+        "orig": "MIN_DEPOSIT = 1e6;",
+        "mut": "MIN_DEPOSIT = 1e6 - 1;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: next call did not revert as expected] test_deposit_tooSmall() (gas: 657345)"
+        ]
+      },
+      {
+        "line": 34,
+        "orig": "MAX_SLIPPAGE_BPS = 500;",
+        "mut": "MAX_SLIPPAGE_BPS = 501;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: next call did not revert as expected] test_open_invalidRules() (gas: 839384)"
+        ]
+      },
+      {
+        "line": 34,
+        "orig": "MAX_SLIPPAGE_BPS = 500;",
+        "mut": "MAX_SLIPPAGE_BPS = 499;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: InvalidRules()] test_open_slippageBoundary() (gas: 63356)"
+        ]
+      },
+      {
+        "line": 36,
+        "orig": "MAX_DAILY_BPS = 100_000;",
+        "mut": "MAX_DAILY_BPS = 100_001;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: next call did not revert as expected] test_open_tradeAndDailyBoundaries() (gas: 1723718)"
+        ]
+      },
+      {
+        "line": 36,
+        "orig": "MAX_DAILY_BPS = 100_000;",
+        "mut": "MAX_DAILY_BPS = 99_999;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: InvalidRules()] setUp() (gas: 0)"
+        ]
+      },
+      {
+        "line": 184,
+        "orig": "pos.principal > v.value ? pos.principal - v.value : 0;",
+        "mut": "pos.principal > v.value ? pos.principal - v.value : 1;",
+        "caught": true,
+        "compile_error": false,
+        "failing": [
+          "[FAIL: Error != expected error: WithinLimit(1, 99000000 [9.9e7]) != WithinLimit(0, 99000000 [9.9e7])] test_health_gainHasZeroLoss() (gas: 696800)"
+        ]
+      }
+    ],
+    "byMutator": {
+      "AOR": {
+        "CAUGHT": 104,
+        "UNCAUGHT": 8
+      },
+      "ASOR": {
+        "CAUGHT": 111,
+        "UNCAUGHT": 9
+      },
+      "BOR": {
+        "CAUGHT": 4
+      },
+      "CR": {
+        "COMPILATION FAILURE": 87,
+        "CAUGHT": 105,
+        "UNCAUGHT": 2
+      },
+      "FHR": {
+        "COMPILATION FAILURE": 54
+      },
+      "LOR": {
+        "CAUGHT": 7
+      },
+      "MIA": {
+        "CAUGHT": 104,
+        "UNCAUGHT": 4,
+        "COMPILATION FAILURE": 2
+      },
+      "MVIE": {
+        "COMPILATION FAILURE": 6,
+        "CAUGHT": 16
+      },
+      "ROR": {
+        "CAUGHT": 131,
+        "UNCAUGHT": 24,
+        "COMPILATION FAILURE": 25
+      },
+      "RR": {
+        "COMPILATION FAILURE": 37,
+        "CAUGHT": 87,
+        "UNCAUGHT": 1
+      },
+      "SBR": {
+        "UNCAUGHT": 10,
+        "COMPILATION FAILURE": 19,
+        "CAUGHT": 20
+      }
+    },
+    "command": "slither-mutate . --test-cmd \"forge test --no-match-path 'test/fork/*' --fail-fast\" --contract-names BondlineCover --mutators-to-run <MUTATORS> --comprehensive --timeout 180 --output-dir <dir> -v   (run in a scratch copy of contracts/; mutators split over 7 copies: ROR | AOR,UOR | LIR | MIA | SBR | CR,RR | ASOR,BOR,LOR,FHR,MVIE,MVIV,MWA)",
+    "verifierHandMutants": [
+      {
+        "line": 277,
+        "mutation": "quoteDeposit: fee = amount * feeBps / BPS  ==>  fee = (amount * feeBps + BPS - 1) / BPS",
+        "result": "survived the suite at verification; killed by test/QuoteDeposit.t.sol, added afterwards"
+      }
+    ],
+    "byMutatorNote": "byMutator counts are from the builder's first pass, which is not reproducible (see baselineBeforeNewTests)"
+  },
+  "generatedAt": "2026-10-04T07:31:21+05:30"
+}

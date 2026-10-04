@@ -1,0 +1,276 @@
+{
+  "version": 1,
+  "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+  "name": "Bold",
+  "generatedAt": "2026-10-04T10:07:17.386Z",
+  "chainId": 46630,
+  "markets": [
+    {
+      "key": "live",
+      "label": "Live",
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "fromBlock": 128334140,
+      "toBlock": 128646295
+    },
+    {
+      "key": "replay",
+      "label": "Replay",
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "fromBlock": 128334140,
+      "toBlock": 128646295
+    }
+  ],
+  "hasRecord": true,
+  "offers": [
+    {
+      "market": "replay",
+      "id": 0,
+      "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "txHash": "0xb0b099a4f9e8b272a0677d2988c46b893625b6be81e0a0610aa914c69dd182f5",
+      "minLimitBps": 500,
+      "maxLimitBps": 2000,
+      "feeBps": 400,
+      "maxStockBps": 8000,
+      "name": "Bold 4%"
+    },
+    {
+      "market": "live",
+      "id": 1,
+      "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "txHash": "0x13d9b2438579b1376ea5a73b17794eaaea1be0acc43a0a604cf9e6c6d95fcc22",
+      "minLimitBps": 500,
+      "maxLimitBps": 2000,
+      "feeBps": 400,
+      "maxStockBps": 8000,
+      "name": "Bold 4%"
+    }
+  ],
+  "accounts": [
+    {
+      "market": "replay",
+      "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+      "limitBps": 1000,
+      "maxStockBps": 8000,
+      "assets": [
+        "TSLA",
+        "AMZN"
+      ],
+      "status": "settled",
+      "openedAt": 1791061926,
+      "principalUsd": 100,
+      "depositedUsd": 104.166666,
+      "withdrawnUsd": 0,
+      "trades": 4,
+      "refusals": 0,
+      "exposureP95": 0.800349081716069,
+      "worstDrawdown": 0.25000001,
+      "worstDrawdownToLimit": 2.5000001
+    },
+    {
+      "market": "live",
+      "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+      "account": "0x4462A953Db52Cda1fbd745e29cc62E72943Ed9F4",
+      "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+      "limitBps": 1000,
+      "maxStockBps": 8000,
+      "assets": [
+        "TSLA",
+        "AMZN"
+      ],
+      "status": "active",
+      "openedAt": 1791062007,
+      "principalUsd": 30,
+      "depositedUsd": 31.25,
+      "withdrawnUsd": 0,
+      "trades": 0,
+      "refusals": 0,
+      "exposureP95": null,
+      "worstDrawdown": 0,
+      "worstDrawdownToLimit": 0
+    }
+  ],
+  "activity": {
+    "trades": 4,
+    "buys": 3,
+    "sells": 1,
+    "volumeUsd": 100.45,
+    "tradesByAsset": {
+      "TSLA": 3,
+      "AMZN": 1
+    },
+    "refusals": 0,
+    "refusalsByReason": [],
+    "decisions": 4,
+    "firstActionAt": 1791106985,
+    "lastActionAt": 1791107982,
+    "activeSeconds": 997
+  },
+  "exposure": {
+    "p95": 0.800349081716069,
+    "max": 0.8056373035998506,
+    "observations": 124,
+    "fromTrades": 4,
+    "fromPriceUpdates": 120,
+    "rulesMax": 0.8,
+    "rulesMaxSource": "account rules",
+    "method": "Share of account value in stocks. One observation after every trade (stockValueAfter ÷ valueAfter from the Traded event), and one for every active covered account at every price update on its market (holdings implied by its trades, valued at the new price; cash from deposits, withdrawals and trades). 95th percentile, nearest rank."
+  },
+  "drawdown": {
+    "worst": 0.25000001,
+    "worstToLimit": 2.5000001,
+    "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+    "limitBps": 1000
+  },
+  "claims": {
+    "count": 1,
+    "paidUsd": 15.000001,
+    "list": [
+      {
+        "market": "replay",
+        "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+        "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+        "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+        "caller": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+        "valueUsd": 74.999999,
+        "lossUsd": 25.000001,
+        "limitUsd": 10,
+        "payoutUsd": 15.000001,
+        "drawdown": 0.25000001,
+        "txHash": "0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c",
+        "timestamp": 1791108399
+      }
+    ]
+  },
+  "score": {
+    "value": 6,
+    "label": "6 / 100",
+    "parts": [
+      {
+        "key": "exposure",
+        "label": "Exposure against its rules",
+        "max": 40,
+        "points": 0,
+        "detail": "p95 stock share 80.0% of a 80.0% maximum"
+      },
+      {
+        "key": "drawdown",
+        "label": "Worst drawdown against its limit",
+        "max": 30,
+        "points": 0,
+        "detail": "worst drawdown 25.0% against a 10.0% limit"
+      },
+      {
+        "key": "claims",
+        "label": "Claims",
+        "max": 10,
+        "points": 5,
+        "detail": "1 of 2 covered accounts paid a claim"
+      },
+      {
+        "key": "history",
+        "label": "Amount of history",
+        "max": 20,
+        "points": 0.8,
+        "detail": "4 on-chain decisions; 100 for full credit"
+      }
+    ],
+    "formula": "score = 40 × (1 − p95 exposure ÷ rules' max stock share) + 30 × (1 − worst drawdown ÷ its limit) + 10 × (1 − accounts with a claim ÷ accounts) + 20 × min(1, on-chain decisions ÷ 100); each part clamped to its range, the sum rounded. No trades: no record."
+  },
+  "prices": {
+    "label": "A reference price from a simple published model, not actuarial.",
+    "limitBps": 1000,
+    "termDays": 30,
+    "sigma": {
+      "asset": "TSLA",
+      "value": 0.5457,
+      "source": "Chainlink TSLA/USD on Robinhood Chain mainnet, 2026-06-23 to 2026-10-02 (71 daily returns, annualised with √252)"
+    },
+    "worstCase": {
+      "stockShare": 0.8,
+      "pTouchBps": 4242.956554469653,
+      "gapBps": 196.22745904838035,
+      "riskBps": 166.51691670725018,
+      "reserveBps": 8.21917808219178,
+      "fairBps": 174.73609478944195
+    },
+    "record": {
+      "stockShare": 0.800349081716069,
+      "pTouchBps": 4244.977553727311,
+      "gapBps": 196.3130833210609,
+      "riskBps": 166.66892644018054,
+      "reserveBps": 8.21917808219178,
+      "fairBps": 174.88810452237232
+    },
+    "recordSavingBps": -0.1520097329303638
+  },
+  "recent": [
+    {
+      "type": "trade",
+      "market": "replay",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "txHash": "0x50c8d5a62080e5bc18cd69b04f36125943e722db97af268e6c81221bdcdb7264",
+      "blockNumber": 128642937,
+      "logIndex": 8,
+      "timestamp": 1791107982,
+      "asset": "TSLA",
+      "side": "sell",
+      "usd": 20,
+      "reason": null,
+      "decisionHash": "0x37172cfd280737614b5f61489e19fd881d9591d2bab3f1b6406a3729bb7c7808",
+      "decisionVerified": true,
+      "decision": "{\"account\":\"0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa\",\"action\":\"sell\",\"agent\":\"Bold\",\"asset\":\"TSLA\",\"inputs\":{\"cash\":\"19.55\",\"limitBps\":1000,\"lossBps\":0,\"marketTime\":1790970000,\"maxStockBps\":8000,\"maxTradeBps\":4000,\"px\":{\"AMZN\":\"250.34\",\"TSLA\":\"372.48\"},\"stockBps\":8053,\"value\":\"100.41\"},\"market\":\"replay\",\"model\":\"claude-haiku-4-5-20251001\",\"reason\":\"TSLA at $372.48, up 4.66% over recent period and hitting session highs. Take profits on momentum to lock in gains and reduce concentration risk (80.5% in stocks) back toward 70-75% safer levels.\",\"ts\":1791107977,\"usdAmount\":\"20.00\",\"v\":1}"
+    },
+    {
+      "type": "trade",
+      "market": "replay",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "txHash": "0x8d549d236a5a5ebdead650d3fe8a6157c08898d7255c67b069af3b1ed295ead2",
+      "blockNumber": 128639807,
+      "logIndex": 5,
+      "timestamp": 1791107582,
+      "asset": "AMZN",
+      "side": "buy",
+      "usd": 13.45,
+      "reason": null,
+      "decisionHash": "0x4150e80d567fd9c9a09c468d854ec7106c4c23d5fd549eb4e5a0e662fa8edace",
+      "decisionVerified": true,
+      "decision": "{\"account\":\"0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa\",\"action\":\"buy\",\"agent\":\"Bold\",\"asset\":\"AMZN\",\"inputs\":{\"cash\":\"33.00\",\"limitBps\":1000,\"lossBps\":296,\"marketTime\":1790810000,\"maxStockBps\":8000,\"maxTradeBps\":4000,\"px\":{\"AMZN\":\"249.07\",\"TSLA\":\"354.08\"},\"stockBps\":6599,\"value\":\"97.03\"},\"market\":\"replay\",\"model\":\"claude-haiku-4-5-20251001\",\"reason\":\"AMZN broke above $250 earlier today and is consolidating near $249 after strong momentum. Account at 66% stocks with $33 cash gives room to add. Conviction buy sizing 13.9% of account.\",\"ts\":1791107577,\"usdAmount\":\"13.45\",\"v\":1}"
+    },
+    {
+      "type": "trade",
+      "market": "replay",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "txHash": "0x65a9e1c11209a6c9b6e63b3345730dcfeaa88267ec8b84e01b9889c0e800573e",
+      "blockNumber": 128635695,
+      "logIndex": 12,
+      "timestamp": 1791107062,
+      "asset": "TSLA",
+      "side": "buy",
+      "usd": 32,
+      "reason": null,
+      "decisionHash": "0x59913065f66c3115853a8fa36ca4e28029a1177f68f46310cc48e58487491249",
+      "decisionVerified": true,
+      "decision": "{\"account\":\"0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa\",\"action\":\"buy\",\"agent\":\"Bold\",\"asset\":\"TSLA\",\"inputs\":{\"cash\":\"65.00\",\"limitBps\":1000,\"lossBps\":21,\"marketTime\":1790602000,\"maxStockBps\":8000,\"maxTradeBps\":4000,\"px\":{\"AMZN\":\"247.64\",\"TSLA\":\"369.10\"},\"stockBps\":3485,\"value\":\"99.78\"},\"market\":\"replay\",\"model\":\"claude-haiku-4-5-20251001\",\"reason\":\"TSLA down 1.02% this morning, oversold momentum. Account only 34.9% in stocks, room to 80%. Sizing 32% of cash for conviction long.\",\"ts\":1791107057,\"usdAmount\":\"32.00\",\"v\":1}"
+    },
+    {
+      "type": "trade",
+      "market": "replay",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "txHash": "0x0ec8f97f7a2a4cbac209e3bbf35c7cebe9abdcaa0148f054ced2d0f0ac4644fd",
+      "blockNumber": 128635081,
+      "logIndex": 5,
+      "timestamp": 1791106985,
+      "asset": "TSLA",
+      "side": "buy",
+      "usd": 35,
+      "reason": null,
+      "decisionHash": "0xceb39fece002e47114cd10a83cc49307513c7cf85fbdae7d77403a0915b52e2c",
+      "decisionVerified": true,
+      "decision": "{\"account\":\"0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa\",\"action\":\"buy\",\"agent\":\"Bold\",\"asset\":\"TSLA\",\"inputs\":{\"cash\":\"100.00\",\"limitBps\":1000,\"lossBps\":0,\"marketTime\":1790571200,\"maxStockBps\":8000,\"maxTradeBps\":4000,\"px\":{\"AMZN\":\"248.97\",\"TSLA\":\"371.02\"},\"stockBps\":0,\"value\":\"100.00\"},\"market\":\"replay\",\"model\":\"claude-haiku-4-5-20251001\",\"reason\":\"TSLA down 0.50% to $371.02 in early momentum dip. Strong conviction entry at discount; 35% position sizing maintains upside optionality while respecting risk limits.\",\"ts\":1791106980,\"usdAmount\":\"35.00\",\"v\":1}"
+    }
+  ]
+}

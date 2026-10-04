@@ -1,0 +1,1744 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-04T11:03:24Z",
+  "script": "npx tsx scripts/backtest.ts",
+  "label": "Backtest: hypothetical covers on real Chainlink prices. No cover here was sold.",
+  "source": {
+    "provider": "Chainlink Data Feeds",
+    "chain": "Robinhood Chain mainnet",
+    "chainId": 4663,
+    "rpc": "https://rpc.mainnet.chain.robinhood.com",
+    "block": "79477986",
+    "feeds": {
+      "TSLA": {
+        "address": "0x4A1166a659A55625345e9515b32adECea5547C38",
+        "description": "RHTSLA / USD",
+        "decimals": 8,
+        "roundsRead": 1446,
+        "roundsSkippedAsUnitError": 37,
+        "skippedRounds": "1-37",
+        "lastSkippedAt": "2026-06-23T13:48:16Z",
+        "roundsUsed": 1409,
+        "firstRoundUsed": {
+          "round": 38,
+          "updatedAt": "2026-06-23T13:52:16Z",
+          "price": 388.92615
+        },
+        "lastRoundUsed": {
+          "round": 1446,
+          "updatedAt": "2026-10-02T19:55:31Z",
+          "price": 370.448
+        },
+        "roundsAfterWindowIgnored": 0,
+        "longestGapHours": 77.8,
+        "gapsOverMaxPriceAge": 14,
+        "roundsMovingUnderHalfPercent": 12
+      },
+      "AMZN": {
+        "address": "0xD5a1508ceD74c084eBf3cBe853e2C968fB2a651C",
+        "description": "Robinhood AMZN / USD",
+        "decimals": 8,
+        "roundsRead": 872,
+        "roundsSkippedAsUnitError": 26,
+        "skippedRounds": "1-26",
+        "lastSkippedAt": "2026-06-23T13:40:23Z",
+        "roundsUsed": 846,
+        "firstRoundUsed": {
+          "round": 27,
+          "updatedAt": "2026-06-23T13:53:11Z",
+          "price": 233.8355
+        },
+        "lastRoundUsed": {
+          "round": 872,
+          "updatedAt": "2026-10-02T19:51:17Z",
+          "price": 251.64999999
+        },
+        "roundsAfterWindowIgnored": 0,
+        "longestGapHours": 77.1,
+        "gapsOverMaxPriceAge": 14,
+        "roundsMovingUnderHalfPercent": 12
+      }
+    }
+  },
+  "window": {
+    "from": "2026-06-23T13:53:11Z",
+    "to": "2026-10-02T20:00:00Z",
+    "tradingDays": 72,
+    "firstOpen": "2026-06-23",
+    "lastOpen": "2026-09-02",
+    "opensSkippedForStalePrices": []
+  },
+  "parameters": {
+    "principalPerCover": 1000,
+    "limitBps": 1000,
+    "capBps": 3000,
+    "holdDays": 30,
+    "maxPriceAgeSeconds": 90000,
+    "spreadBps": 10,
+    "model": {
+      "sigma": 0.5457,
+      "sigmaAsset": "TSLA",
+      "termDays": 30,
+      "volatilityWindow": {
+        "from": "2026-06-23",
+        "to": "2026-10-02",
+        "returns": 71
+      }
+    }
+  },
+  "assumptions": [
+    "Prices: every Chainlink round of TSLA/USD and AMZN/USD on Robinhood Chain mainnet (chain 4663) from the first correctly scaled round (23 Jun 2026) to the NYSE close on 2 Oct 2026 (2026-10-02T20:00:00Z). Rounds after that instant are ignored, so reruns give the same result.",
+    "Skipped rounds: each feed's first rounds (22-23 Jun) report answers about 10^8 too large (16 decimals while decimals() says 8). Every round before the 10x break is dropped; no cover sees them.",
+    "Opening: one new cover at every NYSE trading day's close (16:00 New York time) from 2026-06-23 to 2026-09-02, the last close whose 30-day hold ends inside the history. 72 trading days in the window; covers that could not finish their hold are not opened.",
+    "Principal: 1,000 USDG per cover, net of the premium (the deposit is larger by the premium; see premiums). No top-ups or withdrawals.",
+    "Account: at the open, the agent puts exactly its rules' maximum in stocks (Careful 30%, Bold 80% of the account), split half TSLA and half AMZN by value, bought at the latest Chainlink price at or before the close less the demo exchange's 10 bps spread. The rest stays in USDG cash. No rebalancing and no other trades while the cover runs: the stock share drifts with prices.",
+    "Limit: 10% of principal (rounded up, as the contract does). The deployed offers allow 5% to 20%; 5%, 15% and 20% are sensitivities.",
+    "Holding: covers have no fixed term on-chain; they run until the user closes them or they pay out. In this backtest each cover is held 30 days (the term the reference price assumes) and then closed by the user, unless it paid out first. \"Held until the window ends\" is a sensitivity.",
+    "Settle: at the first Chainlink round (of either feed) at which the account's loss is past its limit and every held stock's price is at most 90000 s old (the Live market's max price age, 25 h). So a move that gaps through the limit settles at the first price after the gap: the overshoot is the gap. A loss past the limit on a stale price waits for the next fresh round. The keeper attempts settlement while it is running; transaction latency, stale prices and failed transfers can delay it. The backtest assumes settlement at the triggering round's price.",
+    "Payout: min(loss - limit, principal x (30% - limit)), the contract's integer formula. One payout per cover; after it, the agent is stopped and the cover ends. The user keeps the stocks, which keep moving; the backtest does not follow them.",
+    "Premiums: (a) the deployed offers' fees, charged on the deposit: Careful 1%, Bold 4% (a 1,000 USDG principal needs a deposit of 1,010.10 or 1,041.67 USDG); (b) the model's reference price for 30 days at the same rules and limit, on the principal, with σ = 54.57% (TSLA, the most volatile allowed stock, from shared/src/volatility.json). The premium is charged once per cover.",
+    "Underwriter: each cover reserves ⌈principal x (30% - limit)⌉ of the bond (200 USDG at a 10% limit) from the open until it settles or closes. Return on reserve = (premiums - payouts) / reserve locked; annualised = (premiums - payouts) / reserve-years (reserve x days held / 365). The bond earns nothing else; no protocol fee; gas ignored.",
+    "Loss ratio = payouts / premiums. A claim is a cover that paid out."
+  ],
+  "caveats": [
+    "Short history: 72 trading days (23 Jun - 2 Oct 2026). Overlapping covers share the same price moves, so claims cluster: they are not independent samples.",
+    "In-sample: σ in the model price was estimated from closes in the same window (shared/src/volatility.json), so the model premium had the window's volatility in hand.",
+    "The agents trade in reality; the backtest holds a fixed basket for the hold, initialized at the maximum stock share allowed after a buy, so it tests that basket, not the agents' behaviour.",
+    "All 17 claims settled between 2026-07-23 and 2026-07-28: the window held one sharp drawdown, so the claims are one event seen from 17 different opening days, not 17 independent events.",
+    "Annualised returns scale a 3-month window to a year; they are arithmetic on this window, not a forecast, and are large because 1% to 4% premiums are charged on 30-day covers that mostly expired without a claim.",
+    "Chainlink posts a round when the price moves about 0.5% (only 12 of the 1408 moves between TSLA rounds used here and 12 of the 845 between AMZN rounds were smaller). These feeds include updates outside NYSE core trading hours. In this historical window the longest observed round gaps were 77.8 hours for TSLA and 77.1 hours for AMZN, and 14 and 14 gaps are longer than the 25-hour max price age. Settlement waits whenever an included price exceeds the market's maximum age. So a settle at 'the first round past the limit' can overshoot by up to one deviation step even without a gap, and by the whole move across a long gap between rounds.",
+    "Hypothetical covers on real prices: none of these covers was sold. Testnet, unaudited. A capped, fully backed protection bond, not regulated insurance."
+  ],
+  "agents": [
+    {
+      "key": "careful",
+      "name": "Careful",
+      "offer": "Careful 1%",
+      "scenario": "Careful: 30% in stocks (half TSLA, half AMZN), 10% limit, held 30 days",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1000,
+      "holdDays": 30,
+      "principalPerCover": 1000,
+      "covers": 51,
+      "claims": 0,
+      "claimRate": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "largestPayout": 0,
+      "cappedClaims": 0,
+      "breakevenBps": 0,
+      "offerFee": {
+        "feeBps": 100,
+        "depositPerCover": 1010.10101,
+        "premiumPerCover": 10.10101,
+        "premiumBps": 101.0101,
+        "premiums": 515.15151,
+        "net": 515.15151,
+        "lossRatio": 0,
+        "returnOnReserve": 0.0505,
+        "annualisedReturnOnReserve": 0.6145
+      },
+      "modelPrice": {
+        "fairBps": 13.0933,
+        "premiumPerCover": 1.309326,
+        "premiumBps": 13.0933,
+        "premiums": 66.775626,
+        "net": 66.775626,
+        "lossRatio": 0,
+        "returnOnReserve": 0.0065,
+        "annualisedReturnOnReserve": 0.0797
+      },
+      "reserve": {
+        "perCover": 200,
+        "reserveYears": 838.3562,
+        "peakCoversOpen": 22,
+        "peakReserve": 4400,
+        "averageDaysHeld": 30
+      },
+      "worstLossBps": {
+        "median": 112,
+        "max": 569,
+        "coversPastHalfTheLimit": 11
+      },
+      "premiums": 515.15151,
+      "lossRatio": 0,
+      "underwriterReturn": {
+        "atOfferFee": {
+          "returnOnReserve": 0.0505,
+          "annualised": 0.6145
+        },
+        "atModelPrice": {
+          "returnOnReserve": 0.0065,
+          "annualised": 0.0797
+        }
+      },
+      "claimsList": [],
+      "coversList": [
+        {
+          "openedOn": "2026-06-23",
+          "outcome": "closed",
+          "endedAt": "2026-07-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 263,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-24",
+          "outcome": "closed",
+          "endedAt": "2026-07-24T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 288,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-25",
+          "outcome": "closed",
+          "endedAt": "2026-07-25T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 223,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-26",
+          "outcome": "closed",
+          "endedAt": "2026-07-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 289,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-29",
+          "outcome": "closed",
+          "endedAt": "2026-07-29T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 503,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-30",
+          "outcome": "closed",
+          "endedAt": "2026-07-30T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 534,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-01",
+          "outcome": "closed",
+          "endedAt": "2026-07-31T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 569,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-02",
+          "outcome": "closed",
+          "endedAt": "2026-08-01T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 489,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-06",
+          "outcome": "closed",
+          "endedAt": "2026-08-05T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 567,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-07",
+          "outcome": "closed",
+          "endedAt": "2026-08-06T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 535,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-08",
+          "outcome": "closed",
+          "endedAt": "2026-08-07T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 500,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-09",
+          "outcome": "closed",
+          "endedAt": "2026-08-08T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 543,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-10",
+          "outcome": "closed",
+          "endedAt": "2026-08-09T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 543,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-13",
+          "outcome": "closed",
+          "endedAt": "2026-08-12T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 514,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-14",
+          "outcome": "closed",
+          "endedAt": "2026-08-13T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 522,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-15",
+          "outcome": "closed",
+          "endedAt": "2026-08-14T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 557,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-16",
+          "outcome": "closed",
+          "endedAt": "2026-08-15T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 517,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-17",
+          "outcome": "closed",
+          "endedAt": "2026-08-16T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 476,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-20",
+          "outcome": "closed",
+          "endedAt": "2026-08-19T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 454,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-21",
+          "outcome": "closed",
+          "endedAt": "2026-08-20T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 471,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-22",
+          "outcome": "closed",
+          "endedAt": "2026-08-21T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 444,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-23",
+          "outcome": "closed",
+          "endedAt": "2026-08-22T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 177,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-24",
+          "outcome": "closed",
+          "endedAt": "2026-08-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 128,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-27",
+          "outcome": "closed",
+          "endedAt": "2026-08-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 116,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-28",
+          "outcome": "closed",
+          "endedAt": "2026-08-27T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 100,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-29",
+          "outcome": "closed",
+          "endedAt": "2026-08-28T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 30,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-30",
+          "outcome": "closed",
+          "endedAt": "2026-08-29T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 13,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-31",
+          "outcome": "closed",
+          "endedAt": "2026-08-30T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 28,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-03",
+          "outcome": "closed",
+          "endedAt": "2026-09-02T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 87,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-04",
+          "outcome": "closed",
+          "endedAt": "2026-09-03T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 78,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-05",
+          "outcome": "closed",
+          "endedAt": "2026-09-04T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 22,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-06",
+          "outcome": "closed",
+          "endedAt": "2026-09-05T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 3,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-07",
+          "outcome": "closed",
+          "endedAt": "2026-09-06T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 69,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-10",
+          "outcome": "closed",
+          "endedAt": "2026-09-09T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 95,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-11",
+          "outcome": "closed",
+          "endedAt": "2026-09-10T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 73,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-12",
+          "outcome": "closed",
+          "endedAt": "2026-09-11T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 21,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-13",
+          "outcome": "closed",
+          "endedAt": "2026-09-12T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 70,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-14",
+          "outcome": "closed",
+          "endedAt": "2026-09-13T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 65,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-17",
+          "outcome": "closed",
+          "endedAt": "2026-09-16T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 37,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-18",
+          "outcome": "closed",
+          "endedAt": "2026-09-17T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 10,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-19",
+          "outcome": "closed",
+          "endedAt": "2026-09-18T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 96,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-20",
+          "outcome": "closed",
+          "endedAt": "2026-09-19T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 38,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-21",
+          "outcome": "closed",
+          "endedAt": "2026-09-20T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 112,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-24",
+          "outcome": "closed",
+          "endedAt": "2026-09-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 72,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-25",
+          "outcome": "closed",
+          "endedAt": "2026-09-24T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 72,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-26",
+          "outcome": "closed",
+          "endedAt": "2026-09-25T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 46,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-27",
+          "outcome": "closed",
+          "endedAt": "2026-09-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 62,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-28",
+          "outcome": "closed",
+          "endedAt": "2026-09-27T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 88,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-31",
+          "outcome": "closed",
+          "endedAt": "2026-09-30T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 162,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-09-01",
+          "outcome": "closed",
+          "endedAt": "2026-10-01T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 89,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-09-02",
+          "outcome": "closed",
+          "endedAt": "2026-10-02T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 93,
+          "payout": 0
+        }
+      ]
+    },
+    {
+      "key": "bold",
+      "name": "Bold",
+      "offer": "Bold 4%",
+      "scenario": "Bold: 80% in stocks (half TSLA, half AMZN), 10% limit, held 30 days",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1000,
+      "holdDays": 30,
+      "principalPerCover": 1000,
+      "covers": 51,
+      "claims": 17,
+      "claimRate": 0.3333,
+      "payouts": 17.397931,
+      "averagePayout": 1.023408,
+      "largestPayout": 1.873627,
+      "cappedClaims": 0,
+      "breakevenBps": 3.4114,
+      "offerFee": {
+        "feeBps": 400,
+        "depositPerCover": 1041.666666,
+        "premiumPerCover": 41.666666,
+        "premiumBps": 416.6667,
+        "premiums": 2124.999966,
+        "net": 2107.602035,
+        "lossRatio": 0.0082,
+        "returnOnReserve": 0.2066,
+        "annualisedReturnOnReserve": 3.0993
+      },
+      "modelPrice": {
+        "fairBps": 174.7361,
+        "premiumPerCover": 17.473609,
+        "premiumBps": 174.7361,
+        "premiums": 891.154059,
+        "net": 873.756128,
+        "lossRatio": 0.0195,
+        "returnOnReserve": 0.0857,
+        "annualisedReturnOnReserve": 1.2849
+      },
+      "reserve": {
+        "perCover": 200,
+        "reserveYears": 680.0219,
+        "peakCoversOpen": 22,
+        "peakReserve": 4400,
+        "averageDaysHeld": 24.33
+      },
+      "worstLossBps": {
+        "median": 300,
+        "max": 1018,
+        "coversPastHalfTheLimit": 21
+      },
+      "premiums": 2124.999966,
+      "lossRatio": 0.0082,
+      "underwriterReturn": {
+        "atOfferFee": {
+          "returnOnReserve": 0.2066,
+          "annualised": 3.0993
+        },
+        "atModelPrice": {
+          "returnOnReserve": 0.0857,
+          "annualised": 1.2849
+        }
+      },
+      "claimsList": [
+        {
+          "openedOn": "2026-06-29",
+          "openedAt": "2026-06-29T20:00:00Z",
+          "settledAt": "2026-07-23T14:50:57Z",
+          "firstPastLimitAt": "2026-07-23T14:50:57Z",
+          "trigger": {
+            "symbol": "AMZN",
+            "round": 332
+          },
+          "hoursSincePreviousRound": 0.44,
+          "value": 899.138985,
+          "loss": 100.861015,
+          "limit": 100,
+          "payout": 0.861015,
+          "lossBps": 1008.61,
+          "payoutBps": 8.61,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-06-30",
+          "openedAt": "2026-06-30T20:00:00Z",
+          "settledAt": "2026-07-23T14:50:31Z",
+          "firstPastLimitAt": "2026-07-23T14:50:31Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 478
+          },
+          "hoursSincePreviousRound": 0.42,
+          "value": 898.414691,
+          "loss": 101.585309,
+          "limit": 100,
+          "payout": 1.585309,
+          "lossBps": 1015.85,
+          "payoutBps": 15.85,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-01",
+          "openedAt": "2026-07-01T20:00:00Z",
+          "settledAt": "2026-07-23T13:57:00Z",
+          "firstPastLimitAt": "2026-07-23T13:57:00Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 473
+          },
+          "hoursSincePreviousRound": 0.1,
+          "value": 898.355024,
+          "loss": 101.644976,
+          "limit": 100,
+          "payout": 1.644976,
+          "lossBps": 1016.44,
+          "payoutBps": 16.44,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-02",
+          "openedAt": "2026-07-02T20:00:00Z",
+          "settledAt": "2026-07-24T14:34:39Z",
+          "firstPastLimitAt": "2026-07-24T14:34:39Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 513
+          },
+          "hoursSincePreviousRound": 0.27,
+          "value": 898.755508,
+          "loss": 101.244492,
+          "limit": 100,
+          "payout": 1.244492,
+          "lossBps": 1012.44,
+          "payoutBps": 12.44,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-06",
+          "openedAt": "2026-07-06T20:00:00Z",
+          "settledAt": "2026-07-23T13:57:00Z",
+          "firstPastLimitAt": "2026-07-23T13:57:00Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 473
+          },
+          "hoursSincePreviousRound": 0.1,
+          "value": 899.19384,
+          "loss": 100.80616,
+          "limit": 100,
+          "payout": 0.80616,
+          "lossBps": 1008.06,
+          "payoutBps": 8.06,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-07",
+          "openedAt": "2026-07-07T20:00:00Z",
+          "settledAt": "2026-07-23T14:50:31Z",
+          "firstPastLimitAt": "2026-07-23T14:50:31Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 478
+          },
+          "hoursSincePreviousRound": 0.42,
+          "value": 898.860463,
+          "loss": 101.139537,
+          "limit": 100,
+          "payout": 1.139537,
+          "lossBps": 1011.39,
+          "payoutBps": 11.39,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-08",
+          "openedAt": "2026-07-08T20:00:00Z",
+          "settledAt": "2026-07-24T13:52:46Z",
+          "firstPastLimitAt": "2026-07-24T13:52:46Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 511
+          },
+          "hoursSincePreviousRound": 0.13,
+          "value": 899.586227,
+          "loss": 100.413773,
+          "limit": 100,
+          "payout": 0.413773,
+          "lossBps": 1004.13,
+          "payoutBps": 4.13,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-09",
+          "openedAt": "2026-07-09T20:00:00Z",
+          "settledAt": "2026-07-23T14:25:30Z",
+          "firstPastLimitAt": "2026-07-23T14:25:30Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 477
+          },
+          "hoursSincePreviousRound": 0.07,
+          "value": 898.244628,
+          "loss": 101.755372,
+          "limit": 100,
+          "payout": 1.755372,
+          "lossBps": 1017.55,
+          "payoutBps": 17.55,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-10",
+          "openedAt": "2026-07-10T20:00:00Z",
+          "settledAt": "2026-07-23T14:24:27Z",
+          "firstPastLimitAt": "2026-07-23T14:24:27Z",
+          "trigger": {
+            "symbol": "AMZN",
+            "round": 331
+          },
+          "hoursSincePreviousRound": 0.45,
+          "value": 899.975117,
+          "loss": 100.024883,
+          "limit": 100,
+          "payout": 0.024883,
+          "lossBps": 1000.24,
+          "payoutBps": 0.24,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-13",
+          "openedAt": "2026-07-13T20:00:00Z",
+          "settledAt": "2026-07-23T15:29:01Z",
+          "firstPastLimitAt": "2026-07-23T15:29:01Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 482
+          },
+          "hoursSincePreviousRound": 0.11,
+          "value": 899.724126,
+          "loss": 100.275874,
+          "limit": 100,
+          "payout": 0.275874,
+          "lossBps": 1002.75,
+          "payoutBps": 2.75,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-14",
+          "openedAt": "2026-07-14T20:00:00Z",
+          "settledAt": "2026-07-23T15:22:31Z",
+          "firstPastLimitAt": "2026-07-23T15:22:31Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 481
+          },
+          "hoursSincePreviousRound": 0.31,
+          "value": 898.799744,
+          "loss": 101.200256,
+          "limit": 100,
+          "payout": 1.200256,
+          "lossBps": 1012,
+          "payoutBps": 12,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-15",
+          "openedAt": "2026-07-15T20:00:00Z",
+          "settledAt": "2026-07-23T14:03:30Z",
+          "firstPastLimitAt": "2026-07-23T14:03:30Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 474
+          },
+          "hoursSincePreviousRound": 0.11,
+          "value": 898.707208,
+          "loss": 101.292792,
+          "limit": 100,
+          "payout": 1.292792,
+          "lossBps": 1012.92,
+          "payoutBps": 12.92,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-16",
+          "openedAt": "2026-07-16T20:00:00Z",
+          "settledAt": "2026-07-23T15:29:01Z",
+          "firstPastLimitAt": "2026-07-23T15:29:01Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 482
+          },
+          "hoursSincePreviousRound": 0.11,
+          "value": 898.831624,
+          "loss": 101.168376,
+          "limit": 100,
+          "payout": 1.168376,
+          "lossBps": 1011.68,
+          "payoutBps": 11.68,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-17",
+          "openedAt": "2026-07-17T20:00:00Z",
+          "settledAt": "2026-07-24T18:26:44Z",
+          "firstPastLimitAt": "2026-07-24T18:26:44Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 521
+          },
+          "hoursSincePreviousRound": 1.44,
+          "value": 898.946441,
+          "loss": 101.053559,
+          "limit": 100,
+          "payout": 1.053559,
+          "lossBps": 1010.53,
+          "payoutBps": 10.53,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-20",
+          "openedAt": "2026-07-20T20:00:00Z",
+          "settledAt": "2026-07-28T03:08:28Z",
+          "firstPastLimitAt": "2026-07-28T03:08:28Z",
+          "trigger": {
+            "symbol": "TSLA",
+            "round": 557
+          },
+          "hoursSincePreviousRound": 1.98,
+          "value": 898.126373,
+          "loss": 101.873627,
+          "limit": 100,
+          "payout": 1.873627,
+          "lossBps": 1018.73,
+          "payoutBps": 18.73,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-21",
+          "openedAt": "2026-07-21T20:00:00Z",
+          "settledAt": "2026-07-24T19:26:36Z",
+          "firstPastLimitAt": "2026-07-24T19:26:36Z",
+          "trigger": {
+            "symbol": "AMZN",
+            "round": 343
+          },
+          "hoursSincePreviousRound": 1.78,
+          "value": 899.921431,
+          "loss": 100.078569,
+          "limit": 100,
+          "payout": 0.078569,
+          "lossBps": 1000.78,
+          "payoutBps": 0.78,
+          "capped": false,
+          "userLoss": 100
+        },
+        {
+          "openedOn": "2026-07-22",
+          "openedAt": "2026-07-22T20:00:00Z",
+          "settledAt": "2026-07-28T13:48:14Z",
+          "firstPastLimitAt": "2026-07-28T13:48:14Z",
+          "trigger": {
+            "symbol": "AMZN",
+            "round": 357
+          },
+          "hoursSincePreviousRound": 0.26,
+          "value": 899.020639,
+          "loss": 100.979361,
+          "limit": 100,
+          "payout": 0.979361,
+          "lossBps": 1009.79,
+          "payoutBps": 9.79,
+          "capped": false,
+          "userLoss": 100
+        }
+      ],
+      "coversList": [
+        {
+          "openedOn": "2026-06-23",
+          "outcome": "closed",
+          "endedAt": "2026-07-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 702,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-24",
+          "outcome": "closed",
+          "endedAt": "2026-07-24T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 768,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-25",
+          "outcome": "closed",
+          "endedAt": "2026-07-25T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 595,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-26",
+          "outcome": "closed",
+          "endedAt": "2026-07-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 771,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-06-29",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:50:57Z",
+          "daysHeld": 23.79,
+          "worstLossBps": 1008,
+          "payout": 0.861015
+        },
+        {
+          "openedOn": "2026-06-30",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:50:31Z",
+          "daysHeld": 22.79,
+          "worstLossBps": 1015,
+          "payout": 1.585309
+        },
+        {
+          "openedOn": "2026-07-01",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T13:57:00Z",
+          "daysHeld": 21.75,
+          "worstLossBps": 1016,
+          "payout": 1.644976
+        },
+        {
+          "openedOn": "2026-07-02",
+          "outcome": "settled",
+          "endedAt": "2026-07-24T14:34:39Z",
+          "daysHeld": 21.77,
+          "worstLossBps": 1012,
+          "payout": 1.244492
+        },
+        {
+          "openedOn": "2026-07-06",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T13:57:00Z",
+          "daysHeld": 16.75,
+          "worstLossBps": 1008,
+          "payout": 0.80616
+        },
+        {
+          "openedOn": "2026-07-07",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:50:31Z",
+          "daysHeld": 15.79,
+          "worstLossBps": 1011,
+          "payout": 1.139537
+        },
+        {
+          "openedOn": "2026-07-08",
+          "outcome": "settled",
+          "endedAt": "2026-07-24T13:52:46Z",
+          "daysHeld": 15.74,
+          "worstLossBps": 1004,
+          "payout": 0.413773
+        },
+        {
+          "openedOn": "2026-07-09",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:25:30Z",
+          "daysHeld": 13.77,
+          "worstLossBps": 1017,
+          "payout": 1.755372
+        },
+        {
+          "openedOn": "2026-07-10",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:24:27Z",
+          "daysHeld": 12.77,
+          "worstLossBps": 1000,
+          "payout": 0.024883
+        },
+        {
+          "openedOn": "2026-07-13",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T15:29:01Z",
+          "daysHeld": 9.81,
+          "worstLossBps": 1002,
+          "payout": 0.275874
+        },
+        {
+          "openedOn": "2026-07-14",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T15:22:31Z",
+          "daysHeld": 8.81,
+          "worstLossBps": 1012,
+          "payout": 1.200256
+        },
+        {
+          "openedOn": "2026-07-15",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T14:03:30Z",
+          "daysHeld": 7.75,
+          "worstLossBps": 1012,
+          "payout": 1.292792
+        },
+        {
+          "openedOn": "2026-07-16",
+          "outcome": "settled",
+          "endedAt": "2026-07-23T15:29:01Z",
+          "daysHeld": 6.81,
+          "worstLossBps": 1011,
+          "payout": 1.168376
+        },
+        {
+          "openedOn": "2026-07-17",
+          "outcome": "settled",
+          "endedAt": "2026-07-24T18:26:44Z",
+          "daysHeld": 6.94,
+          "worstLossBps": 1010,
+          "payout": 1.053559
+        },
+        {
+          "openedOn": "2026-07-20",
+          "outcome": "settled",
+          "endedAt": "2026-07-28T03:08:28Z",
+          "daysHeld": 7.3,
+          "worstLossBps": 1018,
+          "payout": 1.873627
+        },
+        {
+          "openedOn": "2026-07-21",
+          "outcome": "settled",
+          "endedAt": "2026-07-24T19:26:36Z",
+          "daysHeld": 2.98,
+          "worstLossBps": 1000,
+          "payout": 0.078569
+        },
+        {
+          "openedOn": "2026-07-22",
+          "outcome": "settled",
+          "endedAt": "2026-07-28T13:48:14Z",
+          "daysHeld": 5.74,
+          "worstLossBps": 1009,
+          "payout": 0.979361
+        },
+        {
+          "openedOn": "2026-07-23",
+          "outcome": "closed",
+          "endedAt": "2026-08-22T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 473,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-24",
+          "outcome": "closed",
+          "endedAt": "2026-08-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 343,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-27",
+          "outcome": "closed",
+          "endedAt": "2026-08-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 311,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-28",
+          "outcome": "closed",
+          "endedAt": "2026-08-27T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 267,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-29",
+          "outcome": "closed",
+          "endedAt": "2026-08-28T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 82,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-30",
+          "outcome": "closed",
+          "endedAt": "2026-08-29T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 35,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-07-31",
+          "outcome": "closed",
+          "endedAt": "2026-08-30T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 75,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-03",
+          "outcome": "closed",
+          "endedAt": "2026-09-02T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 234,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-04",
+          "outcome": "closed",
+          "endedAt": "2026-09-03T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 209,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-05",
+          "outcome": "closed",
+          "endedAt": "2026-09-04T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 59,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-06",
+          "outcome": "closed",
+          "endedAt": "2026-09-05T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 8,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-07",
+          "outcome": "closed",
+          "endedAt": "2026-09-06T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 186,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-10",
+          "outcome": "closed",
+          "endedAt": "2026-09-09T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 255,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-11",
+          "outcome": "closed",
+          "endedAt": "2026-09-10T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 196,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-12",
+          "outcome": "closed",
+          "endedAt": "2026-09-11T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 58,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-13",
+          "outcome": "closed",
+          "endedAt": "2026-09-12T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 188,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-14",
+          "outcome": "closed",
+          "endedAt": "2026-09-13T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 175,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-17",
+          "outcome": "closed",
+          "endedAt": "2026-09-16T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 100,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-18",
+          "outcome": "closed",
+          "endedAt": "2026-09-17T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 28,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-19",
+          "outcome": "closed",
+          "endedAt": "2026-09-18T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 257,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-20",
+          "outcome": "closed",
+          "endedAt": "2026-09-19T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 102,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-21",
+          "outcome": "closed",
+          "endedAt": "2026-09-20T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 300,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-24",
+          "outcome": "closed",
+          "endedAt": "2026-09-23T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 192,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-25",
+          "outcome": "closed",
+          "endedAt": "2026-09-24T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 192,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-26",
+          "outcome": "closed",
+          "endedAt": "2026-09-25T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 123,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-27",
+          "outcome": "closed",
+          "endedAt": "2026-09-26T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 166,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-28",
+          "outcome": "closed",
+          "endedAt": "2026-09-27T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 237,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-08-31",
+          "outcome": "closed",
+          "endedAt": "2026-09-30T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 434,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-09-01",
+          "outcome": "closed",
+          "endedAt": "2026-10-01T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 237,
+          "payout": 0
+        },
+        {
+          "openedOn": "2026-09-02",
+          "outcome": "closed",
+          "endedAt": "2026-10-02T20:00:00Z",
+          "daysHeld": 30,
+          "worstLossBps": 248,
+          "payout": 0
+        }
+      ]
+    }
+  ],
+  "sensitivity": [
+    {
+      "key": "careful-limit-500",
+      "agent": "careful",
+      "change": "5% limit",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 500,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 12,
+      "payouts": 2.845877,
+      "averagePayout": 0.237156,
+      "breakevenBps": 0.558,
+      "averageDaysHeld": 27.76,
+      "offerFee": {
+        "premiums": 515.15151,
+        "lossRatio": 0.0055,
+        "annualisedReturnOnReserve": 0.5284
+      },
+      "modelPrice": {
+        "fairBps": 52.4723,
+        "premiums": 267.608628,
+        "lossRatio": 0.0106,
+        "annualisedReturnOnReserve": 0.2731
+      }
+    },
+    {
+      "key": "careful-limit-1500",
+      "agent": "careful",
+      "change": "15% limit",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1500,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 515.15151,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.8193
+      },
+      "modelPrice": {
+        "fairBps": 6.3695,
+        "premiums": 32.484348,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.0517
+      }
+    },
+    {
+      "key": "careful-limit-2000",
+      "agent": "careful",
+      "change": "20% limit",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 2000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 515.15151,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 1.229
+      },
+      "modelPrice": {
+        "fairBps": 4.1126,
+        "premiums": 20.974158,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.05
+      }
+    },
+    {
+      "key": "careful-tsla",
+      "agent": "careful",
+      "change": "stocks all TSLA",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 10000,
+        "AMZN": 0
+      },
+      "limitBps": 1000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 515.15151,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.6145
+      },
+      "modelPrice": {
+        "fairBps": 13.0933,
+        "premiums": 66.775626,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.0797
+      }
+    },
+    {
+      "key": "careful-amzn",
+      "agent": "careful",
+      "change": "stocks all AMZN",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 0,
+        "AMZN": 10000
+      },
+      "limitBps": 1000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 515.15151,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.6145
+      },
+      "modelPrice": {
+        "fairBps": 13.0933,
+        "premiums": 66.775626,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.0797
+      }
+    },
+    {
+      "key": "careful-hold-end",
+      "agent": "careful",
+      "change": "held until the window ends (no close)",
+      "stockShareBps": 3000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1000,
+      "hold": "until 2 Oct 2026 close",
+      "covers": 72,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 50.1,
+      "offerFee": {
+        "premiums": 727.27272,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.368
+      },
+      "modelPrice": {
+        "fairBps": 13.0933,
+        "premiums": 94.271472,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.0477
+      }
+    },
+    {
+      "key": "bold-limit-500",
+      "agent": "bold",
+      "change": "5% limit",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 500,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 21,
+      "payouts": 26.556387,
+      "averagePayout": 1.26459,
+      "breakevenBps": 5.2071,
+      "averageDaysHeld": 23.78,
+      "offerFee": {
+        "premiums": 2124.999966,
+        "lossRatio": 0.0125,
+        "annualisedReturnOnReserve": 2.5265
+      },
+      "modelPrice": {
+        "fairBps": 280.8827,
+        "premiums": 1432.501668,
+        "lossRatio": 0.0185,
+        "annualisedReturnOnReserve": 1.6927
+      }
+    },
+    {
+      "key": "bold-limit-1500",
+      "agent": "bold",
+      "change": "15% limit",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1500,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 2,
+      "payouts": 1.527601,
+      "averagePayout": 0.763801,
+      "breakevenBps": 0.2995,
+      "averageDaysHeld": 29.82,
+      "offerFee": {
+        "premiums": 2124.999966,
+        "lossRatio": 0.0007,
+        "annualisedReturnOnReserve": 3.3971
+      },
+      "modelPrice": {
+        "fairBps": 96.7146,
+        "premiums": 493.24446,
+        "lossRatio": 0.0031,
+        "annualisedReturnOnReserve": 0.7866
+      }
+    },
+    {
+      "key": "bold-limit-2000",
+      "agent": "bold",
+      "change": "20% limit",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 2000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 2124.999966,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 5.0694
+      },
+      "modelPrice": {
+        "fairBps": 47.2981,
+        "premiums": 241.220157,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 0.5755
+      }
+    },
+    {
+      "key": "bold-tsla",
+      "agent": "bold",
+      "change": "stocks all TSLA",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 10000,
+        "AMZN": 0
+      },
+      "limitBps": 1000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 21,
+      "payouts": 50.229109,
+      "averagePayout": 2.391862,
+      "breakevenBps": 9.8488,
+      "averageDaysHeld": 23.79,
+      "offerFee": {
+        "premiums": 2124.999966,
+        "lossRatio": 0.0236,
+        "annualisedReturnOnReserve": 3.1209
+      },
+      "modelPrice": {
+        "fairBps": 174.7361,
+        "premiums": 891.154059,
+        "lossRatio": 0.0564,
+        "annualisedReturnOnReserve": 1.2649
+      }
+    },
+    {
+      "key": "bold-amzn",
+      "agent": "bold",
+      "change": "stocks all AMZN",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 0,
+        "AMZN": 10000
+      },
+      "limitBps": 1000,
+      "hold": "30 days",
+      "covers": 51,
+      "claims": 0,
+      "payouts": 0,
+      "averagePayout": 0,
+      "breakevenBps": 0,
+      "averageDaysHeld": 30,
+      "offerFee": {
+        "premiums": 2124.999966,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 2.5347
+      },
+      "modelPrice": {
+        "fairBps": 174.7361,
+        "premiums": 891.154059,
+        "lossRatio": 0,
+        "annualisedReturnOnReserve": 1.063
+      }
+    },
+    {
+      "key": "bold-hold-end",
+      "agent": "bold",
+      "change": "held until the window ends (no close)",
+      "stockShareBps": 8000,
+      "mix": {
+        "TSLA": 5000,
+        "AMZN": 5000
+      },
+      "limitBps": 1000,
+      "hold": "until 2 Oct 2026 close",
+      "covers": 72,
+      "claims": 20,
+      "payouts": 21.386319,
+      "averagePayout": 1.069316,
+      "breakevenBps": 2.9703,
+      "averageDaysHeld": 30.76,
+      "offerFee": {
+        "premiums": 2999.999952,
+        "lossRatio": 0.0071,
+        "annualisedReturnOnReserve": 2.4541
+      },
+      "modelPrice": {
+        "fairBps": 174.7361,
+        "premiums": 1258.099848,
+        "lossRatio": 0.017,
+        "annualisedReturnOnReserve": 1.0189
+      }
+    }
+  ]
+}

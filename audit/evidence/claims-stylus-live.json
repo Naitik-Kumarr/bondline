@@ -1,0 +1,8 @@
+{
+  "rpc": "https://rpc.testnet.chain.robinhood.com",
+  "blockNumber": "128636214",
+  "blockHash": "0xd5352b8c049affcf18d9074cac7c7e7b09a295eb74a5be59b3f0be009e8975a3",
+  "timestamp": "1791107124",
+  "activationGas": "18446744073709551615",
+  "isUint64Max": true
+}

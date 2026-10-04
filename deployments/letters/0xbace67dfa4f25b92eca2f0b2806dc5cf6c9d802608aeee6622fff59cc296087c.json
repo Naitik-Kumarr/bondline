@@ -1,0 +1,20 @@
+{
+  "settleTx": "0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c",
+  "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+  "cover": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+  "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+  "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+  "payout": "15.000001",
+  "loss": "25.000001",
+  "limit": "10",
+  "letter": "Dear Bondline User,\n\nThis was a scripted gap: a test event staged by the Bondline team on testnet with scripted prices, not a real market move.\n\nYour AI-traded account on the Replay market experienced a loss of 25.00 USDG against your starting principal of 100.00 USDG, bringing the account value to 75.00 USDG. Your loss limit was set at 10.00 USDG.\n\nBecause the loss exceeded your limit, the settlement was triggered on 2026-10-04T10:06:39Z. The Bondline protection bond paid out 15.00 USDG to cover the amount beyond your limit. You bear the first 10.00 USDG of the loss yourself, as specified in your coverage terms.\n\nSettlement details:\nSettle transaction: https://explorer.testnet.chain.robinhood.com/tx/0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c\nAccount: https://explorer.testnet.chain.robinhood.com/address/0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa\n\nThis is testnet with test funds. No investment, legal, or tax advice is offered here.\n\nBondline",
+  "hash": "0x2057ac3706931056ecadcf409441c81749a86005bab526c1932ee3cbb5b57434",
+  "model": "claude-haiku-4-5-20251001",
+  "createdAt": "2026-10-04T10:07:25Z",
+  "scripted": true,
+  "unit": "USDG",
+  "marketLabel": "Replay",
+  "value": "74.999999",
+  "blockNumber": 128646129,
+  "settledAt": "2026-10-04T10:06:39Z"
+}

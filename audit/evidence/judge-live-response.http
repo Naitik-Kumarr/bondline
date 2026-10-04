@@ -1,0 +1,15 @@
+HTTP/2 404 
+cache-control: public, max-age=0, must-revalidate
+content-type: text/plain; charset=utf-8
+date: Sun, 04 Oct 2026 09:28:20 GMT
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-vercel-error: DEPLOYMENT_NOT_FOUND
+x-vercel-id: bom1::wzgj7-1791106100587-4bf189df4867
+content-length: 107
+
+The deployment could not be found on Vercel.
+
+DEPLOYMENT_NOT_FOUND
+
+bom1::wzgj7-1791106100587-4bf189df4867

@@ -1,0 +1,76 @@
+[
+  {
+    "name": "quote",
+    "type": "function",
+    "stateMutability": "pure",
+    "inputs": [
+      {
+        "type": "uint256",
+        "name": "wBps"
+      },
+      {
+        "type": "uint256",
+        "name": "sigmaBps"
+      },
+      {
+        "type": "uint256",
+        "name": "termDays"
+      },
+      {
+        "type": "uint256",
+        "name": "limitBps"
+      },
+      {
+        "type": "uint256",
+        "name": "capBps"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "uint256",
+        "name": "pHitBps"
+      },
+      {
+        "type": "uint256",
+        "name": "gapBps"
+      },
+      {
+        "type": "uint256",
+        "name": "riskBps"
+      },
+      {
+        "type": "uint256",
+        "name": "reserveBps"
+      },
+      {
+        "type": "uint256",
+        "name": "fairBps"
+      }
+    ]
+  },
+  {
+    "name": "WBpsTooLarge",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "SigmaBpsTooLarge",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "TermDaysOutOfRange",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "CapBpsOutOfRange",
+    "type": "error",
+    "inputs": []
+  },
+  {
+    "name": "LimitBpsOutOfRange",
+    "type": "error",
+    "inputs": []
+  }
+]

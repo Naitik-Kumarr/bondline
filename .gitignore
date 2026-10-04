@@ -1,0 +1,69 @@
+# Secrets: never commit. .env.example lists variable names only.
+.env
+.env.*
+
+# Private notes
+_private/
+
+# Dependencies
+node_modules/
+.venv/
+
+# Build outputs
+out/
+cache/
+broadcast/
+coverage/
+lcov.info
+.next/
+*.tsbuildinfo
+next-env.d.ts
+.vercel/
+dist/
+
+# OS and logs
+.DS_Store
+*.log
+
+# Service logs and local state
+logs/
+keeper/state/
+agents/state/
+
+# Local build dirs and QA screenshots
+.next-*/
+web/qa/*.png
+web/qa/*.html
+keeper/state-fork/
+deployments/*-fork.json
+deployments/raw-*.json
+deployments/setup-log-fork.json
+
+# Per-agent forge build folders
+contracts/out-*/
+contracts/cache-*/
+
+# Independent audit: commit AUDIT.md, areas, backtest, evidence, tools, the root
+# proof scripts and the audit/contracts and audit/npm copies. Ignore what the
+# audit commands regenerate. audit/contracts/lib is a local absolute symlink
+# (no trailing slash, so git matches the link); recreate it with
+# ln -s ../../contracts/lib audit/contracts/lib
+audit/npm-cache/
+audit/npm-logs/
+audit/npm/node_modules/
+audit/contracts/out*/
+audit/contracts/cache*/
+audit/contracts/broadcast/
+audit/contracts/lib
+audit/web-postcss-proof/
+audit/web-worker-proof/
+audit/**/__pycache__/
+.vercel
+.env*
+!.env.example
+
+# Rust build output (Stylus pricer)
+stylus/target/
+
+# Local Claude Code permissions
+.claude/

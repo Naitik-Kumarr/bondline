@@ -1,0 +1,31 @@
+# Bondline agents: the Careful and Bold AI personas (Claude Haiku 4.5), each with its own wallet. Robinhood Chain testnet.
+# Install (on the droplet, with the bundle at /opt/bondline/agents/dist/agents.mjs):
+#   sudo cp bondline-agents.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#   sudo systemctl enable --now bondline-agents && journalctl -u bondline-agents -f
+[Unit]
+Description=Bondline agents (Careful and Bold, Claude Haiku 4.5)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/bondline/agents
+# CAREFUL_PRIVATE_KEY, BOLD_PRIVATE_KEY, ANTHROPIC_API_KEY and the rest; see agents/README.md. chmod 600, owned by root.
+EnvironmentFile=/etc/bondline/agents.env
+Environment=NODE_ENV=production
+Environment=BONDLINE_ENV_FILE=none
+ExecStart=/usr/bin/node /opt/bondline/agents/dist/agents.mjs
+Restart=always
+RestartSec=10
+KillSignal=SIGTERM
+TimeoutStopSec=30
+# JSON lines go to the journal and to /opt/bondline/agents/logs/agents.log.
+# To run unprivileged: useradd --system --home /opt/bondline bondline; chown -R bondline /opt/bondline; then uncomment:
+# User=bondline
+# Group=bondline
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,190 @@
+{
+  "command": "node audit/evidence/deployment-additional.mjs",
+  "block": {
+    "number": "128627492",
+    "hash": "0x01dad82600e1d668e3083f53ff4057b4321db12fcc27061f818134f156959f66",
+    "timestamp": 1791106056
+  },
+  "queriedAt": "2026-10-04T09:32:05.357Z",
+  "frozen": {
+    "deployer": false,
+    "keeper": false,
+    "careful": false,
+    "bold": false,
+    "underwriter": false,
+    "buyer": false
+  },
+  "externalProxySlots": {
+    "USDG": {
+      "implementation": "0x000000000000000000000000f0863d7a29a55d0c4263c11bfac754312ff078df",
+      "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "TSLA": {
+      "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "beacon": "0x0000000000000000000000001df3ca0fd30ed5eeb09eb01938f4e9c5196e6ca5"
+    },
+    "AMZN": {
+      "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "beacon": "0x0000000000000000000000001df3ca0fd30ed5eeb09eb01938f4e9c5196e6ca5"
+    }
+  },
+  "creationTransactions": [
+    {
+      "role": "cover implementation",
+      "address": "0x341Eb4096EB6e4ab8Ce0cD409ff0310dE1f92F1f",
+      "creationTransactionHash": "0x4e6c757357b9a208bc86c3497b748a5d2fb97defc6e5571bf00b187491652861",
+      "blockNumber": "128334201",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f",
+      "inputHash": "0x403d52d04099c2c42f84d7ea417692c72acc329090554786bb5db5d7c03d6435",
+      "buildCreationWithReportedArgsHash": "0x403d52d04099c2c42f84d7ea417692c72acc329090554786bb5db5d7c03d6435",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "account implementation",
+      "address": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+      "creationTransactionHash": "0x08302badd1e92c8c09c2e103318905e370f71ee2ad2468cbd46eb72792c18c0b",
+      "blockNumber": "128334184",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0xf4429aa682e93548c88069276f7da235416836ff",
+      "inputHash": "0x58708478a8db31559372e099d6ef1f3b6f4b00b4aff9b78e825eeefdb07677ba",
+      "buildCreationWithReportedArgsHash": "0x58708478a8db31559372e099d6ef1f3b6f4b00b4aff9b78e825eeefdb07677ba",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "live market",
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "creationTransactionHash": "0xb5bae540f932589f0700aeecec83b55d1cbb523d61548af03c31328c4ef6bd27",
+      "blockNumber": "128334211",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x12630304d06837e69bbb27d59dc69ef4ad10da8d",
+      "inputHash": "0xada705601edbddb305973974e76fb697aacacca1a001b720f924f32e89c33e51",
+      "buildCreationWithReportedArgsHash": "0xada705601edbddb305973974e76fb697aacacca1a001b720f924f32e89c33e51",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "live venue",
+      "address": "0x338499703bde8EbA6308750745D53495B362f7d5",
+      "creationTransactionHash": "0xb5bae540f932589f0700aeecec83b55d1cbb523d61548af03c31328c4ef6bd27",
+      "blockNumber": "128334211",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x12630304d06837e69bbb27d59dc69ef4ad10da8d",
+      "inputHash": "0xada705601edbddb305973974e76fb697aacacca1a001b720f924f32e89c33e51",
+      "buildCreationWithReportedArgsHash": "0x7116368f944979ef6110ee59b00bce8d62175e9d27e32bf21a19defd21e5beac",
+      "expectedCreationInputMatches": null,
+      "note": "Internal creation (venue created by market); parent input recorded, runtime and constructor getters checked separately."
+    },
+    {
+      "role": "live TSLA feed",
+      "address": "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+      "creationTransactionHash": "0x62a993982f0e1ab2d5d74f9504a50ca5f097de8100601a8b9f500c38fec9fb68",
+      "blockNumber": "128334140",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0xf18710da444efeb3f9e2fa3e90c61d609906972d",
+      "inputHash": "0x971bc91d263c712d163e29d4dc26ddfe3b76aafc16d8f4c3323249befdd976cf",
+      "buildCreationWithReportedArgsHash": "0x971bc91d263c712d163e29d4dc26ddfe3b76aafc16d8f4c3323249befdd976cf",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "live AMZN feed",
+      "address": "0x404e911Bafc0293A30B77fAd33f1521C466fC524",
+      "creationTransactionHash": "0xdc0056d886f69f3cc43a97e3def60ee4a9f45375e19c466ca0184c2301a06b33",
+      "blockNumber": "128334148",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x404e911bafc0293a30b77fad33f1521c466fc524",
+      "inputHash": "0x76a22fe30e1476a02145e896e52e184828f6ef4a20d364d6a4f154258bf6a1b5",
+      "buildCreationWithReportedArgsHash": "0x76a22fe30e1476a02145e896e52e184828f6ef4a20d364d6a4f154258bf6a1b5",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "replay market",
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "creationTransactionHash": "0x2e1f5112eddd0678a8a536cb2a6792895a4fba3b73d550ed4ad9e9e80acb4707",
+      "blockNumber": "128334226",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x734edaa88537692002fa89c090d916842e16de7d",
+      "inputHash": "0x050a5423261cad22d4396dabae6392c6221bed51e9ee6266a77aafd82c87dccd",
+      "buildCreationWithReportedArgsHash": "0x050a5423261cad22d4396dabae6392c6221bed51e9ee6266a77aafd82c87dccd",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "replay venue",
+      "address": "0xEEc9A484D8b830BEdD7C85B2db377455AcA797A2",
+      "creationTransactionHash": "0x2e1f5112eddd0678a8a536cb2a6792895a4fba3b73d550ed4ad9e9e80acb4707",
+      "blockNumber": "128334226",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x734edaa88537692002fa89c090d916842e16de7d",
+      "inputHash": "0x050a5423261cad22d4396dabae6392c6221bed51e9ee6266a77aafd82c87dccd",
+      "buildCreationWithReportedArgsHash": "0xbde7d3f4c9e641522f0315aa7c1dc6b744e5904545cbb553d9413c3384712c68",
+      "expectedCreationInputMatches": null,
+      "note": "Internal creation (venue created by market); parent input recorded, runtime and constructor getters checked separately."
+    },
+    {
+      "role": "replay TSLA feed",
+      "address": "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+      "creationTransactionHash": "0x666636a35c3cfd699baa82a1edc296ca708fbfd6e1e8dbd87ab9120841eed6f3",
+      "blockNumber": "128334169",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x9e5d027cd67c800a48fbf1fb0764fd2c60672279",
+      "inputHash": "0xc02567f63094fdabe3553c009a675b5aa9dc814eeba5a2eb018df25bc7741dcf",
+      "buildCreationWithReportedArgsHash": "0xc02567f63094fdabe3553c009a675b5aa9dc814eeba5a2eb018df25bc7741dcf",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "replay AMZN feed",
+      "address": "0x8b592B586A20638A418F77e1Cb62e224920eB7eC",
+      "creationTransactionHash": "0x4a19d3dac25f41e091788d22436a3c160120796a917a307fa21c24d74833210d",
+      "blockNumber": "128334174",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x8b592b586a20638a418f77e1cb62e224920eb7ec",
+      "inputHash": "0x5f2a5dac61077cf562a05d7f74b2c8078bcabbc1618ebca94f873dcc7b19b384",
+      "buildCreationWithReportedArgsHash": "0x5f2a5dac61077cf562a05d7f74b2c8078bcabbc1618ebca94f873dcc7b19b384",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    },
+    {
+      "role": "proof of cover",
+      "address": "0x168e27D4A484AA20DEd6bbc0A2272728a9bF4888",
+      "creationTransactionHash": "0x240919b2bd7b2f0ca661fc7f47ca70853fd5a9d1838ad35fa80ae129bd285f8c",
+      "blockNumber": "128377563",
+      "status": "success",
+      "from": "0x378e7d5f528e6c87a3588315e573e66ee95178f6",
+      "to": null,
+      "receiptContractAddress": "0x168e27d4a484aa20ded6bbc0a2272728a9bf4888",
+      "inputHash": "0x0510a75025c5d1365a892b16dd2da69a703f40fe75b4c772949161eb346a95d6",
+      "buildCreationWithReportedArgsHash": "0x0510a75025c5d1365a892b16dd2da69a703f40fe75b4c772949161eb346a95d6",
+      "expectedCreationInputMatches": true,
+      "note": "Top-level creation input checked against fresh isolated build and explorer-reported constructor arguments."
+    }
+  ]
+}

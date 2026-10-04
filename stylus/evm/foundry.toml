@@ -1,0 +1,14 @@
+# The EVM twin of the Stylus pricer. Same compiler settings as ../../contracts/foundry.toml. Self-contained: no libs.
+[profile.default]
+src = "src"
+test = "test"
+out = "out"
+cache_path = "cache"
+libs = []
+solc_version = "0.8.28"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1000
+bytecode_hash = "none"
+cbor_metadata = true
+fs_permissions = [{ access = "read", path = "test/vectors.flat.json" }]

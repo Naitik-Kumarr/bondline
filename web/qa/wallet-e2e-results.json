@@ -1,0 +1,42 @@
+{
+  "results": [
+    {
+      "step": "fund #9 with 5,000 USDG (fork only)",
+      "hash": "0xe4e655ea2a966d96ee34d3cca3f0cba5abec091ed2094afbaeefb9678873540f"
+    },
+    {
+      "step": "underwrite: one signature, one transaction",
+      "hash": "0x8cb2baf9592effa9953efc7982b97374bb32b0122e95b99173af08284d2881c1",
+      "offerId": 2,
+      "cover": "0x7e23086009b1E8e6Bb283B818546516080833C0f",
+      "bond": "1000000000"
+    },
+    {
+      "step": "cover: approve exactly 200 USDG",
+      "hash": "0x3ce2ff7aa46531e37275ec918b771e0c4bf5d3a440cf8c4048f9cc66dc57ac0f",
+      "allowance": "200000000"
+    },
+    {
+      "step": "cover: open",
+      "hash": "0xd250ac823b3ec88369c7738fa272c8919ebdd5ec802616c5d22d2264ee0a7679",
+      "account": "0xD1Dd2F85F44aa23146754009af75f4daa443087C",
+      "principal": "198000000",
+      "reserve": "39600000"
+    },
+    {
+      "step": "account: pause",
+      "hash": "0xa0a70e6d7df32be575c8c9bc967154f897d92ea0d0f2acc901362e34e181d027"
+    },
+    {
+      "step": "account: resume",
+      "hash": "0x6e01696390f5e33d78e04159a5012deb797b8221beae28d967b69603e3c8f023"
+    },
+    {
+      "step": "account: withdraw 10 USDG",
+      "hash": "0xeeaf32c9c6cb3eac662c8ec6eba1e246d6b49be6c4c56e8913678213f0b76be4",
+      "principalBefore": "198000000",
+      "principalAfter": "188000000"
+    }
+  ],
+  "errors": []
+}

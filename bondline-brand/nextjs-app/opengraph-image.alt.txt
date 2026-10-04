@@ -1,0 +1,1 @@
+Bondline: bonds for AI traders. If a trade gaps past your limit, the bond pays the rest.

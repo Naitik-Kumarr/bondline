@@ -1,0 +1,9 @@
+{
+  "label": "Gap Party: scripted gap on the Replay market",
+  "market": "replay",
+  "status": "scheduled",
+  "sessionStartsAt": 1791099000,
+  "gapAt": 1791106200,
+  "note": "13:00-15:00 IST: a second replay session of the real 28 Sep - 2 Oct Chainlink prices (sped up) so the agents can invest covered accounts; 15:00 IST: our keeper runs a scripted gap from its control file and settles every account past its limit. Times may move if the main replay starts late; this file is the source of truth.",
+  "record": "deployments/gap-party.json"
+}

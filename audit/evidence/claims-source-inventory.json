@@ -1,0 +1,161 @@
+{
+  "capturedAt": "2026-10-04T09:53:10.693388+00:00",
+  "scope": "Only named public-copy source files; no environment, credential or key files read.",
+  "files": [
+    {
+      "path": "README.md",
+      "lines": 89,
+      "sha256": "85a94335515642b2d3ac07711ca11b74b34430e369e07dbe67dcc587e0772bf2"
+    },
+    {
+      "path": "docs/BACKTEST.md",
+      "lines": 140,
+      "sha256": "fef359ddf3932db7990cfbdf0b71f80bb86eeb611ba9095cc25d7976cad9854c"
+    },
+    {
+      "path": "docs/PRICING.md",
+      "lines": 250,
+      "sha256": "fb90c657b53470f07c8fd05ea4f39d8271cac2eca416b0b04f71d45e4fcaf98f"
+    },
+    {
+      "path": "docs/PROOF_OF_COVER.md",
+      "lines": 102,
+      "sha256": "228b408988a051c19a820f63661f5bddeccee02b22ce6e518455dcbd058d416b"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "lines": 52,
+      "sha256": "a2a5c56e30a3e667b5220ffa87e83fb8ff5812e91597f94c488c2c5c0822fa6f"
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "lines": 139,
+      "sha256": "d79dc4c8f5098b0f2a3f06a5e53916aaeb8a0f64889bd1362c1ecd7348734c91"
+    },
+    {
+      "path": "docs/TECHNICAL.md",
+      "lines": 207,
+      "sha256": "05efa3a665f423383c30a8157a217645bee9bbe30fb9e2332edbf7e3ebcaa70f"
+    },
+    {
+      "path": "docs/agents.md",
+      "lines": 111,
+      "sha256": "561bf7f0daaff71932f85afea14ec555bfccb17464356baf0272a3e78417b102"
+    },
+    {
+      "path": "docs/demo-video.md",
+      "lines": 64,
+      "sha256": "bc2e6c0955f20860f7e7b89e7517f778f2afdb8f3b0e40affe41c9ec53db92cb"
+    },
+    {
+      "path": "web/src/app/(marketing)/page.tsx",
+      "lines": 24,
+      "sha256": "08455440b6f1958a9b471699d4b3fdf1fd377d9cb896d068b0ae5ce3bff22cf8"
+    },
+    {
+      "path": "web/src/app/(read)/judge/page.tsx",
+      "lines": 140,
+      "sha256": "c6f2761222660b4939dc4251303fd0ca67c22ff10131881b34f02a2fee730ec0"
+    },
+    {
+      "path": "web/src/components/landing/ClosingCta.tsx",
+      "lines": 43,
+      "sha256": "d12f8ff0083e0d67e758294d7ae697b5e6b14136b66cf4a7ce091fdf9770edfe"
+    },
+    {
+      "path": "web/src/components/landing/Differentiators.tsx",
+      "lines": 46,
+      "sha256": "be8d4bddf6ab0b268b73b89190367316e026a61f24870fd1b0aaac11edea36f8"
+    },
+    {
+      "path": "web/src/components/landing/Hero.tsx",
+      "lines": 57,
+      "sha256": "9a1b632ff481d3355072ceb67c338385e9ea1654f62f2951312fd8257dbb0a5d"
+    },
+    {
+      "path": "web/src/components/landing/MarketProof.tsx",
+      "lines": 66,
+      "sha256": "164ec23d9e3342e1f69b1a4a92466f0fd22c30d2bc0801c76c0a534b20ab5ace"
+    },
+    {
+      "path": "web/src/components/landing/NewsStrip.tsx",
+      "lines": 98,
+      "sha256": "4ea840a21fe0e8d1b54f1f4fb8534bf334ec37a89d3e725ec614d142f221ea09"
+    },
+    {
+      "path": "web/src/components/landing/Sides.tsx",
+      "lines": 133,
+      "sha256": "95da0a9eaa7d3aa3387fd4dd80939e95689c124416d40df5f342ae5aed7d3444"
+    },
+    {
+      "path": "web/src/components/landing/TheLine.tsx",
+      "lines": 24,
+      "sha256": "93f889234a5b64abd5246b58a4674f47268bee535e29a332d697561955deda5f"
+    },
+    {
+      "path": "web/src/components/landing/UsdgLine.tsx",
+      "lines": 52,
+      "sha256": "94a0d4e65d01617ab223c58286456425c830aa1ff5654e3a764c040591c2ce27"
+    },
+    {
+      "path": "web/src/components/judge/Backtest.tsx",
+      "lines": 115,
+      "sha256": "42d33a2b8c3ddfa675baadeed086015869409327e24d35e40797b854fc91296b"
+    },
+    {
+      "path": "web/src/components/judge/CantTable.tsx",
+      "lines": 111,
+      "sha256": "17b1eab7a5dfa72ee4e0e92c5ee07bfd6009739d98983c75199ad5eafd504653"
+    },
+    {
+      "path": "web/src/components/judge/Criteria.tsx",
+      "lines": 141,
+      "sha256": "93d18c2911d05d8fac305856cec75b72450488e51da85cebb7b1092b085eea39"
+    },
+    {
+      "path": "web/src/components/judge/Links.tsx",
+      "lines": 33,
+      "sha256": "4e8506ed6a127deaa867c2779b2442bec69ffd120ad085d43306a2b44e872637"
+    },
+    {
+      "path": "web/src/components/judge/MomentsSection.tsx",
+      "lines": 306,
+      "sha256": "045e7177e36967bd64ba8d73ee9e42c364a1dc897348ed98f6af64179d90ef68"
+    },
+    {
+      "path": "web/src/components/judge/Proofs.tsx",
+      "lines": 141,
+      "sha256": "2e50304e9a4d8b567892dea65468c355a38c5d98b0739f90565bcf54a5740a97"
+    },
+    {
+      "path": "web/src/components/judge/Quality.tsx",
+      "lines": 185,
+      "sha256": "cdb08fbbaa681ae9d7af94e01557a254ea6f0915013b38d36c81b9d8ff29ad04"
+    },
+    {
+      "path": "web/src/components/judge/QuickLinks.tsx",
+      "lines": 65,
+      "sha256": "7aba1520366327da58b747190d2f62fbce604bf24f3b8f9e9d76a2f487b97ff4"
+    },
+    {
+      "path": "web/src/components/judge/RealVsDemo.tsx",
+      "lines": 72,
+      "sha256": "4c9a7520f744cded1419dab5770f3420e6a9dece9342200173b496fe366d4704"
+    },
+    {
+      "path": "web/src/components/judge/WorkedExample.tsx",
+      "lines": 124,
+      "sha256": "b7a9885980fffd89f3317177e2c6dfcb405775eb0fecd881dc7d20797ef83737"
+    },
+    {
+      "path": "web/src/components/hero/GapReplay.tsx",
+      "lines": 61,
+      "sha256": "aae9e60aecd181d8c5cffc008bd04da7261368e06803e9d53163374f59a8d129"
+    },
+    {
+      "path": "web/src/data/gap-demo.json",
+      "lines": 12,
+      "sha256": "afc02bcfb0a7f0a4f2aba9b1d0635e6458f9045bcb52b2f8bf0a758f22f9bcbf"
+    }
+  ]
+}

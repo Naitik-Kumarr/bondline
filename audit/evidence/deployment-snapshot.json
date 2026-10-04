@@ -1,0 +1,1027 @@
+{
+  "command": "node audit/evidence/deployment-probe.mjs",
+  "rpc": "https://rpc.testnet.chain.robinhood.com",
+  "queriedAt": "2026-10-04T09:27:37.347Z",
+  "chainId": 46630,
+  "block": {
+    "number": "128627492",
+    "hash": "0x01dad82600e1d668e3083f53ff4057b4321db12fcc27061f818134f156959f66",
+    "timestamp": 1791106056
+  },
+  "contracts": [
+    {
+      "role": "cover implementation",
+      "type": "BondlineCover",
+      "address": "0x341Eb4096EB6e4ab8Ce0cD409ff0310dE1f92F1f",
+      "bytes": 12957,
+      "codeHash": "0xf336d8f6be12dcc5faed471c2f4a6bd990eaa4660d900ffc7b6bd5f23c2edd21",
+      "artifact": "contracts/out/BondlineCover.sol/BondlineCover.json",
+      "artifactRuntimeHash": "0xf336d8f6be12dcc5faed471c2f4a6bd990eaa4660d900ffc7b6bd5f23c2edd21",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {},
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "MAX_DAILY_BPS",
+        "MAX_SLIPPAGE_BPS",
+        "MIN_DEPOSIT",
+        "accountAt",
+        "accountCount",
+        "accountImplementation",
+        "agent",
+        "bond",
+        "capBps",
+        "claimsPaid",
+        "close",
+        "delist",
+        "deposit",
+        "free",
+        "fund",
+        "health",
+        "initialize",
+        "isAccount",
+        "listed",
+        "market",
+        "maxPriceAge",
+        "open",
+        "position",
+        "premiums",
+        "quoteDeposit",
+        "release",
+        "reserved",
+        "settle",
+        "terms",
+        "underwriter",
+        "usdg",
+        "withdraw"
+      ]
+    },
+    {
+      "role": "account implementation",
+      "type": "AgentAccount",
+      "address": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+      "bytes": 9676,
+      "codeHash": "0x7847b323e4937fa2ba74f91e76d7f9f00cc664d008245562ce236236ab1ca136",
+      "artifact": "contracts/out/AgentAccount.sol/AgentAccount.json",
+      "artifactRuntimeHash": "0x7847b323e4937fa2ba74f91e76d7f9f00cc664d008245562ce236236ab1ca136",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {},
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "agent",
+        "assets",
+        "cover",
+        "dayVolume",
+        "feeds",
+        "initialize",
+        "market",
+        "owner",
+        "pause",
+        "paused",
+        "pay",
+        "release",
+        "released",
+        "resume",
+        "rules",
+        "stop",
+        "stopped",
+        "sweep",
+        "sweepToken",
+        "trade",
+        "usdg",
+        "valuation",
+        "venue"
+      ]
+    },
+    {
+      "role": "live market",
+      "type": "BondlineMarket",
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "bytes": 5611,
+      "codeHash": "0xa8baede3451c9a9b6aab05a10e568fbdb83af5245e6ae27c87af8d62476ab568",
+      "artifact": "contracts/out/BondlineMarket.sol/BondlineMarket.json",
+      "artifactRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "8442": [
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f"
+        ],
+        "8445": [
+          "000000000000000000000000338499703bde8eba6308750745d53495b362f7d5"
+        ],
+        "8448": [
+          "000000000000000000000000341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f",
+          "000000000000000000000000341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f"
+        ],
+        "8451": [
+          "000000000000000000000000f4429aa682e93548c88069276f7da235416836ff"
+        ],
+        "8454": [
+          "0000000000000000000000000000000000000000000000000000000000015f90"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "CAP_BPS",
+        "MAX_ASSETS",
+        "MAX_FEE_BPS",
+        "MAX_NAME_BYTES",
+        "accountImplementation",
+        "assets",
+        "capBps",
+        "capacity",
+        "coverImplementation",
+        "createOffer",
+        "createOfferWithAuthorization",
+        "delist",
+        "feeds",
+        "idOf",
+        "isOffer",
+        "label",
+        "maxPriceAge",
+        "offer",
+        "offerCount",
+        "offers",
+        "usdg",
+        "venue"
+      ]
+    },
+    {
+      "role": "live venue",
+      "type": "OracleVenue",
+      "address": "0x338499703bde8EbA6308750745D53495B362f7d5",
+      "bytes": 3672,
+      "codeHash": "0xef487554b321641fcf0713b87ef138fec164cfbbc8a452a7da94f38eb1a2f7bd",
+      "artifact": "contracts/out/OracleVenue.sol/OracleVenue.json",
+      "artifactRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9354": [
+          "00000000000000000000000012630304d06837e69bbb27d59dc69ef4ad10da8d",
+          "00000000000000000000000012630304d06837e69bbb27d59dc69ef4ad10da8d"
+        ],
+        "9357": [
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f"
+        ],
+        "9360": [
+          "000000000000000000000000000000000000000000000000000000000000000a",
+          "000000000000000000000000000000000000000000000000000000000000000a",
+          "000000000000000000000000000000000000000000000000000000000000000a"
+        ],
+        "9363": [
+          "0000000000000000000000000000000000000000000000000000000000015f90",
+          "0000000000000000000000000000000000000000000000000000000000015f90"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "buy",
+        "feedOf",
+        "market",
+        "maxPriceAge",
+        "quoteBuy",
+        "quoteSell",
+        "sell",
+        "spreadBps",
+        "usdg"
+      ]
+    },
+    {
+      "role": "live TSLA feed",
+      "type": "MirrorFeed",
+      "address": "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+      "bytes": 1596,
+      "codeHash": "0xd3c33f09240f26242c92c815db1ebb612726f7a068331fcc5ce96edd010abad7",
+      "artifact": "contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "artifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9091": [
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada",
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada"
+        ],
+        "9093": [
+          "0000000000000000000000000000000000000000000000000000000000000008"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "decimals",
+        "description",
+        "getRoundData",
+        "keeper",
+        "latestRound",
+        "latestRoundData",
+        "push",
+        "version"
+      ],
+      "getters": {
+        "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+        "decimals": 8,
+        "description": "TSLA / USD - live mirror of Chainlink on Robinhood Chain mainnet",
+        "latestRoundData": [
+          "1",
+          "37044800000",
+          "1790970931",
+          "1790970931",
+          "1"
+        ]
+      }
+    },
+    {
+      "role": "live AMZN feed",
+      "type": "MirrorFeed",
+      "address": "0x404e911Bafc0293A30B77fAd33f1521C466fC524",
+      "bytes": 1596,
+      "codeHash": "0xd3c33f09240f26242c92c815db1ebb612726f7a068331fcc5ce96edd010abad7",
+      "artifact": "contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "artifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9091": [
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada",
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada"
+        ],
+        "9093": [
+          "0000000000000000000000000000000000000000000000000000000000000008"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "decimals",
+        "description",
+        "getRoundData",
+        "keeper",
+        "latestRound",
+        "latestRoundData",
+        "push",
+        "version"
+      ],
+      "getters": {
+        "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+        "decimals": 8,
+        "description": "AMZN / USD - live mirror of Chainlink on Robinhood Chain mainnet",
+        "latestRoundData": [
+          "1",
+          "25164999999",
+          "1790970677",
+          "1790970677",
+          "1"
+        ]
+      }
+    },
+    {
+      "role": "replay market",
+      "type": "BondlineMarket",
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "bytes": 5611,
+      "codeHash": "0xdf63c0227c60113197e4f338cca00e1f47b74614ce55f2ffd9dc22d05837eaef",
+      "artifact": "contracts/out/BondlineMarket.sol/BondlineMarket.json",
+      "artifactRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "8442": [
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f"
+        ],
+        "8445": [
+          "000000000000000000000000eec9a484d8b830bedd7c85b2db377455aca797a2"
+        ],
+        "8448": [
+          "000000000000000000000000341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f",
+          "000000000000000000000000341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f"
+        ],
+        "8451": [
+          "000000000000000000000000f4429aa682e93548c88069276f7da235416836ff"
+        ],
+        "8454": [
+          "000000000000000000000000000000000000000000000000000000000000012c"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "CAP_BPS",
+        "MAX_ASSETS",
+        "MAX_FEE_BPS",
+        "MAX_NAME_BYTES",
+        "accountImplementation",
+        "assets",
+        "capBps",
+        "capacity",
+        "coverImplementation",
+        "createOffer",
+        "createOfferWithAuthorization",
+        "delist",
+        "feeds",
+        "idOf",
+        "isOffer",
+        "label",
+        "maxPriceAge",
+        "offer",
+        "offerCount",
+        "offers",
+        "usdg",
+        "venue"
+      ]
+    },
+    {
+      "role": "replay venue",
+      "type": "OracleVenue",
+      "address": "0xEEc9A484D8b830BEdD7C85B2db377455AcA797A2",
+      "bytes": 3672,
+      "codeHash": "0x8cd647d7ea8504d8df3ca65e48d134960c93219a1219f4a9d521eabc7726752e",
+      "artifact": "contracts/out/OracleVenue.sol/OracleVenue.json",
+      "artifactRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9354": [
+          "000000000000000000000000734edaa88537692002fa89c090d916842e16de7d",
+          "000000000000000000000000734edaa88537692002fa89c090d916842e16de7d"
+        ],
+        "9357": [
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f",
+          "0000000000000000000000007e955252e15c84f5768b83c41a71f9eba181802f"
+        ],
+        "9360": [
+          "000000000000000000000000000000000000000000000000000000000000000a",
+          "000000000000000000000000000000000000000000000000000000000000000a",
+          "000000000000000000000000000000000000000000000000000000000000000a"
+        ],
+        "9363": [
+          "000000000000000000000000000000000000000000000000000000000000012c",
+          "000000000000000000000000000000000000000000000000000000000000012c"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "buy",
+        "feedOf",
+        "market",
+        "maxPriceAge",
+        "quoteBuy",
+        "quoteSell",
+        "sell",
+        "spreadBps",
+        "usdg"
+      ]
+    },
+    {
+      "role": "replay TSLA feed",
+      "type": "MirrorFeed",
+      "address": "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+      "bytes": 1596,
+      "codeHash": "0xd3c33f09240f26242c92c815db1ebb612726f7a068331fcc5ce96edd010abad7",
+      "artifact": "contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "artifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9091": [
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada",
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada"
+        ],
+        "9093": [
+          "0000000000000000000000000000000000000000000000000000000000000008"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "decimals",
+        "description",
+        "getRoundData",
+        "keeper",
+        "latestRound",
+        "latestRoundData",
+        "push",
+        "version"
+      ],
+      "getters": {
+        "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+        "decimals": 8,
+        "description": "TSLA / USD - replay of Chainlink, 28 Sep - 2 Oct 2026, sped up",
+        "latestRoundData": [
+          "15",
+          "37102500000",
+          "1791063885",
+          "1791063885",
+          "15"
+        ]
+      }
+    },
+    {
+      "role": "replay AMZN feed",
+      "type": "MirrorFeed",
+      "address": "0x8b592B586A20638A418F77e1Cb62e224920eB7eC",
+      "bytes": 1596,
+      "codeHash": "0xd3c33f09240f26242c92c815db1ebb612726f7a068331fcc5ce96edd010abad7",
+      "artifact": "contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "artifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9091": [
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada",
+          "00000000000000000000000077626a8118aa4a623eefab0fd2629ae796e64ada"
+        ],
+        "9093": [
+          "0000000000000000000000000000000000000000000000000000000000000008"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "decimals",
+        "description",
+        "getRoundData",
+        "keeper",
+        "latestRound",
+        "latestRoundData",
+        "push",
+        "version"
+      ],
+      "getters": {
+        "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+        "decimals": 8,
+        "description": "AMZN / USD - replay of Chainlink, 28 Sep - 2 Oct 2026, sped up",
+        "latestRoundData": [
+          "15",
+          "24897000000",
+          "1791063888",
+          "1791063888",
+          "15"
+        ]
+      }
+    },
+    {
+      "role": "proof of cover",
+      "type": "ProofOfCover",
+      "address": "0x168e27D4A484AA20DEd6bbc0A2272728a9bF4888",
+      "bytes": 1642,
+      "codeHash": "0x3addad5b330f1901b90ed3c674a1e0495f12cbed955c3f9c2adc549999b108fe",
+      "artifact": "contracts/out/ProofOfCover.sol/ProofOfCover.json",
+      "artifactRuntimeHash": "0xfa57ecbcf9709f3366f1fc30a700cfd3c8cc3cb1af92b5d8fbb88b05fbf714e7",
+      "immutableMaskedMatch": true,
+      "executableMaskedMatch": true,
+      "immutableValues": {
+        "9824": [
+          "00000000000000000000000012630304d06837e69bbb27d59dc69ef4ad10da8d",
+          "00000000000000000000000012630304d06837e69bbb27d59dc69ef4ad10da8d"
+        ],
+        "9827": [
+          "000000000000000000000000734edaa88537692002fa89c090d916842e16de7d",
+          "000000000000000000000000734edaa88537692002fa89c090d916842e16de7d"
+        ]
+      },
+      "eip1967": {
+        "implementation": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "admin": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "beacon": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "abiFunctions": [
+        "isCovered",
+        "liveMarket",
+        "replayMarket"
+      ]
+    }
+  ],
+  "tokens": {
+    "USDG": {
+      "address": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+      "codeHash": "0x864cc9ad53b338b82da1f7cab85ab0b3d5c8861acb422b6fec63cf36234f36a6",
+      "name": "Global Dollar",
+      "symbol": "USDG",
+      "decimals": 6,
+      "domain": "0xb1debe91e09d82163fd9cddaab89359061c0671664e1611258a3c3de7c2d950b",
+      "paused": false
+    },
+    "TSLA": {
+      "address": "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+      "codeHash": "0x2f367e6a678e7b30ab613d5963e541e6f4d3ca586de76e2f441fbfeb1a27c440",
+      "name": "Tesla",
+      "symbol": "TSLA",
+      "decimals": 18
+    },
+    "AMZN": {
+      "address": "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02",
+      "codeHash": "0x2f367e6a678e7b30ab613d5963e541e6f4d3ca586de76e2f441fbfeb1a27c440",
+      "name": "Amazon",
+      "symbol": "AMZN",
+      "decimals": 18
+    }
+  },
+  "wallets": {
+    "deployer": {
+      "address": "0x378e7D5f528E6C87A3588315e573e66Ee95178f6",
+      "nativeBalance": "4864318310000000",
+      "USDG": "0",
+      "frozen": false
+    },
+    "keeper": {
+      "address": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+      "nativeBalance": "2972708980000000",
+      "USDG": "0",
+      "frozen": false
+    },
+    "careful": {
+      "address": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+      "nativeBalance": "499514920000000",
+      "USDG": "0",
+      "frozen": false
+    },
+    "bold": {
+      "address": "0x5B01856061892171408195372c0D94B0b58352E7",
+      "nativeBalance": "499466920000000",
+      "USDG": "99583334",
+      "frozen": false
+    },
+    "underwriter": {
+      "address": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "nativeBalance": "480686600000000",
+      "USDG": "0",
+      "frozen": false
+    },
+    "buyer": {
+      "address": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+      "nativeBalance": "471218610000000",
+      "USDG": "0",
+      "frozen": false
+    }
+  },
+  "markets": {
+    "live": {
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "venue": "0x338499703bde8EbA6308750745D53495B362f7d5",
+      "config": {
+        "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+        "venue": "0x338499703bde8EbA6308750745D53495B362f7d5",
+        "coverImplementation": "0x341Eb4096EB6e4ab8Ce0cD409ff0310dE1f92F1f",
+        "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+        "maxPriceAge": 90000,
+        "label": "Live",
+        "assets": [
+          "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+          "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+        ],
+        "feeds": [
+          "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+          "0x404e911Bafc0293A30B77fAd33f1521C466fC524"
+        ],
+        "capBps": 3000,
+        "offerCount": "2"
+      },
+      "offers": [
+        {
+          "terms": {
+            "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+            "listed": true
+          },
+          "book": {
+            "market": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+            "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+            "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+            "bond": "25300000",
+            "reserved": "5940000",
+            "free": "19360000",
+            "premiums": "300000",
+            "claimsPaid": "0",
+            "accountCount": "1",
+            "listed": true,
+            "terms": {
+              "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+              "minLimitBps": 500,
+              "maxLimitBps": 2000,
+              "feeBps": 100,
+              "maxStockBps": 3000,
+              "name": "Careful 1%"
+            },
+            "maxPriceAge": 90000,
+            "accounts": [
+              "0xa93962d5d44Ff3F0809754d555924389Fe3A0C0C"
+            ]
+          },
+          "actualUSDG": "25300000",
+          "bytecode": "0x363d3d373d3d3d363d73341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f5af43d82803e903d91602b57fd5bf3",
+          "accounts": [
+            {
+              "address": "0xa93962d5d44Ff3F0809754d555924389Fe3A0C0C",
+              "bytecode": "0x363d3d373d3d3d363d73f4429aa682e93548c88069276f7da235416836ff5af43d82803e903d91602b57fd5bf3",
+              "position": {
+                "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "limitBps": 1000,
+                "status": 1,
+                "principal": "29700000",
+                "reserve": "5940000"
+              },
+              "getters": {
+                "owner": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+                "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+                "market": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+                "paused": false,
+                "stopped": false,
+                "released": false,
+                "rules": {
+                  "assetMask": 3,
+                  "maxStockBps": 3000,
+                  "maxTradeBps": 1000,
+                  "maxDailyBps": 20000,
+                  "maxSlippageBps": 50,
+                  "maxPriceAge": 14400
+                },
+                "assets": [
+                  "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+                  "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+                ],
+                "feeds": [
+                  "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+                  "0x404e911Bafc0293A30B77fAd33f1521C466fC524"
+                ],
+                "valuation": {
+                  "value": "29700000",
+                  "cash": "29700000",
+                  "stockValue": "0",
+                  "oldestUpdate": "0",
+                  "pricesValid": true
+                }
+              },
+              "balances": {
+                "USDG": "29700000",
+                "TSLA": "0",
+                "AMZN": "0"
+              }
+            }
+          ]
+        },
+        {
+          "terms": {
+            "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+            "listed": true
+          },
+          "book": {
+            "market": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+            "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+            "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+            "bond": "26250000",
+            "reserved": "6000000",
+            "free": "20250000",
+            "premiums": "1250000",
+            "claimsPaid": "0",
+            "accountCount": "1",
+            "listed": true,
+            "terms": {
+              "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+              "minLimitBps": 500,
+              "maxLimitBps": 2000,
+              "feeBps": 400,
+              "maxStockBps": 8000,
+              "name": "Bold 4%"
+            },
+            "maxPriceAge": 90000,
+            "accounts": [
+              "0x4462A953Db52Cda1fbd745e29cc62E72943Ed9F4"
+            ]
+          },
+          "actualUSDG": "26250000",
+          "bytecode": "0x363d3d373d3d3d363d73341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f5af43d82803e903d91602b57fd5bf3",
+          "accounts": [
+            {
+              "address": "0x4462A953Db52Cda1fbd745e29cc62E72943Ed9F4",
+              "bytecode": "0x363d3d373d3d3d363d73f4429aa682e93548c88069276f7da235416836ff5af43d82803e903d91602b57fd5bf3",
+              "position": {
+                "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "limitBps": 1000,
+                "status": 1,
+                "principal": "30000000",
+                "reserve": "6000000"
+              },
+              "getters": {
+                "owner": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+                "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+                "market": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+                "paused": false,
+                "stopped": false,
+                "released": false,
+                "rules": {
+                  "assetMask": 3,
+                  "maxStockBps": 8000,
+                  "maxTradeBps": 4000,
+                  "maxDailyBps": 60000,
+                  "maxSlippageBps": 50,
+                  "maxPriceAge": 14400
+                },
+                "assets": [
+                  "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+                  "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+                ],
+                "feeds": [
+                  "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+                  "0x404e911Bafc0293A30B77fAd33f1521C466fC524"
+                ],
+                "valuation": {
+                  "value": "30000000",
+                  "cash": "30000000",
+                  "stockValue": "0",
+                  "oldestUpdate": "0",
+                  "pricesValid": true
+                }
+              },
+              "balances": {
+                "USDG": "30000000",
+                "TSLA": "0",
+                "AMZN": "0"
+              }
+            }
+          ]
+        }
+      ],
+      "usdgBalance": "0",
+      "venueConfig": {
+        "market": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+        "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+        "spreadBps": 10,
+        "maxPriceAge": 90000
+      },
+      "venueBalances": {
+        "USDG": "30000000",
+        "TSLA": "1500000000000000000",
+        "AMZN": "1500000000000000000"
+      }
+    },
+    "replay": {
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "venue": "0xEEc9A484D8b830BEdD7C85B2db377455AcA797A2",
+      "config": {
+        "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+        "venue": "0xEEc9A484D8b830BEdD7C85B2db377455AcA797A2",
+        "coverImplementation": "0x341Eb4096EB6e4ab8Ce0cD409ff0310dE1f92F1f",
+        "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+        "maxPriceAge": 300,
+        "label": "Replay",
+        "assets": [
+          "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+          "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+        ],
+        "feeds": [
+          "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+          "0x8b592B586A20638A418F77e1Cb62e224920eB7eC"
+        ],
+        "capBps": 3000,
+        "offerCount": "2"
+      },
+      "offers": [
+        {
+          "terms": {
+            "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+            "listed": true
+          },
+          "book": {
+            "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+            "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+            "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+            "bond": "44166666",
+            "reserved": "20000000",
+            "free": "24166666",
+            "premiums": "4166666",
+            "claimsPaid": "0",
+            "accountCount": "1",
+            "listed": true,
+            "terms": {
+              "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+              "minLimitBps": 500,
+              "maxLimitBps": 2000,
+              "feeBps": 400,
+              "maxStockBps": 8000,
+              "name": "Bold 4%"
+            },
+            "maxPriceAge": 300,
+            "accounts": [
+              "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa"
+            ]
+          },
+          "actualUSDG": "44166666",
+          "bytecode": "0x363d3d373d3d3d363d73341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f5af43d82803e903d91602b57fd5bf3",
+          "accounts": [
+            {
+              "address": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+              "bytecode": "0x363d3d373d3d3d363d73f4429aa682e93548c88069276f7da235416836ff5af43d82803e903d91602b57fd5bf3",
+              "position": {
+                "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "limitBps": 1000,
+                "status": 1,
+                "principal": "100000000",
+                "reserve": "20000000"
+              },
+              "getters": {
+                "owner": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+                "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+                "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+                "paused": false,
+                "stopped": false,
+                "released": false,
+                "rules": {
+                  "assetMask": 3,
+                  "maxStockBps": 8000,
+                  "maxTradeBps": 4000,
+                  "maxDailyBps": 60000,
+                  "maxSlippageBps": 50,
+                  "maxPriceAge": 300
+                },
+                "assets": [
+                  "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+                  "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+                ],
+                "feeds": [
+                  "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+                  "0x8b592B586A20638A418F77e1Cb62e224920eB7eC"
+                ],
+                "valuation": {
+                  "value": "100000000",
+                  "cash": "100000000",
+                  "stockValue": "0",
+                  "oldestUpdate": "0",
+                  "pricesValid": true
+                }
+              },
+              "balances": {
+                "USDG": "100000000",
+                "TSLA": "0",
+                "AMZN": "0"
+              }
+            }
+          ]
+        },
+        {
+          "terms": {
+            "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+            "listed": true
+          },
+          "book": {
+            "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+            "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+            "accountImplementation": "0xF4429Aa682e93548c88069276f7dA235416836Ff",
+            "bond": "25500000",
+            "reserved": "9900000",
+            "free": "15600000",
+            "premiums": "500000",
+            "claimsPaid": "0",
+            "accountCount": "1",
+            "listed": true,
+            "terms": {
+              "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+              "minLimitBps": 500,
+              "maxLimitBps": 2000,
+              "feeBps": 100,
+              "maxStockBps": 3000,
+              "name": "Careful 1%"
+            },
+            "maxPriceAge": 300,
+            "accounts": [
+              "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1"
+            ]
+          },
+          "actualUSDG": "25500000",
+          "bytecode": "0x363d3d373d3d3d363d73341eb4096eb6e4ab8ce0cd409ff0310de1f92f1f5af43d82803e903d91602b57fd5bf3",
+          "accounts": [
+            {
+              "address": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+              "bytecode": "0x363d3d373d3d3d363d73f4429aa682e93548c88069276f7da235416836ff5af43d82803e903d91602b57fd5bf3",
+              "position": {
+                "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "limitBps": 1000,
+                "status": 1,
+                "principal": "49500000",
+                "reserve": "9900000"
+              },
+              "getters": {
+                "owner": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+                "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+                "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+                "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+                "paused": false,
+                "stopped": false,
+                "released": false,
+                "rules": {
+                  "assetMask": 3,
+                  "maxStockBps": 3000,
+                  "maxTradeBps": 1000,
+                  "maxDailyBps": 20000,
+                  "maxSlippageBps": 50,
+                  "maxPriceAge": 300
+                },
+                "assets": [
+                  "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+                  "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+                ],
+                "feeds": [
+                  "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+                  "0x8b592B586A20638A418F77e1Cb62e224920eB7eC"
+                ],
+                "valuation": {
+                  "value": "49500000",
+                  "cash": "49500000",
+                  "stockValue": "0",
+                  "oldestUpdate": "0",
+                  "pricesValid": true
+                }
+              },
+              "balances": {
+                "USDG": "49500000",
+                "TSLA": "0",
+                "AMZN": "0"
+              }
+            }
+          ]
+        }
+      ],
+      "usdgBalance": "0",
+      "venueConfig": {
+        "market": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+        "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+        "spreadBps": 10,
+        "maxPriceAge": 300
+      },
+      "venueBalances": {
+        "USDG": "40000000",
+        "TSLA": "3500000000000000000",
+        "AMZN": "3500000000000000000"
+      }
+    }
+  },
+  "notes": [
+    "Freeze reads corrected to the USDG isFrozen(address) interface using deployment-additional.json at exactly the same pinned block."
+  ],
+  "proofOfCover": {
+    "liveMarket": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+    "replayMarket": "0x734EdAa88537692002Fa89C090D916842e16DE7d"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@bondline/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Bondline agent SDK: read offers, quotes and agent records; build unsigned cover, underwriting and trade transactions. Holds no keys.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*.ts"
+  },
+  "bin": {
+    "bondline": "./bin/bondline.mjs"
+  },
+  "scripts": {
+    "test": "tsx --test test/unit.test.ts",
+    "test:e2e": "tsx --test --test-concurrency=1 test/e2e.test.ts",
+    "test:live": "tsx --test test/live.test.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bondline/shared": "0.1.0",
+    "tsx": "4.23.15",
+    "viem": "2.57.2"
+  }
+}

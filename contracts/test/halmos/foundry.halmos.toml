@@ -1,0 +1,23 @@
+# Build config for the halmos proofs only (select with FOUNDRY_CONFIG=test/halmos/foundry.halmos.toml).
+# Identical to foundry.toml except that OpenZeppelin's Math is replaced by test/halmos/HalmosMath.sol, whose
+# only change is a closed-form mulDiv (halmos cannot decide the 512-bit mulmod inside the original).
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out-a"
+cache_path = "cache-a"
+libs = ["lib"]
+solc_version = "0.8.28"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 1000
+bytecode_hash = "none"
+cbor_metadata = true
+remappings = [
+  "@openzeppelin/contracts/utils/math/Math.sol=test/halmos/HalmosMath.sol",
+  "lib/openzeppelin-contracts/contracts/utils/math/Math.sol=test/halmos/HalmosMath.sol",
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "forge-std/=lib/forge-std/src/",
+]
+fs_permissions = [{ access = "read", path = "./out" }]

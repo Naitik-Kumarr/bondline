@@ -1,0 +1,13 @@
+{
+  "stats": {
+    "files_scanned": 1,
+    "bytes_scanned": 5353,
+    "env_files_never_opened": 0,
+    "binary_files_skipped": 0,
+    "oversized_files_skipped": 0,
+    "contract_generated_or_vendor_files_skipped": 0,
+    "client_bundle_files_scanned": 0,
+    "client_bundle_bytes_scanned": 0
+  },
+  "matches": []
+}

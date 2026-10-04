@@ -1,0 +1,435 @@
+Compiling 15 files with Solc 0.8.28
+Solc 0.8.28 finished in 3.42s
+Compiler run successful!
+
+Ran 1 test for test/fork/MainnetFork.t.sol:MainnetForkTest
+[SKIP] test_mainnetFork_realFeedsAndUsdg() (gas: 0)
+Suite result: ok. 0 passed; 0 failed; 1 skipped; finished in 4.12ms (242.13µs CPU time)
+
+Ran 3 tests for test/fork/UsdgFork.t.sol:UsdgForkTest
+[SKIP] test_fork_domainSeparator() (gas: 0)
+[SKIP] test_fork_oneSignatureUnderwriting() (gas: 0)
+[SKIP] test_fork_receiveWithAuthorizationNeedsThePayee() (gas: 0)
+Suite result: ok. 0 passed; 0 failed; 3 skipped; finished in 4.17ms (438.54µs CPU time)
+
+Ran 3 tests for test/UsdgDomain.t.sol:UsdgDomainTest
+[PASS] test_hardcodedDomainMatchesChain() (gas: 478)
+[PASS] test_mockDomainMatchesChainAtTheRealAddress() (gas: 1274647)
+[PASS] test_typehashesAreTheStandardOnes() (gas: 1269440)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 4.57ms (1.72ms CPU time)
+
+Ran 20 tests for test/mutation/CoverMutation.t.sol:CoverMutationTest
+[PASS] test_close_keepsOtherAccountsReservation() (gas: 1157795)
+[PASS] test_counters_accumulateAcrossDepositsAndSettlements() (gas: 1221196)
+[PASS] test_delist_secondCallEmitsNothing() (gas: 26436)
+[PASS] test_deposit_refusedWhenFreeBondTooSmall_withReservedBond() (gas: 1028062)
+[PASS] test_health_gainHasZeroLoss() (gas: 677021)
+[PASS] test_health_invalidPriceIsNotFresh_andDoesNotRevert() (gas: 809237)
+[PASS] test_health_lossAndPayoutNow() (gas: 697226)
+[PASS] test_health_lossIsExactDifference() (gas: 670945)
+[PASS] test_health_settledAndClosedAccountsAreNotSettleable() (gas: 1191633)
+[PASS] test_open_assetMaskAboveRangeRejected() (gas: 1766681)
+[PASS] test_open_capacityExactlyEnough_andOneBelow() (gas: 1865991)
+[PASS] test_open_delistedRefusesBeforeValidatingArguments() (gas: 61495)
+[PASS] test_open_isNonReentrant() (gas: 1678320)
+[PASS] test_open_priceAgeBoundary() (gas: 1665419)
+[PASS] test_open_slippageBoundary() (gas: 1157154)
+[PASS] test_open_tradeAndDailyBoundaries() (gas: 1188738)
+[PASS] test_settle_exactlyAtLimitReverts_oneWeiOverPaysOneWei() (gas: 704496)
+[PASS] test_settle_keepsOtherAccountsReservation() (gas: 1219770)
+[PASS] test_settle_limitRoundsUp() (gas: 1033573)
+[PASS] test_withdraw_keepsOtherAccountsReservation() (gas: 1193533)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 8.69ms (4.84ms CPU time)
+
+Ran 14 tests for test/ProofOfCover.t.sol:ProofOfCoverTest
+[PASS] testFuzz_neverReverts(address) (runs: 1000, μ: 2090235, ~: 9396)
+[PASS] test_capacity_tracksFreeBond() (gas: 1557522)
+[PASS] test_covered_liveMarket() (gas: 1031590)
+[PASS] test_covered_replayMarket() (gas: 1037715)
+[PASS] test_hostileAccount_dirtyAddressWord() (gas: 386702)
+[PASS] test_hostileAccount_revertsShortOrHuge() (gas: 3074377)
+[PASS] test_hostileMarketAndCover() (gas: 2217934)
+[PASS] test_immutables() (gas: 10643)
+[PASS] test_notCovered_afterClose() (gas: 1005390)
+[PASS] test_notCovered_afterSettle() (gas: 1312675)
+[PASS] test_notCovered_coverFromAnotherMarket() (gas: 3166230)
+[PASS] test_notCovered_eoaAndRandomContracts() (gas: 41721)
+[PASS] test_notCovered_fakeAccountNamingARealCover() (gas: 824647)
+[PASS] test_notCovered_fakeAccountNamingAnInactiveRealAccountsCover() (gas: 1421377)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 18.69ms (17.57ms CPU time)
+
+Ran 4 tests for test/halmos/MathModel.t.sol:MathModelTest
+[PASS] testFuzz_boundedLikeHalmos(uint64,uint64,uint8) (runs: 1000, μ: 2605, ~: 2605)
+[PASS] testFuzz_ceilMatchesOpenZeppelin(uint256,uint256,uint256) (runs: 1000, μ: 5715, ~: 5717)
+[PASS] testFuzz_floorMatchesOpenZeppelin(uint256,uint256,uint256) (runs: 1000, μ: 3710, ~: 3712)
+[PASS] test_zeroDenominatorRevertsLikeOpenZeppelin() (gas: 6004)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 28.21ms (54.27ms CPU time)
+
+Ran 10 tests for test/MirrorFeed.t.sol:MirrorFeedTest
+[PASS] testFuzz_push_monotonic(int256,uint32) (runs: 1000, μ: 133706, ~: 133760)
+[PASS] test_constructor_rejectsZeroKeeper() (gas: 36650)
+[PASS] test_getRoundData_unknownRound() (gas: 13817)
+[PASS] test_latestRoundData_isZeroBeforeFirstPush() (gas: 12523)
+[PASS] test_metadata() (gas: 19706)
+[PASS] test_push_onlyKeeper() (gas: 8361)
+[PASS] test_push_rejectsFutureTimestamp() (gas: 11491)
+[PASS] test_push_rejectsNonPositive() (gas: 12370)
+[PASS] test_push_rejectsOlderOrEqualTimestamp() (gas: 85634)
+[PASS] test_push_storesRoundAndEmits() (gas: 138252)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 28.93ms (26.54ms CPU time)
+
+Ran 1 test for test/invariant/HandlerSanity.t.sol:HandlerSanity
+[PASS] test_handlerReachesTradesAndSettles() (gas: 39175948)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 38.29ms (33.40ms CPU time)
+
+Ran 13 tests for test/OracleVenue.t.sol:OracleVenueTest
+[PASS] testFuzz_quotes(uint256,uint256) (runs: 1000, μ: 142400, ~: 142631)
+[PASS] test_buySell_byRealAccount() (gas: 1121516)
+[PASS] test_buy_rejectsAccountOfUnregisteredCover() (gas: 163176)
+[PASS] test_buy_rejectsEOA() (gas: 14327)
+[PASS] test_buy_rejectsFakeAccountOfRealCover() (gas: 572944)
+[PASS] test_buy_rejectsZeroAndShortfall() (gas: 1077607)
+[PASS] test_config() (gas: 27269)
+[PASS] test_quote_incompleteRound() (gas: 17281)
+[PASS] test_quote_invalidPrice() (gas: 17282)
+[PASS] test_quote_stalePrice() (gas: 24333)
+[PASS] test_quote_unknownAsset() (gas: 13357)
+[PASS] test_quotes_applySpread() (gas: 37123)
+[PASS] test_sell_rejectsContractWithoutCover() (gas: 14598)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 42.36ms (41.92ms CPU time)
+
+Ran 39 tests for test/AgentAccount.t.sol:AgentAccountTest
+[PASS] testFuzz_agentCanNeverMoveMoneyOut(uint256,bool,uint8,uint256) (runs: 1000, μ: 122970, ~: 97010)
+[PASS] test_blocked_assetNotInMask() (gas: 607666)
+[PASS] test_blocked_brokenFeed() (gas: 65650)
+[PASS] test_blocked_changesNothing() (gas: 80340)
+[PASS] test_blocked_dailyLimit() (gas: 770719)
+[PASS] test_blocked_incompleteRound() (gas: 84759)
+[PASS] test_blocked_insufficientCash() (gas: 770735)
+[PASS] test_blocked_insufficientStock() (gas: 74410)
+[PASS] test_blocked_invalidPrice() (gas: 65990)
+[PASS] test_blocked_minOut() (gas: 85420)
+[PASS] test_blocked_noLiquidity() (gas: 3199737)
+[PASS] test_blocked_paused() (gas: 40907)
+[PASS] test_blocked_sellAllOfNothing() (gas: 73764)
+[PASS] test_blocked_slippage() (gas: 644201)
+[PASS] test_blocked_staleHeldStock() (gas: 295951)
+[PASS] test_blocked_stalePrice() (gas: 72868)
+[PASS] test_blocked_stockShare() (gas: 76167)
+[PASS] test_blocked_stopped() (gas: 58849)
+[PASS] test_blocked_tradeTooLarge() (gas: 631566)
+[PASS] test_blocked_unknownAsset() (gas: 38411)
+[PASS] test_blocked_venuePriceDiffersFromOracle() (gas: 80403)
+[PASS] test_blocked_zeroAmount() (gas: 31319)
+[PASS] test_buy_executesAndEmitsReceipt() (gas: 221724)
+[PASS] test_coverOnlyFunctions() (gas: 28154)
+[PASS] test_dayVolume_resetsNextDay() (gas: 381923)
+[PASS] test_implementation_cannotBeInitialized() (gas: 32916)
+[PASS] test_initialState() (gas: 86036)
+[PASS] test_initialize_onlyOnce() (gas: 35781)
+[PASS] test_onlyAgentCanTrade() (gas: 18984)
+[PASS] test_pauseResume() (gas: 223418)
+[PASS] test_pauseResume_afterStop() (gas: 46914)
+[PASS] test_pauseResume_onlyOwner() (gas: 21532)
+[PASS] test_sell_all() (gas: 246861)
+[PASS] test_sell_executes() (gas: 270257)
+[PASS] test_stopAndRelease_areIdempotent() (gas: 28328)
+[PASS] test_sweepToken_whenAnotherTokenIsPaused() (gas: 270359)
+[PASS] test_sweep_onlyAfterRelease() (gas: 29128)
+[PASS] test_sweep_onlyOwner() (gas: 52152)
+[PASS] test_sweep_takesEverythingAfterClose() (gas: 367983)
+Suite result: ok. 39 passed; 0 failed; 0 skipped; finished in 83.27ms (85.32ms CPU time)
+
+Ran 16 tests for test/BondlineMarket.t.sol:BondlineMarketTest
+[PASS] testFuzz_authorization_marketKeepsNothing(uint256,bytes32) (runs: 1000, μ: 462442, ~: 462443)
+[PASS] testFuzz_createOffer_terms(uint16,uint16,uint16,uint16) (runs: 1000, μ: 38818, ~: 15883)
+[PASS] test_auth_cannotBeRedirected() (gas: 21131)
+[PASS] test_auth_expired() (gas: 26500)
+[PASS] test_auth_fromIsAlwaysCaller() (gas: 38909)
+[PASS] test_auth_notYetValid() (gas: 26108)
+[PASS] test_auth_reusedNonce() (gas: 465699)
+[PASS] test_auth_wrongSigner() (gas: 68949)
+[PASS] test_auth_zeroBondAndBadTerms() (gas: 100450)
+[PASS] test_config() (gas: 53519)
+[PASS] test_constructor_validates() (gas: 292752)
+[PASS] test_createOffer() (gas: 364298)
+[PASS] test_createOfferWithAuthorization() (gas: 477462)
+[PASS] test_createOffer_rejectsBadTerms() (gas: 63863)
+[PASS] test_delist() (gas: 432502)
+[PASS] test_unknownOffer() (gas: 31546)
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 183.23ms (207.49ms CPU time)
+
+Ran 38 tests for test/BondlineCover.t.sol:BondlineCoverTest
+[PASS] testFuzz_deposit_reserve(uint256,uint16,uint16,uint256) (runs: 1000, μ: 980414, ~: 1006296)
+[PASS] testFuzz_settle_formula(uint256,uint16,uint256,uint256) (runs: 1000, μ: 1292375, ~: 1294682)
+[PASS] testFuzz_withdraw_neverRaisesPayout(uint256,uint256) (runs: 1000, μ: 966314, ~: 968413)
+[PASS] test_close_atAnyPriceMovesNoTokens() (gas: 911213)
+[PASS] test_close_onlyUser_onlyActive() (gas: 614292)
+[PASS] test_delist_onlyMarket() (gas: 29840)
+[PASS] test_deposit_anyoneCanTopUp() (gas: 676550)
+[PASS] test_deposit_refusedBeyondCapacity() (gas: 1508966)
+[PASS] test_deposit_reserveRoundsUp() (gas: 661987)
+[PASS] test_deposit_tooSmall() (gas: 515180)
+[PASS] test_deposit_unknownOrInactive() (gas: 618275)
+[PASS] test_deposit_whenDelisted() (gas: 686892)
+[PASS] test_fund_anyone() (gas: 58613)
+[PASS] test_fund_zero() (gas: 11446)
+[PASS] test_health_cashOnlyIsFresh() (gas: 656878)
+[PASS] test_health_fields() (gas: 816079)
+[PASS] test_health_unknownAccount() (gas: 19060)
+[PASS] test_initialState() (gas: 56838)
+[PASS] test_initialize_onlyOnce() (gas: 28122)
+[PASS] test_initialize_rejectsZeroAddresses() (gas: 108833)
+[PASS] test_open_createsAccountAndDeposits() (gas: 660942)
+[PASS] test_open_invalidRules() (gas: 305102)
+[PASS] test_open_limitOutOfRange() (gas: 32351)
+[PASS] test_open_whenDelisted() (gas: 44396)
+[PASS] test_quoteDeposit() (gas: 14017)
+[PASS] test_release_onlyUnderwriter_onlyFree() (gas: 686589)
+[PASS] test_settle_cappedAtThirtyPercentDrop() (gas: 920458)
+[PASS] test_settle_frozenUserCantReceive() (gas: 944775)
+[PASS] test_settle_neverOnStalePrice() (gas: 935195)
+[PASS] test_settle_onlyOnce_andUnknown() (gas: 928095)
+[PASS] test_settle_paysTheGap() (gas: 957496)
+[PASS] test_settle_thenSweep() (gas: 920354)
+[PASS] test_settle_withinLimit() (gas: 935534)
+[PASS] test_withdraw_afterClose() (gas: 609813)
+[PASS] test_withdraw_cashOnlyAccountNeedsNoPrices() (gas: 671219)
+[PASS] test_withdraw_checks() (gas: 831151)
+[PASS] test_withdraw_invalidPrice() (gas: 807647)
+[PASS] test_withdraw_shrinksPrincipalByShareOfValue() (gas: 834284)
+Suite result: ok. 38 passed; 0 failed; 0 skipped; finished in 2.77s (990.79ms CPU time)
+
+Ran 2 tests for test/QuoteDeposit.t.sol:QuoteDepositTest
+[PASS] testFuzz_quoteDeposit_matchesTheRealDeposit(uint256,uint16) (runs: 1000, μ: 1023519, ~: 1023764)
+[PASS] test_quoteDeposit_oddAmountRoundsTheFeeDown() (gas: 418322)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.90s (2.90s CPU time)
+
+Ran 8 tests for test/invariant/BondlineInvariants.t.sol:BondlineInvariants
+[PASS] invariant_agentHoldsNothing() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_coverHoldsItsBond() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_marketHoldsNoUsdg() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_noPayoutExceedsReservation() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_onlyMarketCoversAreOffers() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_reservationCoversWorstCase() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_reservedIsSumOfReservations() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+[PASS] invariant_reservedNeverExceedsBond() (runs: 256, calls: 16384, reverts: 0)
+
+╭----------+-------------+-------+---------+----------╮
+| Contract | Selector    | Calls | Reverts | Discards |
++=====================================================+
+| Handler  | close       | 1515  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | createOffer | 1523  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | delist      | 1441  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | deposit     | 1527  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | fund        | 1453  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | movePrices  | 1514  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | open        | 1519  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | release     | 1505  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | settle      | 1482  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | trade       | 1457  | 0       | 0        |
+|----------+-------------+-------+---------+----------|
+| Handler  | withdraw    | 1448  | 0       | 0        |
+╰----------+-------------+-------+---------+----------╯
+
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 3.17s (17.14s CPU time)
+
+Ran 14 test suites in 3.18s (9.29s CPU time): 168 tests passed, 0 failed, 4 skipped (172 total tests)

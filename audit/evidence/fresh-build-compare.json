@@ -1,0 +1,325 @@
+{
+  "command": "node audit/evidence/fresh-build-compare.mjs",
+  "queriedAt": "2026-10-04T09:32:01.797Z",
+  "rows": [
+    {
+      "role": "cover implementation",
+      "type": "BondlineCover",
+      "freshArtifact": "audit/contracts/out/BondlineCover.sol/BondlineCover.json",
+      "freshRuntimeHash": "0xf336d8f6be12dcc5faed471c2f4a6bd990eaa4660d900ffc7b6bd5f23c2edd21",
+      "snapshotArtifactRuntimeHash": "0xf336d8f6be12dcc5faed471c2f4a6bd990eaa4660d900ffc7b6bd5f23c2edd21",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/BondlineCover.sol": "BondlineCover"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "account implementation",
+      "type": "AgentAccount",
+      "freshArtifact": "audit/contracts/out/AgentAccount.sol/AgentAccount.json",
+      "freshRuntimeHash": "0x7847b323e4937fa2ba74f91e76d7f9f00cc664d008245562ce236236ab1ca136",
+      "snapshotArtifactRuntimeHash": "0x7847b323e4937fa2ba74f91e76d7f9f00cc664d008245562ce236236ab1ca136",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/AgentAccount.sol": "AgentAccount"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "live market",
+      "type": "BondlineMarket",
+      "freshArtifact": "audit/contracts/out/BondlineMarket.sol/BondlineMarket.json",
+      "freshRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "snapshotArtifactRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/BondlineMarket.sol": "BondlineMarket"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "live venue",
+      "type": "OracleVenue",
+      "freshArtifact": "audit/contracts/out/OracleVenue.sol/OracleVenue.json",
+      "freshRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "snapshotArtifactRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/OracleVenue.sol": "OracleVenue"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "live TSLA feed",
+      "type": "MirrorFeed",
+      "freshArtifact": "audit/contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "freshRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "snapshotArtifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/MirrorFeed.sol": "MirrorFeed"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "live AMZN feed",
+      "type": "MirrorFeed",
+      "freshArtifact": "audit/contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "freshRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "snapshotArtifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/MirrorFeed.sol": "MirrorFeed"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "replay market",
+      "type": "BondlineMarket",
+      "freshArtifact": "audit/contracts/out/BondlineMarket.sol/BondlineMarket.json",
+      "freshRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "snapshotArtifactRuntimeHash": "0x1f8243096ebd0a413c7bf810776730b612c61c3bd0e04d175e585d5bd07c48c2",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/BondlineMarket.sol": "BondlineMarket"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "replay venue",
+      "type": "OracleVenue",
+      "freshArtifact": "audit/contracts/out/OracleVenue.sol/OracleVenue.json",
+      "freshRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "snapshotArtifactRuntimeHash": "0x7d9db4856c44460097346528bd4fc6300d7906325d6da6d6524704d5082ac944",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/OracleVenue.sol": "OracleVenue"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "replay TSLA feed",
+      "type": "MirrorFeed",
+      "freshArtifact": "audit/contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "freshRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "snapshotArtifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/MirrorFeed.sol": "MirrorFeed"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "replay AMZN feed",
+      "type": "MirrorFeed",
+      "freshArtifact": "audit/contracts/out/MirrorFeed.sol/MirrorFeed.json",
+      "freshRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "snapshotArtifactRuntimeHash": "0xae90adb957fefabeb3b747baf022ecb3b60a1689eab0ed75f9070d9c9a46f005",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/MirrorFeed.sol": "MirrorFeed"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    },
+    {
+      "role": "proof of cover",
+      "type": "ProofOfCover",
+      "freshArtifact": "audit/contracts/out/ProofOfCover.sol/ProofOfCover.json",
+      "freshRuntimeHash": "0xfa57ecbcf9709f3366f1fc30a700cfd3c8cc3cb1af92b5d8fbb88b05fbf714e7",
+      "snapshotArtifactRuntimeHash": "0xfa57ecbcf9709f3366f1fc30a700cfd3c8cc3cb1af92b5d8fbb88b05fbf714e7",
+      "freshRuntimeMatchesSnapshotArtifact": true,
+      "creationBytecodeEqualsOriginal": true,
+      "immutableOffsetRangesEqual": true,
+      "metadataSettings": {
+        "remappings": [
+          "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+          "forge-std/=lib/forge-std/src/",
+          "openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+        ],
+        "optimizer": {
+          "enabled": true,
+          "runs": 1000
+        },
+        "metadata": {
+          "bytecodeHash": "none"
+        },
+        "compilationTarget": {
+          "src/ProofOfCover.sol": "ProofOfCover"
+        },
+        "evmVersion": "cancun",
+        "libraries": {}
+      }
+    }
+  ]
+}

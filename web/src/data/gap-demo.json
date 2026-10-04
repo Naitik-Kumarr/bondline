@@ -1,0 +1,12 @@
+{
+  "status": "real",
+  "accountUsd": 100,
+  "limitBps": 1000,
+  "fridayDrawdownBps": 800,
+  "mondayDrawdownBps": 2500,
+  "userLossUsd": 10,
+  "bondPaysUsd": 15.000001,
+  "settleTx": "0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c",
+  "market": "replay",
+  "note": "Scripted gap on the Replay market (Robinhood Chain testnet): a team-operated test cover behind Bold, settled by our keeper."
+}

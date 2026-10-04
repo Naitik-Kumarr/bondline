@@ -1,0 +1,26 @@
+{
+  "DEPLOYER": {
+    "address": "0x378e7D5f528E6C87A3588315e573e66Ee95178f6",
+    "role": "deploys contracts, stocks the demo exchange"
+  },
+  "KEEPER": {
+    "address": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+    "role": "price mirror, replay feeds, settle loop"
+  },
+  "CAREFUL": {
+    "address": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+    "role": "Careful agent (Claude Haiku)"
+  },
+  "BOLD": {
+    "address": "0x5B01856061892171408195372c0D94B0b58352E7",
+    "role": "Bold agent (Claude Haiku)"
+  },
+  "UNDERWRITER": {
+    "address": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+    "role": "team-operated test underwriter"
+  },
+  "BUYER": {
+    "address": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+    "role": "team-operated test buyer"
+  }
+}

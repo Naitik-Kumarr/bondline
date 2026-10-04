@@ -1,0 +1,29 @@
+{
+  "reviewedOn": "2026-10-04",
+  "sources": [
+    {
+      "url": "https://www.nyse.com/trade/hours-calendars",
+      "supports": ["NYSE core hours are 09:30 to 16:00 Eastern", "2026 holiday closures include July 3 and September 7", "No July 2 early closure is specified for 2026"]
+    },
+    {
+      "url": "https://docs.arbitrum.io/notices/stylus-activation-pause-notice",
+      "supports": ["New and expired Stylus contract activations are paused on Arbitrum One and Nova", "This notice does not establish who paused Robinhood Chain"],
+      "independentRobinhoodRead": "claims-stylus-live.json"
+    },
+    {
+      "url": "https://docs.paxos.com/guides/stablecoin/usdg",
+      "supports": ["Paxos Digital Singapore issuer attribution and MAS-supervised Major Payments Institution wording"],
+      "retrieval": "Official documentation search cache; direct documentation access sometimes returned403"
+    },
+    {
+      "url": "https://docs.paxos.com/guides/stablecoin/usdg/testnet",
+      "supports": ["Official Robinhood testnet USDG address matches deployment manifest"],
+      "retrieval": "Official documentation search cache"
+    },
+    {
+      "url": "https://faucet.paxos.com/",
+      "supports": ["Public UI describes one request per wallet per day and a100-token button"],
+      "retrieval": "Primary site search cache; no request for tokens was made"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "client_files_scanned": 3193,
+  "client_drip_key_references": [],
+  "source_public_env_names": {
+    "NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID": [
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 9
+      },
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 13
+      }
+    ],
+    "NEXT_PUBLIC_RH_RPC_URL": [
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 15
+      },
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 16
+      },
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 30
+      },
+      {
+        "file": "web/src/components/agent/VerifyButton.tsx",
+        "line": 23
+      }
+    ],
+    "NEXT_PUBLIC_E2E_ACCOUNT": [
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 30
+      },
+      {
+        "file": "web/src/lib/wagmi.ts",
+        "line": 35
+      }
+    ]
+  }
+}

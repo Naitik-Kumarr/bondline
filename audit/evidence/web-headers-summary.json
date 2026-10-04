@@ -1,0 +1,38 @@
+[
+  {
+    "proof": "audit/evidence/web-local3110-headers.txt",
+    "status": "HTTP/1.1 404 Not Found",
+    "missing": [
+      "Content-Security-Policy",
+      "Permissions-Policy",
+      "Referrer-Policy",
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options"
+    ]
+  },
+  {
+    "proof": "audit/evidence/web-local3000-root-headers.txt",
+    "status": "HTTP/1.1 200 OK",
+    "missing": [
+      "Content-Security-Policy",
+      "Permissions-Policy",
+      "Referrer-Policy",
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options"
+    ]
+  },
+  {
+    "proof": "audit/evidence/web-local3000-headers.txt",
+    "status": "HTTP/1.1 400 Bad Request",
+    "missing": [
+      "Content-Security-Policy",
+      "Permissions-Policy",
+      "Referrer-Policy",
+      "Strict-Transport-Security",
+      "X-Content-Type-Options",
+      "X-Frame-Options"
+    ]
+  }
+]

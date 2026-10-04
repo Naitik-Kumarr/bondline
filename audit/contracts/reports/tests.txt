@@ -1,0 +1,33 @@
+# forge test, 2026-10-04 04:06 UTC, Foundry 1.5.1-stable
+# FORK_TESTS=true forge test   (unit, fuzz, invariant, plus fork tests against the real testnet USDG and a Robinhood Chain mainnet fork)
+
+Ran 14 test suites in 14.41s (35.13s CPU time): 172 tests passed, 0 failed, 0 skipped (172 total tests)
+
+Ran 3 tests for test/UsdgDomain.t.sol:UsdgDomainTest
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 446.04µs (342.08µs CPU time)
+Ran 20 tests for test/mutation/CoverMutation.t.sol:CoverMutationTest
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 4.39ms (3.20ms CPU time)
+Ran 14 tests for test/ProofOfCover.t.sol:ProofOfCoverTest
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 12.76ms (13.90ms CPU time)
+Ran 10 tests for test/MirrorFeed.t.sol:MirrorFeedTest
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 21.86ms (21.72ms CPU time)
+Ran 1 test for test/invariant/HandlerSanity.t.sol:HandlerSanity
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 27.52ms (26.14ms CPU time)
+Ran 13 tests for test/OracleVenue.t.sol:OracleVenueTest
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 34.01ms (34.04ms CPU time)
+Ran 39 tests for test/AgentAccount.t.sol:AgentAccountTest
+Suite result: ok. 39 passed; 0 failed; 0 skipped; finished in 75.50ms (77.30ms CPU time)
+Ran 2 tests for test/QuoteDeposit.t.sol:QuoteDepositTest
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 143.83ms (142.77ms CPU time)
+Ran 16 tests for test/BondlineMarket.t.sol:BondlineMarketTest
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 167.95ms (184.54ms CPU time)
+Ran 4 tests for test/halmos/MathModel.t.sol:MathModelTest
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 2.73s (37.95ms CPU time)
+Ran 38 tests for test/BondlineCover.t.sol:BondlineCoverTest
+Suite result: ok. 38 passed; 0 failed; 0 skipped; finished in 2.73s (890.30ms CPU time)
+Ran 8 tests for test/invariant/BondlineInvariants.t.sol:BondlineInvariants
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 2.80s (14.58s CPU time)
+Ran 3 tests for test/fork/UsdgFork.t.sol:UsdgForkTest
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 11.98s (9.67s CPU time)
+Ran 1 test for test/fork/MainnetFork.t.sol:MainnetForkTest
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 14.40s (6.14s CPU time)

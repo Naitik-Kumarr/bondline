@@ -1,0 +1,35 @@
+# Never upload secrets, private notes, local state or logs to Vercel.
+.env
+.env.*
+_private/
+logs/
+keeper/state/
+keeper/state-fork/
+agents/state/
+**/node_modules/
+web/.next/
+web/.next-*/
+web/qa/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/lib/
+.venv/
+deployments/*-fork.json
+deployments/raw-*.json
+contracts/out-*/
+contracts/cache-*/
+stylus/target/
+verification/vc/
+web/tsconfig.tsbuildinfo
+# Audit caches, build output and proof scratch folders (same as .gitignore)
+audit/npm-cache/
+audit/npm-logs/
+audit/npm/node_modules/
+audit/contracts/out*/
+audit/contracts/cache*/
+audit/contracts/broadcast/
+audit/contracts/lib
+audit/web-postcss-proof/
+audit/web-worker-proof/
+audit/**/__pycache__/

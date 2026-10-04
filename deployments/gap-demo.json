@@ -1,0 +1,120 @@
+{
+  "label": "scripted gap",
+  "description": "Scripted gap on the replay market, after the replay of real prices ended. Our keeper pushed a scripted \"Friday close\" (the account 8% down), pushed nothing for a 360-second \"weekend\" so the prices went stale, then pushed a scripted \"Monday open\" gap (25% down). Our keeper then settled the cover at the fresh Monday prices and the underwriter's bond paid the loss beyond the limit. The gap prices are scripted, not real.",
+  "chainId": 46630,
+  "market": "replay",
+  "marketAddress": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+  "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+  "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+  "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+  "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+  "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+  "limitBps": 1000,
+  "principal": "100",
+  "principalRaw": "100000000",
+  "startedAt": "2026-10-04T10:00:20.036Z",
+  "friday": {
+    "drawdownBps": 800,
+    "factor": 0.86471,
+    "valueBefore": "100.209234",
+    "cash": "39.53",
+    "stockValueBefore": "60.679234",
+    "prices": {
+      "TSLA": {
+        "before": "370.448",
+        "after": "320.33045374"
+      },
+      "AMZN": {
+        "before": "251.64999999",
+        "after": "217.60451853"
+      }
+    },
+    "valueAfter": "92",
+    "lossAfter": "8",
+    "lossBps": 800,
+    "settleable": false,
+    "pushes": [
+      {
+        "symbol": "TSLA",
+        "answer": "32033045374",
+        "price": "320.33045374",
+        "updatedAt": "2026-10-04T10:00:20.000Z",
+        "tx": "0xe25a7596b79f9d15d0b74202be796cab509afd8e04d17ef7d37ea6d183151a16"
+      },
+      {
+        "symbol": "AMZN",
+        "answer": "21760451853",
+        "price": "217.60451853",
+        "updatedAt": "2026-10-04T10:00:24.000Z",
+        "tx": "0x8b4a2c6d3192373f8af4061b8430ec559cea13d5d6663951cb91cc374615ef85"
+      }
+    ],
+    "refreshes": []
+  },
+  "weekend": {
+    "seconds": 360,
+    "from": "2026-10-04T10:00:28.000Z",
+    "to": "2026-10-04T10:06:28.000Z",
+    "marketMaxPriceAge": 300,
+    "priceAgeAtEndSeconds": {
+      "TSLA": 369,
+      "AMZN": 365
+    },
+    "note": "no pushes: the replay prices went stale, so agents waited and nothing could settle"
+  },
+  "monday": {
+    "drawdownBps": 2500,
+    "factor": 0.676005,
+    "prices": {
+      "TSLA": {
+        "before": "320.33045374",
+        "after": "216.54509613"
+      },
+      "AMZN": {
+        "before": "217.60451853",
+        "after": "147.10181575"
+      }
+    },
+    "targetValue": "75",
+    "pushes": [
+      {
+        "symbol": "TSLA",
+        "answer": "21654509613",
+        "price": "216.54509613",
+        "updatedAt": "2026-10-04T10:06:30.000Z",
+        "tx": "0xed646999d206e59d9fe4830f403bd76ad24650087d9f096774cbb64dc75ea370"
+      },
+      {
+        "symbol": "AMZN",
+        "answer": "14710181575",
+        "price": "147.10181575",
+        "updatedAt": "2026-10-04T10:06:33.000Z",
+        "tx": "0x096938f470d038a89232a2ad9b00ba7a26ea43cfa943d6bd5296fd25b89b39b0"
+      }
+    ],
+    "refreshes": []
+  },
+  "settle": {
+    "tx": "0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c",
+    "block": "128646129",
+    "caller": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+    "settledBy": "our keeper",
+    "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+    "value": "74.999999",
+    "loss": "25.000001",
+    "limit": "10",
+    "payout": "15.000001",
+    "lossBps": 2500,
+    "payoutBps": 1500
+  },
+  "summary": {
+    "principal": "100",
+    "limitBps": 1000,
+    "fridayLossBps": 800,
+    "mondayLoss": "25.000001",
+    "userLoses": "10",
+    "bondPays": "15.000001",
+    "settleTx": "0xbace67dfa4f25b92eca2f0b2806dc5cf6c9d802608aeee6622fff59cc296087c"
+  },
+  "completedAt": "2026-10-04T10:06:44.397Z"
+}

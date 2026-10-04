@@ -1,0 +1,8 @@
+{
+  "worker_exit": 0,
+  "specified_output_dir": "/Users/naitik/surety/audit/web-worker-proof/worker-output",
+  "escaped_output_exists": true,
+  "escaped_output": "/Users/naitik/surety/audit/web-worker-proof/fixture-escaped.json",
+  "stdout": "claim-letters: DRY RUN (template letters, no model) -> /Users/naitik/surety/audit/web-worker-proof/worker-output; events from /Users/naitik/surety/audit/web-worker-proof/malformed-fixture.json\n0 letters already in audit/web-worker-proof/worker-output\n  template written: audit/web-worker-proof/fixture-escaped.json\n1 settles seen: 1 written, 0 already had a letter, 0 failed\n",
+  "stderr": ""
+}

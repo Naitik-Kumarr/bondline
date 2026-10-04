@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/fork/UsdgFork.t.sol:UsdgForkTest
+[PASS] test_fork_domainSeparator() (gas: 27544)
+[PASS] test_fork_oneSignatureUnderwriting() (gas: 1576373)
+[PASS] test_fork_receiveWithAuthorizationNeedsThePayee() (gas: 29412)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 11.95s (9.73s CPU time)
+
+Ran 1 test for test/fork/MainnetFork.t.sol:MainnetForkTest
+[PASS] test_mainnetFork_realFeedsAndUsdg() (gas: 1295564)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 14.16s (5.99s CPU time)
+
+Ran 2 test suites in 14.16s (26.11s CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

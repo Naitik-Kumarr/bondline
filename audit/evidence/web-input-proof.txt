@@ -1,0 +1,40 @@
+[
+  {
+    "input": "null",
+    "unexpectedThrow": "TypeError",
+    "message": "Cannot read properties of null (reading 'address')"
+  },
+  {
+    "input": "{}",
+    "status": 400
+  },
+  {
+    "input": "{\"address\":12}",
+    "status": 400
+  },
+  {
+    "input": "{\"address\":null}",
+    "status": 400
+  },
+  {
+    "input": "{\"address\":\"http://127.0.0.1\"}",
+    "status": 400
+  }
+]
+node:internal/modules/run_main:105
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: FAIL: JSON null throws outside route catch instead of returning 400
+
+undefined !== 400
+
+    at file:///Users/naitik/surety/audit/web-input-proof.mjs:26:8 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 400,
+  operator: 'strictEqual'
+}
+
+Node.js v24.3.0

@@ -1,0 +1,107 @@
+{
+  "command": "node audit/evidence/judge-receipt-probe.mjs",
+  "queriedAt": "2026-10-04T09:33:45.966Z",
+  "rows": [
+    {
+      "hash": "0xb0b099a4f9e8b272a0677d2988c46b893625b6be81e0a0610aa914c69dd182f5",
+      "blockNumber": "128336377",
+      "status": "success",
+      "to": "0x734edaa88537692002fa89c090d916842e16de7d",
+      "events": [
+        {
+          "address": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+          "eventName": "Initialized",
+          "args": {
+            "version": "1"
+          }
+        },
+        {
+          "address": "0x734edaa88537692002fa89c090d916842e16de7d",
+          "eventName": "OfferCreated",
+          "args": {
+            "id": "0",
+            "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+            "terms": {
+              "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+              "minLimitBps": 500,
+              "maxLimitBps": 2000,
+              "feeBps": 400,
+              "maxStockBps": 8000,
+              "name": "Bold 4%"
+            }
+          }
+        },
+        {
+          "address": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+          "eventName": "Funded",
+          "args": {
+            "from": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+            "amount": "40000000",
+            "bond": "40000000"
+          }
+        },
+        {
+          "address": "0x734edaa88537692002fa89c090d916842e16de7d",
+          "eventName": "OfferFunded",
+          "args": {
+            "id": "0",
+            "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+            "bond": "40000000"
+          }
+        }
+      ],
+      "call": {
+        "functionName": "createOfferWithAuthorization"
+      }
+    },
+    {
+      "hash": "0xbb0d0fd9729e64d06ffebad1671bb5914052e58be5e9037039c9913ed6767b78",
+      "blockNumber": "128336484",
+      "status": "success",
+      "to": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+      "events": [
+        {
+          "address": "0xb792735f30906101a95bc4e9dca4fd0f1193ebea",
+          "eventName": "Initialized",
+          "args": {
+            "version": "1"
+          }
+        },
+        {
+          "address": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+          "eventName": "Opened",
+          "args": {
+            "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+            "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+            "limitBps": 1000,
+            "rules": {
+              "assetMask": 3,
+              "maxStockBps": 8000,
+              "maxTradeBps": 4000,
+              "maxDailyBps": 60000,
+              "maxSlippageBps": 50,
+              "maxPriceAge": 300
+            }
+          }
+        },
+        {
+          "address": "0x0b7baae5c0c19438a90d35a61d1700e6cfcb8330",
+          "eventName": "Deposited",
+          "args": {
+            "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+            "from": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+            "amount": "104166666",
+            "fee": "4166666",
+            "net": "100000000",
+            "reserveAdded": "20000000"
+          }
+        }
+      ],
+      "call": {
+        "functionName": "open"
+      }
+    }
+  ]
+}

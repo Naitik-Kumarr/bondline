@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+  "name": "Careful",
+  "generatedAt": "2026-10-04T10:07:11.073Z",
+  "chainId": 46630,
+  "markets": [
+    {
+      "key": "live",
+      "label": "Live",
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "fromBlock": 128334140,
+      "toBlock": 128646295
+    },
+    {
+      "key": "replay",
+      "label": "Replay",
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "fromBlock": 128334140,
+      "toBlock": 128646295
+    }
+  ],
+  "hasRecord": true,
+  "offers": [
+    {
+      "market": "replay",
+      "id": 1,
+      "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "txHash": "0x31ebad7ca3afe5754fee3856f692afb23125390d074d3463748c89a7b5102db6",
+      "minLimitBps": 500,
+      "maxLimitBps": 2000,
+      "feeBps": 100,
+      "maxStockBps": 3000,
+      "name": "Careful 1%"
+    },
+    {
+      "market": "live",
+      "id": 0,
+      "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "txHash": "0x6f26963c250948953848f727d810eb1253dfe8948d222f7a5c9f873d4b9d7c2a",
+      "minLimitBps": 500,
+      "maxLimitBps": 2000,
+      "feeBps": 100,
+      "maxStockBps": 3000,
+      "name": "Careful 1%"
+    }
+  ],
+  "accounts": [
+    {
+      "market": "replay",
+      "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+      "account": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+      "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+      "limitBps": 1000,
+      "maxStockBps": 3000,
+      "assets": [
+        "TSLA",
+        "AMZN"
+      ],
+      "status": "active",
+      "openedAt": 1791061933,
+      "principalUsd": 49.5,
+      "depositedUsd": 50,
+      "withdrawnUsd": 0,
+      "trades": 1,
+      "refusals": 0,
+      "exposureP95": 0.10401615117360927,
+      "worstDrawdown": 0.037846262626262624,
+      "worstDrawdownToLimit": 0.3784626262626262
+    },
+    {
+      "market": "live",
+      "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+      "account": "0xa93962d5d44Ff3F0809754d555924389Fe3A0C0C",
+      "user": "0x3C5154180b729724c890d5609896B3cCc219f01F",
+      "limitBps": 1000,
+      "maxStockBps": 3000,
+      "assets": [
+        "TSLA",
+        "AMZN"
+      ],
+      "status": "active",
+      "openedAt": 1791061999,
+      "principalUsd": 29.7,
+      "depositedUsd": 30,
+      "withdrawnUsd": 0,
+      "trades": 0,
+      "refusals": 0,
+      "exposureP95": null,
+      "worstDrawdown": 0,
+      "worstDrawdownToLimit": 0
+    }
+  ],
+  "activity": {
+    "trades": 1,
+    "buys": 1,
+    "sells": 0,
+    "volumeUsd": 4.9,
+    "tradesByAsset": {
+      "TSLA": 1
+    },
+    "refusals": 0,
+    "refusalsByReason": [],
+    "decisions": 1,
+    "firstActionAt": 1791107537,
+    "lastActionAt": 1791107537,
+    "activeSeconds": 0
+  },
+  "exposure": {
+    "p95": 0.10401615117360927,
+    "max": 0.10456004203990217,
+    "observations": 121,
+    "fromTrades": 1,
+    "fromPriceUpdates": 120,
+    "rulesMax": 0.3,
+    "rulesMaxSource": "account rules",
+    "method": "Share of account value in stocks. One observation after every trade (stockValueAfter ÷ valueAfter from the Traded event), and one for every active covered account at every price update on its market (holdings implied by its trades, valued at the new price; cash from deposits, withdrawals and trades). 95th percentile, nearest rank."
+  },
+  "drawdown": {
+    "worst": 0.037846262626262624,
+    "worstToLimit": 0.3784626262626262,
+    "account": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+    "limitBps": 1000
+  },
+  "claims": {
+    "count": 0,
+    "paidUsd": 0,
+    "list": []
+  },
+  "score": {
+    "value": 55,
+    "label": "55 / 100",
+    "parts": [
+      {
+        "key": "exposure",
+        "label": "Exposure against its rules",
+        "max": 40,
+        "points": 26.13,
+        "detail": "p95 stock share 10.4% of a 30.0% maximum"
+      },
+      {
+        "key": "drawdown",
+        "label": "Worst drawdown against its limit",
+        "max": 30,
+        "points": 18.65,
+        "detail": "worst drawdown 3.8% against a 10.0% limit"
+      },
+      {
+        "key": "claims",
+        "label": "Claims",
+        "max": 10,
+        "points": 10,
+        "detail": "0 of 2 covered accounts paid a claim"
+      },
+      {
+        "key": "history",
+        "label": "Amount of history",
+        "max": 20,
+        "points": 0.2,
+        "detail": "1 on-chain decision; 100 for full credit"
+      }
+    ],
+    "formula": "score = 40 × (1 − p95 exposure ÷ rules' max stock share) + 30 × (1 − worst drawdown ÷ its limit) + 10 × (1 − accounts with a claim ÷ accounts) + 20 × min(1, on-chain decisions ÷ 100); each part clamped to its range, the sum rounded. No trades: no record."
+  },
+  "prices": {
+    "label": "A reference price from a simple published model, not actuarial.",
+    "limitBps": 1000,
+    "termDays": 30,
+    "sigma": {
+      "asset": "TSLA",
+      "value": 0.5457,
+      "source": "Chainlink TSLA/USD on Robinhood Chain mainnet, 2026-06-23 to 2026-10-02 (71 daily returns, annualised with √252)"
+    },
+    "worstCase": {
+      "stockShare": 0.3,
+      "pTouchBps": 331.1860112317385,
+      "gapBps": 73.58529714314263,
+      "riskBps": 4.87408420922793,
+      "reserveBps": 8.21917808219178,
+      "fairBps": 13.09326229141971
+    },
+    "record": {
+      "stockShare": 0.10401615117360927,
+      "pTouchBps": 0.000007989807574023007,
+      "gapBps": 25.51353130598693,
+      "riskBps": 4.076964113372949e-8,
+      "reserveBps": 8.21917808219178,
+      "fairBps": 8.219178122961422
+    },
+    "recordSavingBps": 4.874084168458288
+  },
+  "recent": [
+    {
+      "type": "trade",
+      "market": "replay",
+      "account": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+      "txHash": "0x0b84a31ce828541fec2f492e7f345c89bbbed3c324ed2752d5609b19f26e6155",
+      "blockNumber": 128639421,
+      "logIndex": 5,
+      "timestamp": 1791107537,
+      "asset": "TSLA",
+      "side": "buy",
+      "usd": 4.9,
+      "reason": null,
+      "decisionHash": "0xccf664707e7962dd0fb3ae4eda9be925c83537a3e5763223f921a9d072614c39",
+      "decisionVerified": true,
+      "decision": "{\"account\":\"0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1\",\"action\":\"buy\",\"agent\":\"Careful\",\"asset\":\"TSLA\",\"inputs\":{\"cash\":\"49.50\",\"limitBps\":1000,\"lossBps\":0,\"marketTime\":1790791600,\"maxStockBps\":3000,\"maxTradeBps\":1000,\"px\":{\"AMZN\":\"251.71\",\"TSLA\":\"350.23\"},\"stockBps\":0,\"value\":\"49.50\"},\"market\":\"replay\",\"model\":\"claude-haiku-4-5-20251001\",\"reason\":\"TSLA down 2.06% over the period with recent recovery; small position at 9.9% of account fits conservative style. AMZN up 1.10% suggests less attractive entry now.\",\"ts\":1791107531,\"usdAmount\":\"4.90\",\"v\":1}"
+    }
+  ]
+}

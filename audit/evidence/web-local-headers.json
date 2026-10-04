@@ -1,0 +1,32 @@
+[
+  {
+    "port": 3000,
+    "path": "/",
+    "error": "URLError"
+  },
+  {
+    "port": 3000,
+    "path": "/api/verify?tx=bogus&account=bogus",
+    "error": "URLError"
+  },
+  {
+    "port": 3000,
+    "path": "/badge/not-an-address",
+    "error": "URLError"
+  },
+  {
+    "port": 3110,
+    "path": "/",
+    "error": "URLError"
+  },
+  {
+    "port": 3110,
+    "path": "/api/verify?tx=bogus&account=bogus",
+    "error": "URLError"
+  },
+  {
+    "port": 3110,
+    "path": "/badge/not-an-address",
+    "error": "URLError"
+  }
+]

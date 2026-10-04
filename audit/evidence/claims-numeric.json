@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-04T09:45:06.656Z",
+  "stylusStoredVectorCount": 16071,
+  "actualVectorCount": 16071,
+  "checkedIntegers": 80355,
+  "stylusExpectedValuesMatchCurrentTypeScript": true,
+  "mismatches": [],
+  "offchainPriceRows": 10001,
+  "offchainExpectedValuesMatchCurrentTypeScript": true,
+  "offchainMismatches": [],
+  "freshBacktestMatchesStoredExceptGenerationTimeAndBlock": true,
+  "documentedExamples": [
+    {
+      "limitBps": 500,
+      "careful": 52.4722806748937,
+      "bold": 280.8826880403232
+    },
+    {
+      "limitBps": 1000,
+      "careful": 13.09326229141971,
+      "bold": 174.73609478944195
+    },
+    {
+      "limitBps": 1500,
+      "careful": 6.369487245066822,
+      "bold": 96.71460436118454
+    },
+    {
+      "limitBps": 2000,
+      "careful": 4.11258035315172,
+      "bold": 47.29807625380319
+    }
+  ],
+  "scope": "Checks stored Rust/WASM expected outputs against the current TypeScript model, not execution of Rust or WASM."
+}

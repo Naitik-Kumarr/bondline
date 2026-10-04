@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {createPublicClient,http,parseAbi} from 'viem';
+const rpc='https://rpc.testnet.chain.robinhood.com';
+const client=createPublicClient({transport:http(rpc)});
+const blockNumber=await client.getBlockNumber();
+const block=await client.getBlock({blockNumber});
+const activationGas=await client.readContract({address:'0x0000000000000000000000000000000000000071',abi:parseAbi(['function activationGas() view returns(uint64)']),functionName:'activationGas',blockNumber});
+const result={rpc,blockNumber:blockNumber.toString(),blockHash:block.hash,timestamp:block.timestamp.toString(),activationGas:activationGas.toString(),isUint64Max:activationGas===(1n<<64n)-1n};
+fs.writeFileSync('audit/evidence/claims-stylus-live.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));

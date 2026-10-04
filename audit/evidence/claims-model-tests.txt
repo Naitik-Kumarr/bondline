@@ -1,0 +1,33 @@
+✔ normalCdf matches erfc: absolute error below 1e-15, relative error below 1e-8 even in the far tail (0.406666ms)
+✔ normalCdf is symmetric and handles the extremes (0.088958ms)
+✔ sanity values from the spec: L 10%, cap 30%, 30 days, σ 50% (0.113208ms)
+✔ fixed vectors (shared with any port of the model) (0.126583ms)
+✔ breakdown: fractions and bps agree, and fair = risk part + reserve part (0.06275ms)
+✔ w = 0: σa = 0, so P = 0, gap = 0, and only the reserve cost remains (0.033291ms)
+✔ the price rises with stock share and σ, and falls as the limit deepens (0.090042ms)
+✔ P never exceeds 1, and the gap never exceeds the band (0.033458ms)
+✔ term defaults to the board's 30 days and can be changed (0.036791ms)
+✔ rejects inputs outside the model (0.223ms)
+✔ reference prices: the record is cheaper when the agent keeps less in stocks, and the saving is the difference (0.091542ms)
+✔ σ comes from Chainlink history in volatility.json, and the most volatile allowed stock is used (0.074292ms)
+✔ percentile: nearest rank (0.454292ms)
+✔ score: no trades means no record (0.278333ms)
+✔ score: a clean, long record in cash scores 100 (0.0835ms)
+✔ score: each part follows the published formula (0.043125ms)
+✔ score: parts are clamped; a claim zeroes the drawdown part and costs its share of the claims part (0.072625ms)
+✔ record: trades, refusals, exposure, drawdown, claims, score and both prices from one covered account (0.834541ms)
+✔ record: event order in the input doesn't matter (0.28775ms)
+✔ record: an agent with an offer but no trades has no record, and its worst case comes from the offer terms (0.674ms)
+✔ record: an unknown agent has no offers, no record and no prices (0.101375ms)
+✔ record: σ is the most volatile stock the account rules allow (0.113542ms)
+✔ record: sells, withdrawals and revaluations use the holdings implied by trades (0.157167ms)
+✔ record: a refused 'sell everything' shows no dollar amount (0.074334ms)
+✔ index: upsert replaces an agent's entry and ranks by score, no record last (0.177958ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.225084

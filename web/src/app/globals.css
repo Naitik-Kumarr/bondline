@@ -1,0 +1,408 @@
+@import "tailwindcss";
+
+/*
+ * Bondline design tokens. Light theme only.
+ * Every token is a CSS variable on :root (via `@theme static`) and a Tailwind utility
+ * (bg-page, text-ink-2, border-line, bg-bond-soft, rounded-card, shadow-soft, ease-spring, ...).
+ */
+@theme static {
+  /* Surfaces */
+  --color-page: #faf8f4; /* warm off-white page */
+  --color-surface: #ffffff; /* cards */
+  --color-sunken: #f4f2ed; /* wells, secondary button fill */
+  --color-sunken-2: #ece9e3;
+
+  /* Ink */
+  --color-ink: #1f1f1f;
+  --color-ink-2: #57554f; /* secondary text, 7:1 on page */
+  --color-ink-3: #716e67; /* captions and labels, 4.8:1 on page */
+  --color-ink-4: #a8a49c; /* decorative only */
+
+  /* Hairlines */
+  --color-line: rgb(31 31 31 / 0.08);
+  --color-line-strong: rgb(31 31 31 / 0.14);
+
+  /* The one accent: soft periwinkle */
+  --color-accent: #7c83ee;
+  --color-accent-ink: #4a50c2; /* periwinkle for text, 6:1 on white */
+  --color-accent-soft: #edeefd;
+  --color-accent-tint: #f5f5fe;
+
+  /* The bond and payouts: warm peach */
+  --color-bond: #f2a37a;
+  --color-bond-strong: #e7875a;
+  --color-bond-ink: #9c4a22; /* peach for text, 6:1 on white */
+  --color-bond-soft: #fde8dc;
+  --color-bond-tint: #fef4ee;
+
+  /* Status (used sparingly) */
+  --color-positive: #2c7655;
+  --color-positive-soft: #e2f1e9;
+  --color-negative: #b13f39;
+  --color-negative-soft: #f8e4e2;
+  --color-caution: #8a5e0c;
+  --color-caution-soft: #f7eed9;
+
+  /* Radii: cards 20-24px, fields 14px, pills full */
+  --radius-field: 0.875rem;
+  --radius-card: 1.25rem;
+  --radius-card-lg: 1.5rem;
+
+  /* Soft shadows */
+  --shadow-hairline: 0 0 0 1px rgb(31 31 31 / 0.06);
+  --shadow-soft: 0 1px 2px rgb(31 31 31 / 0.04), 0 10px 28px -16px rgb(31 31 31 / 0.12);
+  --shadow-lift: 0 2px 6px rgb(31 31 31 / 0.04), 0 22px 44px -20px rgb(31 31 31 / 0.2);
+  --shadow-pill: 0 1px 1px rgb(31 31 31 / 0.08), 0 8px 18px -10px rgb(31 31 31 / 0.35);
+
+  /* Display type: light editorial serif with tight tracking */
+  --text-display-xl: clamp(2.75rem, 1.55rem + 5.4vw, 5.75rem);
+  --text-display-xl--line-height: 1.02;
+  --text-display-xl--letter-spacing: -0.025em;
+  --text-display-l: clamp(2.125rem, 1.45rem + 3vw, 3.75rem);
+  --text-display-l--line-height: 1.06;
+  --text-display-l--letter-spacing: -0.025em;
+  --text-display-m: clamp(1.75rem, 1.35rem + 1.7vw, 2.75rem);
+  --text-display-m--line-height: 1.1;
+  --text-display-m--letter-spacing: -0.022em;
+  --text-display-s: clamp(1.375rem, 1.2rem + 0.75vw, 1.75rem);
+  --text-display-s--line-height: 1.18;
+  --text-display-s--letter-spacing: -0.02em;
+
+  /* Motion: a calm spring (stiffness 220, damping 24, ~1% overshoot, settles in ~550ms) */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-soft: cubic-bezier(0.55, 0, 0.75, 0.25);
+  --ease-spring: linear(
+    0, 0.0354, 0.121, 0.2325, 0.3529, 0.471, 0.58, 0.676, 0.7575, 0.8246, 0.8783, 0.92, 0.9514, 0.9744, 0.9905,
+    1.0012, 1.0078, 1.0115, 1.013, 1.0132, 1.0124, 1.011, 1.0095, 1.0079, 1.0064, 1.005, 1.0038, 1.0028, 1
+  );
+  --duration-spring: 550ms;
+}
+
+/* Fonts come from next/font (self-hosted at build time) as CSS variables on <html>. */
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Every amount: Geist Mono with tabular figures. NumberFlow inherits this through its shadow root. */
+@utility num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.01em;
+}
+
+@utility font-display-tight {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+/* Small mono caption above headings and inside charts. */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
+
+/* Our texture: a fine dot grid, barely there. */
+@utility texture-dots {
+  background-image: radial-gradient(circle at center, rgb(31 31 31 / 0.075) 0.8px, transparent 1.3px);
+  background-size: 22px 22px;
+  background-position: center top;
+}
+
+/* The page glow: soft periwinkle, a touch of peach. Static, painted once. */
+@utility glow-hero {
+  background:
+    radial-gradient(48% 58% at 50% 0%, rgb(124 131 238 / 0.2), transparent 72%),
+    radial-gradient(32% 40% at 88% 6%, rgb(242 163 122 / 0.12), transparent 70%),
+    radial-gradient(30% 36% at 8% 18%, rgb(124 131 238 / 0.08), transparent 70%);
+}
+
+/* Lenis (smooth scrolling). Only active when the user has not asked for reduced motion. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Hover lift for interactive cards: transform on the card, the shadow fades in on a pseudo-element (opacity only). */
+.lift {
+  position: relative;
+  transition: transform var(--duration-spring) var(--ease-spring);
+}
+
+.lift::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+  .lift:hover {
+    transform: translateY(-3px);
+  }
+
+  .lift:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Skeleton shimmer: a highlight that slides across (transform only). */
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion: show every revealed element in place, stop decorative animation. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .lift,
+  .lift::after {
+    transition: none;
+  }
+
+  .lift:hover {
+    transform: none;
+  }
+
+  .motion-safe-shimmer {
+    animation: none !important;
+  }
+
+  [data-spinner] {
+    animation-duration: 2.4s !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Gap replay (components/hero/GapReplay.tsx)
+ * The final frame is the default state: that's what reduced motion and no-JS visitors see.
+ * With motion allowed, [data-gr] parts wait hidden until JS sets data-play="play", then run on cue
+ * (--d delay, --dur duration). Only transform, opacity and stroke-dashoffset animate.
+ * ------------------------------------------------------------------------------------------- */
+.gr-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.gr [data-gr="pop"],
+.gr [data-gr="tick"] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.gr [data-gr="pour"] {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gr[data-play="idle"] [data-gr] {
+    opacity: 0;
+  }
+
+  .gr[data-play="play"] [data-gr="draw"] {
+    animation: gr-draw var(--dur, 1s) var(--ease, linear) var(--d, 0s) both;
+  }
+
+  .gr[data-play="play"] [data-gr="tick"] {
+    animation: gr-pop 0.32s var(--ease-out-soft) var(--d, 0s) both;
+  }
+
+  .gr[data-play="play"] [data-gr="pop"] {
+    animation: gr-pop 0.6s var(--ease-spring) var(--d, 0s) both;
+  }
+
+  .gr[data-play="play"] [data-gr="pour"] {
+    animation: gr-pour var(--dur, 0.8s) var(--ease-out-soft) var(--d, 0s) both;
+  }
+
+  .gr[data-play="play"] [data-gr="fade"] {
+    animation: gr-fade 0.6s var(--ease-out-soft) var(--d, 0s) both;
+  }
+
+  .gr[data-play="play"] [data-gr="num"] {
+    animation: gr-fade 0.6s var(--ease-out-soft) 0.2s both;
+  }
+}
+
+@keyframes gr-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes gr-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gr-pour {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes gr-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+ * Guided tour (components/tour/Tour.tsx)
+ * A step eases in from the side it came from; its text, visual and links follow each other by a beat.
+ * Transform and opacity only. The step shown on load doesn't move (no data-dir), so nothing delays the first paint.
+ * Reduced motion: steps just appear.
+ * ------------------------------------------------------------------------------------------- */
+/* Keyboard focus never lands under the tour's sticky header or its fixed Back/Next bar (WCAG 2.4.11). */
+html:has(.tour-step) {
+  scroll-padding-top: 6.5rem;
+  scroll-padding-bottom: 6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tour-step[data-dir="next"] {
+    --tour-from: 32px;
+  }
+
+  .tour-step[data-dir="prev"] {
+    --tour-from: -32px;
+  }
+
+  .tour-step[data-dir] > * {
+    animation: tour-in 560ms var(--ease-out-soft) both;
+  }
+
+  .tour-step[data-dir] > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+
+  .tour-step[data-dir] > :nth-child(3) {
+    animation-delay: 110ms;
+  }
+
+  /* The cover's deposit bar: each part grows from the left. */
+  .tour-split .tour-fill {
+    transform-origin: left center;
+    animation: tour-fill 900ms var(--ease-out-soft) 200ms both;
+  }
+}
+
+@keyframes tour-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--tour-from, 24px), 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes tour-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

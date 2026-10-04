@@ -1,0 +1,249 @@
+{
+  "client_files": 3193,
+  "secret_env_name_references": [
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_dd5a62be._.js",
+      "line": 7484
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js.map",
+      "line": 10
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_2cb60463._.js",
+      "line": 11789
+    },
+    {
+      "file": "web/.next-e/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_db77cf32._.js",
+      "line": 4151
+    },
+    {
+      "file": "web/.next-ve/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-e/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js",
+      "line": 4173
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/cover/page.js",
+      "line": 304
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_db77cf32._.js",
+      "line": 4151
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_f8aa9d95._.js",
+      "line": 7565
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_@safe-global_f1e79686._.js",
+      "line": 491
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_ab9061b3._.js",
+      "line": 1010
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_2cb60463._.js.map",
+      "line": 49
+    },
+    {
+      "file": "web/.next/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    },
+    {
+      "file": "web/.next-b/static/chunks/_app-pages-browser_node_modules_safe-global_safe-apps-provider_dist_index_js.js",
+      "line": 578
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_dd5a62be._.js",
+      "line": 7541
+    },
+    {
+      "file": "web/.next-fv2/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_2cb60463._.js",
+      "line": 9086
+    },
+    {
+      "file": "web/.next-b/static/chunks/_app-pages-browser_node_modules_reown_appkit_dist_esm_exports_core_js.js",
+      "line": 161
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/account/[address]/page.js",
+      "line": 304
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_8347573a._.js",
+      "line": 1177
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_8347573a._.js",
+      "line": 6282
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_dd5a62be._.js",
+      "line": 7541
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_2cb60463._.js",
+      "line": 11789
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_8347573a._.js",
+      "line": 1177
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_db77cf32._.js",
+      "line": 4208
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_8347573a._.js",
+      "line": 6282
+    },
+    {
+      "file": "web/.next-b/static/chunks/_app-pages-browser_node_modules_safe-global_safe-apps-provider_dist_index_js.js",
+      "line": 458
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/cover/page.js",
+      "line": 392
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_@safe-global_f1e79686._.js",
+      "line": 491
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js.map",
+      "line": 10
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_db77cf32._.js",
+      "line": 4208
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/underwrite/page.js",
+      "line": 304
+    },
+    {
+      "file": "web/.next-int/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    },
+    {
+      "file": "web/.next-int/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/account/[address]/page.js",
+      "line": 326
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/layout.js",
+      "line": 293
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_2cb60463._.js",
+      "line": 9086
+    },
+    {
+      "file": "web/.next-b/static/chunks/_app-pages-browser_node_modules_safe-global_safe-apps-sdk_dist_esm_index_js.js",
+      "line": 248
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_2cb60463._.js.map",
+      "line": 49
+    },
+    {
+      "file": "web/.next-fv2/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_8347573a._.js",
+      "line": 6339
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_f8aa9d95._.js",
+      "line": 7508
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_ab9061b3._.js",
+      "line": 1010
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_8347573a._.js",
+      "line": 6339
+    },
+    {
+      "file": "web/.next-a/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js",
+      "line": 4177
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/underwrite/page.js",
+      "line": 392
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_dd5a62be._.js",
+      "line": 7484
+    },
+    {
+      "file": "web/.next-preview/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js",
+      "line": 4177
+    },
+    {
+      "file": "web/.next-ve/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    },
+    {
+      "file": "web/.next-b/static/chunks/_app-pages-browser_node_modules_metamask_sdk_dist_browser_es_metamask-sdk_js.js",
+      "line": 29
+    },
+    {
+      "file": "web/.next-b/static/chunks/app/(app)/layout.js",
+      "line": 381
+    },
+    {
+      "file": "web/.next/static/chunks/70.2da58059b1762e7e.js",
+      "line": 11
+    },
+    {
+      "file": "web/.next-local/static/chunks/node_modules_@rainbow-me_rainbowkit_dist_22f1533d._.js",
+      "line": 4173
+    },
+    {
+      "file": "web/.next-a/static/chunks/71dfe350-aef12bf6eba4c0a6.js",
+      "line": 1
+    }
+  ],
+  "public_env_names": [
+    "NEXT_PUBLIC_DEFAULT_LOG_LEVEL",
+    "NEXT_PUBLIC_E2E_ACCOUNT",
+    "NEXT_PUBLIC_METAMASK_ANALYTICS_ENDPOINT",
+    "NEXT_PUBLIC_RH_RPC_URL",
+    "NEXT_PUBLIC_SECURE_SITE_ORIGIN",
+    "NEXT_PUBLIC_SECURE_SITE_SDK_URL",
+    "NEXT_PUBLIC_SECURE_SITE_SDK_VERSION",
+    "NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID"
+  ],
+  "source_private_key_references": [
+    {
+      "file": "web/src/app/api/drip/route.ts",
+      "line": 58
+    }
+  ]
+}

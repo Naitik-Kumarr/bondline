@@ -1,0 +1,68 @@
+{
+  "chainId": 46630,
+  "status": "deployed",
+  "deployedAt": "2026-10-03T21:04:20.000Z",
+  "usdg": "0x7E955252E15c84f5768B83c41a71F9eba181802F",
+  "assets": {
+    "TSLA": "0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E",
+    "AMZN": "0x5884aD2f920c162CFBbACc88C9C51AA75eC09E02"
+  },
+  "wallets": {
+    "deployer": "0x378e7D5f528E6C87A3588315e573e66Ee95178f6",
+    "keeper": "0x77626a8118AA4a623EEFaB0FD2629ae796e64Ada",
+    "careful": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+    "bold": "0x5B01856061892171408195372c0D94B0b58352E7",
+    "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+    "buyer": "0x3C5154180b729724c890d5609896B3cCc219f01F"
+  },
+  "implementations": {
+    "cover": "0x341Eb4096EB6e4ab8Ce0cD409ff0310dE1f92F1f",
+    "account": "0xF4429Aa682e93548c88069276f7dA235416836Ff"
+  },
+  "markets": {
+    "live": {
+      "label": "Live",
+      "address": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+      "venue": "0x338499703bde8EbA6308750745D53495B362f7d5",
+      "deployBlock": 128334140,
+      "maxPriceAge": 90000,
+      "spreadBps": 10,
+      "feeds": {
+        "TSLA": "0xF18710dA444EFEB3f9E2Fa3e90c61d609906972D",
+        "AMZN": "0x404e911Bafc0293A30B77fAd33f1521C466fC524"
+      }
+    },
+    "replay": {
+      "label": "Replay",
+      "address": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+      "venue": "0xEEc9A484D8b830BEdD7C85B2db377455AcA797A2",
+      "deployBlock": 128334140,
+      "maxPriceAge": 300,
+      "spreadBps": 10,
+      "feeds": {
+        "TSLA": "0x9e5D027cd67C800a48FBf1Fb0764Fd2c60672279",
+        "AMZN": "0x8b592B586A20638A418F77e1Cb62e224920eB7eC"
+      }
+    }
+  },
+  "replay": {
+    "source": "Chainlink TSLA/USD and AMZN/USD on Robinhood Chain mainnet, 28 Sep - 2 Oct 2026",
+    "windowStart": 1790553600,
+    "windowEnd": 1790985600,
+    "speed": 400,
+    "startsAt": 1791106936,
+    "attempts": [
+      {
+        "startsAt": 1791063511,
+        "stoppedAt": 1791063892,
+        "why": "agents could not reach Claude (invalid API key); no trades were made"
+      }
+    ]
+  },
+  "proofOfCover": {
+    "address": "0x168e27D4A484AA20DEd6bbc0A2272728a9bF4888",
+    "deployTx": "0x240919b2bd7b2f0ca661fc7f47ca70853fd5a9d1838ad35fa80ae129bd285f8c",
+    "deployBlock": 128377563,
+    "record": "deployments/proof-of-cover.json"
+  }
+}

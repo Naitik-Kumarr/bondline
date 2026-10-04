@@ -1,0 +1,32 @@
+# Bondline keeper: live price mirror, replay feeds, settle loop, scripted gap demo. Robinhood Chain testnet.
+# Install (on the droplet, with the bundle at /opt/bondline/keeper/dist/keeper.mjs):
+#   sudo cp bondline-keeper.service /etc/systemd/system/ && sudo systemctl daemon-reload
+#   sudo systemctl enable --now bondline-keeper && journalctl -u bondline-keeper -f
+[Unit]
+Description=Bondline keeper (price mirror, replay feeds, settle loop)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/bondline/keeper
+# KEEPER_PRIVATE_KEY and the rest; see keeper/README.md. chmod 600, owned by root.
+EnvironmentFile=/etc/bondline/keeper.env
+Environment=NODE_ENV=production
+Environment=BONDLINE_ENV_FILE=none
+ExecStart=/usr/bin/node /opt/bondline/keeper/dist/keeper.mjs
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=30
+# JSON lines go to the journal and to /opt/bondline/keeper/logs/keeper.log; the gap control file is
+# /opt/bondline/keeper/state/gap.json and the gap record is written to /opt/bondline/deployments/gap-demo.json.
+# To run unprivileged: useradd --system --home /opt/bondline bondline; chown -R bondline /opt/bondline; then uncomment:
+# User=bondline
+# Group=bondline
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,105 @@
+{
+  "address": "0x168e27D4A484AA20DEd6bbc0A2272728a9bF4888",
+  "deployTx": "0x240919b2bd7b2f0ca661fc7f47ca70853fd5a9d1838ad35fa80ae129bd285f8c",
+  "chainId": 46630,
+  "deployBlock": 128377563,
+  "deployer": "0x378e7D5f528E6C87A3588315e573e66Ee95178f6",
+  "liveMarket": "0x12630304D06837E69BbB27D59dC69ef4ad10Da8D",
+  "replayMarket": "0x734EdAa88537692002Fa89C090D916842e16DE7d",
+  "verified": true,
+  "verificationNote": "Blockscout reports is_verified=true, is_partially_verified=true, is_fully_verified=false (compiler v0.8.28+commit.7893614a; verified_at 2026-10-03T23:31:25Z). The --verify flag on forge create did not verify in-line; a follow-up forge verify-contract with the constructor args returned 'Pass - Verified'. Partial means the source matches the deployed bytecode but the metadata hash does not match exactly.",
+  "checks": [
+    {
+      "kind": "team-operated covered account",
+      "market": "replay",
+      "persona": "bold",
+      "account": "0xB792735F30906101a95Bc4e9dca4fd0f1193eBEa",
+      "cover": "0x0b7BAaE5c0c19438a90D35A61D1700E6CfCB8330",
+      "isCovered": true,
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "limitBps": 1000,
+      "capBps": 3000,
+      "capacity": "24166666",
+      "direct": {
+        "positionStatus": 1,
+        "positionLimitBps": 1000,
+        "principal": "100000000",
+        "freeRead": "24166666",
+        "capBps": 3000,
+        "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0"
+      },
+      "match": true
+    },
+    {
+      "kind": "team-operated covered account",
+      "market": "replay",
+      "persona": "careful",
+      "account": "0xdc1F0d950cbDC20643cf243e953b10a62E82A0c1",
+      "cover": "0xa3991A1454Ef01BdcB4ea81D130b782Aa5FC97Cd",
+      "isCovered": true,
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "limitBps": 1000,
+      "capBps": 3000,
+      "capacity": "15600000",
+      "direct": {
+        "positionStatus": 1,
+        "positionLimitBps": 1000,
+        "principal": "49500000",
+        "freeRead": "15600000",
+        "capBps": 3000,
+        "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0"
+      },
+      "match": true
+    },
+    {
+      "kind": "team-operated covered account",
+      "market": "live",
+      "persona": "careful",
+      "account": "0xa93962d5d44Ff3F0809754d555924389Fe3A0C0C",
+      "cover": "0x74E53674d072838b57E9d65EF99d21A598130d50",
+      "isCovered": true,
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "limitBps": 1000,
+      "capBps": 3000,
+      "capacity": "19360000",
+      "direct": {
+        "positionStatus": 1,
+        "positionLimitBps": 1000,
+        "principal": "29700000",
+        "freeRead": "19360000",
+        "capBps": 3000,
+        "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0"
+      },
+      "match": true
+    },
+    {
+      "kind": "team-operated covered account",
+      "market": "live",
+      "persona": "bold",
+      "account": "0x4462A953Db52Cda1fbd745e29cc62E72943Ed9F4",
+      "cover": "0x1d6336a6E7059f2a4B1A7159fE3a331e71a720c0",
+      "isCovered": true,
+      "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0",
+      "limitBps": 1000,
+      "capBps": 3000,
+      "capacity": "20250000",
+      "direct": {
+        "positionStatus": 1,
+        "positionLimitBps": 1000,
+        "principal": "30000000",
+        "freeRead": "20250000",
+        "capBps": 3000,
+        "underwriter": "0x243fCc3956213b6f8Efd28E39C0f0D288e2134e0"
+      },
+      "match": true
+    },
+    {
+      "kind": "random EOA (openssl rand, no code)",
+      "account": "0x1a179af2a9d0e054fce579d7d21f38cf5fb58f0e",
+      "isCovered": false,
+      "allOtherValuesZero": true,
+      "match": true
+    }
+  ],
+  "deployedAt": "2026-10-03T23:31:00Z"
+}

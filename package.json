@@ -1,0 +1,34 @@
+{
+  "name": "bondline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bondline: the insurance market for AI traders. Robinhood Chain testnet, Paxos USDG.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "contracts",
+    "shared",
+    "web",
+    "keeper",
+    "agents",
+    "sdk",
+    "mcp"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:contracts": "npm run build -w @bondline/contracts",
+    "test:contracts": "npm test -w @bondline/contracts",
+    "abis": "node scripts/export-abis.mjs",
+    "record": "tsx scripts/record.ts",
+    "test:model": "tsx --test shared/src/pricing.test.ts shared/src/record.test.ts",
+    "dev": "npm run dev -w @bondline/web",
+    "build": "npm run build -w @bondline/web"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "tsx": "4.23.15",
+    "typescript": "^5"
+  }
+}

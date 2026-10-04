@@ -1,0 +1,15 @@
+{
+  "allSixAreaReportsPresent": true,
+  "copiedProductionContractSourceStillMatchesOriginal": true,
+  "sourceDifferences": [],
+  "testExitCodes": {
+    "baseline": 0,
+    "fork": 0,
+    "money": 1
+  },
+  "intentionalMoneyFailuresDocumented": true,
+  "noDraftStatus": true,
+  "deadline": "2026-10-04 16:00 IST",
+  "wordCount": 10910,
+  "reportSha256": "0149210f8e6e7d42034507779d1a8fd9c9fb9b7f3078a8d9e343140bcc7dc842"
+}

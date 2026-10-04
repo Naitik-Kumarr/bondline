@@ -1,0 +1,37 @@
+{
+  "source": "web/src/app/api/drip/route.ts",
+  "sourceUnmodified": true,
+  "networkCalls": 0,
+  "signedTransactions": 0,
+  "results": [
+    {
+      "proof": "same_ip_six_new_addresses_exhaust_daily_quota",
+      "accepted": 6,
+      "sameIp": true,
+      "sentUSDG": 30,
+      "subsequentRequestStatus": 429,
+      "sameAddressRepeatStatus": 409
+    },
+    {
+      "proof": "separate_instances_exceed_daily_cap",
+      "instances": 7,
+      "accepted": 7,
+      "sentUSDG": 35,
+      "advertisedCapUSDG": 30
+    },
+    {
+      "proof": "separate_instances_pay_same_address_twice",
+      "instances": 2,
+      "recipientPayments": 2,
+      "sentUSDG": 10
+    },
+    {
+      "proof": "separate_instances_drain_funded_wallet_from_same_ip",
+      "instances": 20,
+      "accepted": 20,
+      "initialUSDG": 100,
+      "remainingUSDG": 0,
+      "sameIp": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@bondline/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@bondline/shared": "0.1.0",
+    "@number-flow/react": "0.6.2",
+    "@rainbow-me/rainbowkit": "2.2.11",
+    "@tanstack/react-query": "5.104.1",
+    "clsx": "2.1.1",
+    "lenis": "1.3.26",
+    "motion": "14.0.0",
+    "next": "15.5.27",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwind-merge": "3.7.0",
+    "viem": "2.57.2",
+    "wagmi": "2.19.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.27",
+    "playwright": "1.63.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

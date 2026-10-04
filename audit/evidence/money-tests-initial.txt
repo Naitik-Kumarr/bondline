@@ -1,0 +1,51 @@
+Compiling 66 files with Solc 0.8.28
+Solc 0.8.28 finished in 1.29s
+Compiler run successful!
+2026-10-04T09:30:18.960624Z  WARN evm::traces::external: etherscan config not found
+[31mThe application panicked (crashed).[0m
+Message:  [36mAttempted to create a NULL object.[0m
+Location: [35m/Users/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/system-configuration-0.6.1/src/dynamic_store.rs[0m:[35m154[0m
+
+This is a bug. Consider reporting it at https://github.com/foundry-rs/foundry
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ BACKTRACE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [96m                              ⋮ 7 frames hidden ⋮                               [0m
+   8: [91msystem_configuration::dynamic_store::SCDynamicStoreBuilder<T>::build[0m[90m::h3c6f1bc4b8b7ac06[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+   9: [91mhyper_util::client::proxy::matcher::mac::with_system[0m[90m::h095f17448ed08fed[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  10: [91mhyper_util::client::proxy::matcher::Builder::from_system[0m[90m::ha759d3da69121254[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  11: [91mhyper_util::client::proxy::matcher::Matcher::from_system[0m[90m::h018329de9d7cf1a1[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  12: [91mreqwest::async_impl::client::ClientBuilder::build[0m[90m::h479b261eefd06d95[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  13: [91mfoundry_common::provider::runtime_transport::RuntimeTransport::reqwest_client[0m[90m::hf770c4554bbae0d0[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  14: [91mfoundry_common::selectors::OpenChainClient::new[0m[90m::h9a872c60eb360b40[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  15: [91mfoundry_evm_traces::identifier::signatures::SignaturesIdentifier::new_with[0m[90m::h0cf4992873123317[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  16: [91mfoundry_evm_traces::identifier::signatures::SignaturesIdentifier::from_config[0m[90m::hf96b9b98ba40782c[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  17: [91mforge::cmd::test::TestArgs::run_tests_inner::{{closure}}[0m[90m::hb67b879c15edcf84[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  18: [91mforge::cmd::test::TestArgs::run_tests::{{closure}}[0m[90m::hfe173bebe4d36feb[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  19: [91mforge::cmd::test::TestArgs::compile_and_run::{{closure}}[0m[90m::h089379f9581f9baa[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  20: [91m<core::pin::Pin<P> as core::future::future::Future>::poll[0m[90m::h1ad2f8176515dc31[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  21: [91mforge::args::run_command[0m[90m::hb8ae5f9afc304872[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  22: [91mforge::args::run[0m[90m::h6dc41b70fe5c8387[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  23: [91mforge::main[0m[90m::haf36f0a13b2defb0[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  24: [32mstd::sys::backtrace::__rust_begin_short_backtrace[0m[90m::h468ad04146a9ba62[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+  25: [32m_main[0m[90m<unknown>[0m
+      at [35m<unknown source file>[0m:[35m<unknown line>[0m
+
+Run with COLORBT_SHOW_HIDDEN=1 environment variable to disable frame filtering.
+Run with RUST_BACKTRACE=full to include source snippets.

@@ -1,0 +1,169 @@
+{
+  "workstream": "C: agent SDK (@bondline/sdk) and MCP server (@bondline/mcp) - independent verification",
+  "status": "pass",
+  "verified": [
+    {
+      "claim": "SDK unit tests pass (22/22)",
+      "evidence": "npm test -w @bondline/sdk: tests 22, pass 22, fail 0."
+    },
+    {
+      "claim": "Both typechecks clean",
+      "evidence": "npm run typecheck -w @bondline/sdk and -w @bondline/mcp both exited with no errors."
+    },
+    {
+      "claim": "SDK end-to-end on a fresh Anvil passes (10/10)",
+      "evidence": "Ran a copy of sdk/test/e2e.test.ts patched only for port/chain id 8562 and foundry out dir out-vc (copies in verification/vc, symlinks to the real src). 10 pass, 0 fail. The shipped test hardcodes 8551, so I did not run it as shipped."
+    },
+    {
+      "claim": "MCP over stdio with a real MCP client passes (8/8)",
+      "evidence": "Same patched copy of mcp/test/mcp.test.ts on port 8562: 8 pass, 0 fail."
+    },
+    {
+      "claim": "Live read-only tests pass (4/4)",
+      "evidence": "npm run test:live -w @bondline/sdk: 4 pass. I also read bond() and reserved() on all four testnet offer covers with cast and they equal what the CLI printed: live#0 25300000/5940000, live#1 26250000/6000000, replay#0 44166666/20000000, replay#1 25500000/9900000."
+    },
+    {
+      "claim": "Quickstart works literally from a clean shell",
+      "evidence": "env -i PATH HOME zsh -f: npm install ok (package-lock.json md5 22c92352f36bcf9a622826507957fe5e before and after), npx bondline offers --listed returned 4 offers, quote returned ok true premium 1000000 principal 99000000 reservationNeeded 19800000 free 19360000, record careful returned hasRecord false generatedAt 2026-10-03T21:58:32.645Z, node mcp/bin/bondline-mcp.mjs answered an initialize request on stdio with serverInfo bondline 0.1.0. The docs snippet (Bondline + configFromEnv, listOffers, quoteCover, getAgentRecord) also ran: 2 listed live offers, quote ok, premium 1000000, record name Careful."
+    },
+    {
+      "claim": "One signature, one transaction underwriting; typed data is correct",
+      "evidence": "On my chain via the MCP client: the typed data domain hashed (viem hashDomain) to the USDG on-chain DOMAIN_SEPARATOR read by eth_call (0x05d7882d...a9d, equal true). Message from=underwriter, to=market, value=500000000, validAfter 0, validBefore = now+3600. After the create tx the underwriter nonce was 1 (no separate approve). Calldata decoded with my own hand-written ABI: selector 0x88e95e12 equals cast sig; terms, bond, nonce, v/r/s equal the intended values and the signature."
+    },
+    {
+      "claim": "Signature cannot be replayed or used by someone else",
+      "evidence": "Resending the same signed tx reverted; sending it from a stranger account reverted. Step 2 refused a signature from the wrong signer, a tampered bond, nonce, validBefore, underwriter, market, an all-zero signature and a short signature."
+    },
+    {
+      "claim": "Cover transactions: approve for exactly the deposit, then open",
+      "evidence": "Decoded with my own ABI: approve selector 0x095ea7b3 (cast sig), to=USDG, spender=the offer's cover (not the market), amount 100000000 exactly; open selector 0x20fb6636 (cast sig), to=offer cover, args limitBps 1000, rules {mask 3, stock 3000, trade 1000, daily 20000, slip 50, age 14400}, amount 100000000. Sent both: allowance after = 0, user spent 100000000, offer bond 500 -> 501 USDG, reserved 19800000, free 481200000. Reserved matches my reading of the contract: ceil(99e6*(3000-1000)/10000)."
+    },
+    {
+      "claim": "Trade transaction and decision hash",
+      "evidence": "Decoded with my own ABI: selector 0xa284af6f (cast sig). The tool's decision hash equals keccak256 of the calldata decision bytes computed by viem and by cast keccak (0x320cfef9...37e3), and the canonical JSON with non-ASCII, quotes and nested arrays/objects matched my hand-written expectation. On chain (second run, correct event ABI): buy of 9 USDG emitted Traded and a sell of max emitted Traded; both event decisionHash values equal my independent keccak of the calldata bytes and sdk.verifyDecision returned ok true. Blocked events (TradeTooLarge for 10, 1000 and max buys; ZeroAmount for 0) also carried the same hash, state unchanged, no revert. A stranger sending the trade reverted."
+    },
+    {
+      "claim": "Reference price equals the published vectors",
+      "evidence": "Live CLI quote for Careful's default rules: fairBps 13.09326229141971 (PRICING_VECTORS row 13.093262). Bold's rules (maxStockBps 8000) at 10% limit: 174.73609478944195 (vector 174.736095); at 20%: 47.29807625380319 (vector 47.298076)."
+    },
+    {
+      "claim": "Bad inputs are refused with readable messages",
+      "evidence": "Amounts -5, 1e2, 0x64, 1.0000001 (7 decimals), '', .5, '1,5', NaN, number 1e21 rejected; 0.999999 and number 1e-7 quoted as ok false (below the 1 USDG minimum). limit_bps 0, 499, 2001, 3000, 65536, -1 give problems; 10.5 rejected by schema. Unknown offer, market and asset, out-of-range rules (mask 0/255, stock 9000, slippage 501, price age 0 or huge, trade 70000, daily 100001), capacity overrun (10000 USDG), fee 501/70000, 65-byte name, zero agent, zero bond, non-JSON decision, 908-byte decision, min_out -1, 1.5 and 2^256, a non-account address, bad signatures and an unknown tool all produced errors (isError or MCP -32602), never a built transaction."
+    },
+    {
+      "claim": "SDK and MCP hold no keys and send nothing",
+      "evidence": "grep of sdk/src, mcp/src and both bin folders for sendTransaction, privateKey, PRIVATE_KEY, walletClient, dotenv and .env found only the example file (which takes a caller's wallet) and process.env reads of RPC/records/raw-deployment variables. All six tools are annotated readOnlyHint."
+    },
+    {
+      "claim": "No leftovers from the tests",
+      "evidence": "After every run: no anvil process, nothing on port 8562, no deployments/raw-8562.json, no contracts/broadcast 8562 directory."
+    }
+  ],
+  "failed": [],
+  "numbers": [
+    {
+      "name": "sdk unit tests",
+      "value": "22 pass / 0 fail",
+      "source": "npm test -w @bondline/sdk"
+    },
+    {
+      "name": "sdk e2e tests (port 8562 copy)",
+      "value": "10 pass / 0 fail",
+      "source": "tsx --test on verification/vc/sdk/test/e2e.test.ts"
+    },
+    {
+      "name": "mcp tests (port 8562 copy)",
+      "value": "8 pass / 0 fail",
+      "source": "tsx --test on verification/vc/mcp/test/mcp.test.ts"
+    },
+    {
+      "name": "sdk live read-only tests",
+      "value": "4 pass / 0 fail",
+      "source": "npm run test:live -w @bondline/sdk"
+    },
+    {
+      "name": "live quote premium / principal / reservationNeeded / free for 100 USDG, 1000 bps, live offer 0",
+      "value": "1000000 / 99000000 / 19800000 / 19360000",
+      "source": "npx bondline quote --market live --offer 0 --amount 100 --limit-bps 1000 (free equals bond 25300000 - reserved 5940000 read with cast)"
+    },
+    {
+      "name": "live offer 1 (Bold) quote premium / principal / reservationNeeded",
+      "value": "4000000 / 96000000 / 19200000",
+      "source": "npx bondline quote --market live --offer 1 --amount 100 --limit-bps 1000"
+    },
+    {
+      "name": "local chain bond / reserved / free after cover",
+      "value": "501000000 / 19800000 / 481200000",
+      "source": "verification/vc/adv/adv.ts output, list_offers via MCP"
+    },
+    {
+      "name": "approve amount",
+      "value": "100000000 (exactly 100 USDG); allowance after open 0",
+      "source": "decoded calldata and allowance read on my chain"
+    },
+    {
+      "name": "USDG DOMAIN_SEPARATOR (local mock)",
+      "value": "0x05d7882d4a91b50cb3e7e38e2cd53c43ea818e4a90edacbe71c4d3aea266ba9d equals computed",
+      "source": "adv.ts: eth_call DOMAIN_SEPARATOR vs viem hashDomain of the typed data domain"
+    },
+    {
+      "name": "decision hash of the first trade",
+      "value": "0x320cfef9f9233bcaa6e3d9524b1e4815d72bac387b4ddec7edfda103abeb37e3",
+      "source": "tool output equals viem keccak256 and cast keccak of the calldata bytes"
+    },
+    {
+      "name": "Careful reference fairBps",
+      "value": "13.09326229141971",
+      "source": "CLI quote reference.worstCase.fairBps; PRICING_VECTORS 13.093262"
+    },
+    {
+      "name": "Bold reference fairBps at 10% / 20% limit",
+      "value": "174.73609478944195 / 47.29807625380319",
+      "source": "snip2.ts with rules maxStockBps 8000; vectors 174.736095 / 47.298076"
+    },
+    {
+      "name": "package-lock.json md5 before and after quickstart",
+      "value": "22c92352f36bcf9a622826507957fe5e (unchanged)",
+      "source": "md5 package-lock.json"
+    }
+  ],
+  "breakAttempts": [
+    {
+      "attempt": "Alter the bond, nonce, validBefore, underwriter or market in step 2 while reusing the real signature",
+      "result": "Refused each time (recovered signer differs, or unknown market)."
+    },
+    {
+      "attempt": "Alter terms.agent in step 2 (terms are not part of the signed EIP-3009 message)",
+      "result": "Accepted: the tool builds a transaction naming the swapped agent. Not a loss of funds, because only the underwriter's own transaction can use the signature and the decoded call args show the agent, but a hostile intermediary could swap terms. Worth one sentence in docs: decode before sending."
+    },
+    {
+      "attempt": "Replay the signed create-offer tx, and send it from a stranger",
+      "result": "Both reverted on chain."
+    },
+    {
+      "attempt": "Stranger sends an SDK-built trade for someone's account",
+      "result": "Reverted."
+    },
+    {
+      "attempt": "Send decision as array, as non-JSON text, as 908 bytes, or with a 900-character reason",
+      "result": "Array rejected by schema, text and 908-byte object rejected, long reason shortened to fit (documented). The string 'null' is accepted as valid JSON and hashed as is."
+    },
+    {
+      "attempt": "uint16/uint8 overflow (fee 70000, minLimit 66036, limit 65536)",
+      "result": "Caught by validation as out of range, no encoder crash."
+    },
+    {
+      "attempt": "usd_amount 0 or 'max' on a buy; min_out together with min_out_tolerance_bps",
+      "result": "Builds a transaction without complaint. On chain the contract records Blocked (ZeroAmount, TradeTooLarge) and nothing changes. min_out silently wins over the tolerance. Cosmetic."
+    },
+    {
+      "attempt": "CLI with --offer abc, a missing flag, an invalid address or an unknown market",
+      "result": "Exits 1 but prints an uncaught-exception stack trace rather than a clean message (the unknown command path is clean, exit 2). Cosmetic."
+    },
+    {
+      "attempt": "Run the shipped e2e as is",
+      "result": "Not done on purpose: it hardcodes port 8551 and I was limited to 8562. I ran a copy patched only for port, chain id and build folder; 10/10 and 8/8 pass."
+    }
+  ],
+  "summary": "Everything the builder claimed reproduced. Unit (22), typecheck, e2e (10, on my port 8562 copy), MCP-over-stdio (8, same), live read-only (4) all pass. I decoded every SDK-built transaction with my own ABI and cast: selectors match, approve is exactly the deposit to the offer's cover, the decision hash equals keccak of the calldata bytes and the on-chain event hash, the typed-data domain equals the on-chain DOMAIN_SEPARATOR, and the reference prices match the published vectors. Bad inputs were refused with clear errors. Findings are minor: terms are not bound by the signature in step 2, the CLI shows raw stack traces on bad flags, and a zero or max buy is built (the contract then records Blocked). The shown tests use a mock USDG and Anvil keys, not testnet. Notes: I ran npm install as part of the literal quickstart (lockfile byte-identical); the harness copies and my scripts are in /Users/naitik/surety/verification/vc."
+}

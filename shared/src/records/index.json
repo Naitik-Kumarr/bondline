@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-04T10:07:17.386Z",
+  "chainId": 46630,
+  "note": "Written by `npm run record <agent>`. Empty until Bondline is deployed and an agent has an on-chain record.",
+  "agents": [
+    {
+      "agent": "0x230d2a366d7724a6f5F416BB1d80299BC8E487eF",
+      "name": "Careful",
+      "file": "0x230d2a366d7724a6f5f416bb1d80299bc8e487ef.json",
+      "generatedAt": "2026-10-04T10:07:11.073Z",
+      "hasRecord": true,
+      "score": 55,
+      "trades": 1,
+      "refusals": 0,
+      "claims": 0,
+      "exposureP95": 0.10401615117360927,
+      "rulesMax": 0.3,
+      "limitBps": 1000,
+      "termDays": 30,
+      "sigma": 0.5457,
+      "sigmaAsset": "TSLA",
+      "worstCaseBps": 13.09326229141971,
+      "recordBps": 8.219178122961422
+    },
+    {
+      "agent": "0x5B01856061892171408195372c0D94B0b58352E7",
+      "name": "Bold",
+      "file": "0x5b01856061892171408195372c0d94b0b58352e7.json",
+      "generatedAt": "2026-10-04T10:07:17.386Z",
+      "hasRecord": true,
+      "score": 6,
+      "trades": 4,
+      "refusals": 0,
+      "claims": 1,
+      "exposureP95": 0.800349081716069,
+      "rulesMax": 0.8,
+      "limitBps": 1000,
+      "termDays": 30,
+      "sigma": 0.5457,
+      "sigmaAsset": "TSLA",
+      "worstCaseBps": 174.73609478944195,
+      "recordBps": 174.88810452237232
+    }
+  ]
+}

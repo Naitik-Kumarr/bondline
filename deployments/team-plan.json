@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-03T21:13:12.498Z",
+  "totalUsdg": "500000000",
+  "note": "plan computed when the team held 500 USDG; all steps funded",
+  "steps": [
+    "Replay · Bold offer + the gap-demo cover",
+    "Replay · demo exchange cash",
+    "Replay · Careful offer + cover",
+    "Live · Careful offer",
+    "Live · Bold offer",
+    "Live · Careful cover",
+    "Live · Bold cover",
+    "Live · demo exchange cash"
+  ]
+}

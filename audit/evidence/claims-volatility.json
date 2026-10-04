@@ -1,0 +1,56 @@
+{
+  "TSLA": {
+    "days": 72,
+    "returns": 71,
+    "allClosesMatch": true,
+    "mismatches": [],
+    "sigmaFull": 0.5456825992041593,
+    "sigmaRounded4": 0.5457,
+    "storedSigma": 0.5457,
+    "largestMoves": [
+      {
+        "date": "2026-07-23",
+        "logReturn": -0.157173916357042,
+        "simpleReturn": -0.14544457527324905
+      },
+      {
+        "date": "2026-06-29",
+        "logReturn": 0.08116586789517503,
+        "simpleReturn": 0.08455077380247977
+      },
+      {
+        "date": "2026-07-02",
+        "logReturn": -0.0802648117238368,
+        "simpleReturn": -0.07712807328032778
+      }
+    ],
+    "replaySept28Oct2Rounds": 79
+  },
+  "AMZN": {
+    "days": 72,
+    "returns": 71,
+    "allClosesMatch": true,
+    "mismatches": [],
+    "sigmaFull": 0.3932393823964666,
+    "sigmaRounded4": 0.3932,
+    "storedSigma": 0.3932,
+    "largestMoves": [
+      {
+        "date": "2026-07-31",
+        "logReturn": 0.14223590895521193,
+        "simpleReturn": 0.15284858376467958
+      },
+      {
+        "date": "2026-08-03",
+        "logReturn": 0.04731826072294562,
+        "simpleReturn": 0.04845563823571264
+      },
+      {
+        "date": "2026-07-23",
+        "logReturn": -0.047147622344278425,
+        "simpleReturn": -0.04605343663251282
+      }
+    ],
+    "replaySept28Oct2Rounds": 33
+  }
+}

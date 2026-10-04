@@ -1,0 +1,16 @@
+{
+  "name": "@bondline/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test",
+    "coverage": "forge coverage --no-match-coverage '(test|script)/' --report summary --report lcov",
+    "gas": "forge test --gas-report --no-match-test 'invariant|Fork'",
+    "slither": "../.venv/bin/slither . --config-file slither.config.json"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "5.6.1"
+  }
+}
